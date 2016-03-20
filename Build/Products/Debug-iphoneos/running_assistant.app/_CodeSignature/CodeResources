@@ -66,6 +66,10 @@
 		<data>
 		rzK4FO8/umQch4Nhecfei6ylZdI=
 		</data>
+		<key>Frameworks/libswiftCoreBluetooth.dylib</key>
+		<data>
+		qtfDqyu9SG8Zx3c25+65GdlHGNw=
+		</data>
 		<key>Frameworks/libswiftCoreGraphics.dylib</key>
 		<data>
 		1JYxXjdFGN2bYtIdIlyB0x2PYX8=
@@ -174,6 +178,10 @@
 		<key>Frameworks/libswiftCore.dylib</key>
 		<data>
 		rzK4FO8/umQch4Nhecfei6ylZdI=
+		</data>
+		<key>Frameworks/libswiftCoreBluetooth.dylib</key>
+		<data>
+		qtfDqyu9SG8Zx3c25+65GdlHGNw=
 		</data>
 		<key>Frameworks/libswiftCoreGraphics.dylib</key>
 		<data>

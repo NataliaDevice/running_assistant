@@ -88,6 +88,7 @@ typedef int swift_int4  __attribute__((__ext_vector_type__(4)));
 #if defined(__has_feature) && __has_feature(modules)
 @import UIKit;
 @import CoreLocation;
+@import CoreBluetooth;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -111,12 +112,15 @@ SWIFT_CLASS("_TtC17running_assistant11AppDelegate")
 @class CLLocationManager;
 @class UISlider;
 @class CLLocation;
+@class CBCentralManager;
+@class CBPeripheral;
+@class NSNumber;
 @class UILabel;
 @class NSBundle;
 @class NSCoder;
 
 SWIFT_CLASS("_TtC17running_assistant14ViewController")
-@interface ViewController : UIViewController <CLLocationManagerDelegate>
+@interface ViewController : UIViewController <CLLocationManagerDelegate, CBCentralManagerDelegate>
 @property (nonatomic, weak) IBOutlet UILabel * __null_unspecified lonLabel;
 @property (nonatomic, weak) IBOutlet UILabel * __null_unspecified latLabel;
 @property (nonatomic, weak) IBOutlet UILabel * __null_unspecified paceLabel;
@@ -131,6 +135,13 @@ SWIFT_CLASS("_TtC17running_assistant14ViewController")
 - (IBAction)sliderValueChange:(UISlider * __nonnull)sender;
 - (void)locationManager:(CLLocationManager * __nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * __nonnull)locations;
 - (void)locationManager:(CLLocationManager * __nonnull)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status;
+@property (nonatomic, strong) CBCentralManager * __null_unspecified centralManager;
+@property (nonatomic) BOOL blueToothReady;
+- (void)startUpCentralManager;
+- (void)discoverDevices;
+- (void)centralManager:(CBCentralManager * __nonnull)central didDiscoverPeripheral:(CBPeripheral * __nonnull)peripheral advertisementData:(NSDictionary<NSString *, id> * __nonnull)advertisementData RSSI:(NSNumber * __nonnull)RSSI;
+- (void)centralManager:(CBCentralManager * __nonnull)central didConnectPeripheral:(CBPeripheral * __nonnull)peripheral;
+- (void)centralManagerDidUpdateState:(CBCentralManager * __nonnull)central;
 - (nonnull instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end

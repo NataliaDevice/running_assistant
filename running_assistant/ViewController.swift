@@ -9,8 +9,9 @@
 import UIKit
 import Foundation
 import CoreLocation
+import CoreBluetooth
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralManagerDelegate {
 
     @IBOutlet weak var lonLabel: UILabel!
     @IBOutlet weak var latLabel: UILabel!
@@ -19,8 +20,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var paceSlider: UISlider!
     
     @IBOutlet weak var speedLabel: UILabel!
-    
-    
     
     var locationManager:CLLocationManager!
     
@@ -39,6 +38,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 //        locationManager.distanceFilter = 1.0
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
+        
+        // Initializing BlE
+        startUpCentralManager()
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,7 +59,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             locationFixAchieved = true
             let locationArray = locations as NSArray
             let locationObj = locationArray.lastObject as! CLLocation
-//            let coord = locationObj.coordinate
+            let coord = locationObj.coordinate
             
             count++
             
@@ -99,6 +101,65 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             } else {
                 NSLog("Denied access: \(locationStatus)")
             }
+    }
+    
+    //Bluetooth variables and functions
+    var centralManager:CBCentralManager!
+    var blueToothReady = false
+    var currentPeripheral = CBPeripheral.Type.self
+    
+    func startUpCentralManager() {
+        print("Initializing central manager")
+        centralManager = CBCentralManager(delegate: self, queue: nil)
+    }
+    
+    func discoverDevices() {
+        print("discovering devices")
+        centralManager.scanForPeripheralsWithServices(nil, options: nil)
+    }
+    
+    func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber) {
+        
+        print("Discovered \(peripheral.name)")
+        if peripheral.name == "BLE_Firmata" {
+            print(peripheral.name)
+            print("this worked!")
+            centralManager.connectPeripheral(peripheral, options: nil)
+            centralManager.stopScan()
+        }
+    }
+    
+    func centralManager(central: CBCentralManager, didConnectPeripheral peripheral: CBPeripheral) {
+        print("callback function run")
+    }
+    
+    
+    func centralManagerDidUpdateState(central: CBCentralManager) {
+        print("checking state")
+        switch (central.state) {
+        case .PoweredOff:
+            print("CoreBluetooth BLE hardware is powered off")
+            
+        case .PoweredOn:
+            print("CoreBluetooth BLE hardware is powered on and ready")
+            blueToothReady = true;
+            
+        case .Resetting:
+            print("CoreBluetooth BLE hardware is resetting")
+            
+        case .Unauthorized:
+            print("CoreBluetooth BLE state is unauthorized")
+            
+        case .Unknown:
+            print("CoreBluetooth BLE state is unknown");
+            
+        case .Unsupported:
+            print("CoreBluetooth BLE hardware is unsupported on this platform");
+            
+        }
+        if blueToothReady {
+            discoverDevices()
+        }
     }
 
 }

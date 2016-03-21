@@ -6,54 +6,54 @@ provides-nominal:
 provides-member:
 - ["C17running_assistant14ViewController", ""]
 provides-dynamic-lookup:
-- "centralManager"
-- "centralManager"
-- "centralManager"
-- "lonLabel"
-- "viewDidLoad"
-- "startUpCentralManager"
+- "paceSlider"
 - "locationStatus"
 - "sliderValueChange"
+- "viewDidLoad"
+- "startUpCentralManager"
+- "lonLabel"
+- "connectingPeripheral"
 - "didReceiveMemoryWarning"
-- "paceLabel"
 - "centralManagerDidUpdateState"
-- "blueToothReady"
 - "discoverDevices"
 - "speedLabel"
+- "centralManager"
+- "centralManager"
+- "centralManager"
 - "locationFixAchieved"
+- "paceLabel"
+- "locationManager"
+- "locationManager"
+- "locationManager"
+- "blueToothReady"
 - "latLabel"
 - "count"
-- "locationManager"
-- "locationManager"
-- "locationManager"
-- "paceSlider"
 depends-top-level:
+- "CLLocationManagerDelegate"
+- "UIViewController"
+- "NSNumber"
+- "CBCentralManagerDelegate"
+- "CBPeripheral"
+- !private "NSLog"
+- "UISlider"
+- !private "kCLLocationAccuracyBest"
+- "BooleanLiteralType"
 - "CLAuthorizationStatus"
 - "AnyObject"
 - !private "NSNotificationCenter"
-- "CBCentralManagerDelegate"
-- "CBCentralManager"
-- "BooleanLiteralType"
-- "CLLocationManagerDelegate"
-- !private "kCLLocationAccuracyBest"
-- "UIViewController"
-- !private "print"
-- "NSNumber"
+- "UILabel"
 - !private "=="
-- "ViewController"
-- "UISlider"
-- "CBPeripheral"
+- !private "print"
+- "String"
 - "CLLocation"
+- "ViewController"
 - !private "NSArray"
 - "StringLiteralType"
-- "String"
-- !private "++"
-- !private "NSLog"
-- "UILabel"
 - "CLLocationManager"
+- !private "++"
+- "CBCentralManager"
 depends-member:
 - !private ["PSs9AnyObject", "CBCentralManager"]
-- ["PSs9AnyObject", "CBPeripheral"]
 - !private ["PSs9AnyObject", "CLLocationManager"]
 - !private ["PSs9AnyObject", "NSLog"]
 - !private ["PSs9AnyObject", "NSNotificationCenter"]
@@ -62,9 +62,9 @@ depends-member:
 - ["PSs9AnyObject", "centralManager"]
 - ["PSs9AnyObject", "centralManagerDidUpdateState"]
 - !private ["PSs9AnyObject", "connectPeripheral"]
+- ["PSs9AnyObject", "connectingPeripheral"]
 - !private ["PSs9AnyObject", "coordinate"]
 - ["PSs9AnyObject", "count"]
-- ["PSs9AnyObject", "currentPeripheral"]
 - !private ["PSs9AnyObject", "defaultCenter"]
 - !private ["PSs9AnyObject", "delegate"]
 - !private ["PSs9AnyObject", "desiredAccuracy"]
@@ -127,7 +127,6 @@ depends-member:
 - !private ["CSo16CBCentralManager", "state"]
 - !private ["CSo16CBCentralManager", "stopScan"]
 - !private ["PSo24CBCentralManagerDelegate", "CBCentralManager"]
-- ["PSo24CBCentralManagerDelegate", "CBPeripheral"]
 - !private ["PSo24CBCentralManagerDelegate", "CLLocationManager"]
 - !private ["PSo24CBCentralManagerDelegate", "NSLog"]
 - !private ["PSo24CBCentralManagerDelegate", "NSNotificationCenter"]
@@ -135,6 +134,7 @@ depends-member:
 - !private ["PSo24CBCentralManagerDelegate", "blueToothReady"]
 - ["PSo24CBCentralManagerDelegate", "centralManager"]
 - ["PSo24CBCentralManagerDelegate", "centralManagerDidUpdateState"]
+- !private ["PSo24CBCentralManagerDelegate", "connectingPeripheral"]
 - !private ["PSo24CBCentralManagerDelegate", "count"]
 - !private ["PSo24CBCentralManagerDelegate", "discoverDevices"]
 - !private ["PSo24CBCentralManagerDelegate", "kCLLocationAccuracyBest"]
@@ -173,7 +173,6 @@ depends-member:
 - !private ["CSo17CLLocationManager", "requestAlwaysAuthorization"]
 - !private ["CSo17CLLocationManager", "startUpdatingLocation"]
 - !private ["PSo25CLLocationManagerDelegate", "CBCentralManager"]
-- ["PSo25CLLocationManagerDelegate", "CBPeripheral"]
 - !private ["PSo25CLLocationManagerDelegate", "CLLocationManager"]
 - !private ["PSo25CLLocationManagerDelegate", "NSLog"]
 - !private ["PSo25CLLocationManagerDelegate", "NSNotificationCenter"]
@@ -181,6 +180,7 @@ depends-member:
 - !private ["PSo25CLLocationManagerDelegate", "blueToothReady"]
 - ["PSo25CLLocationManagerDelegate", "centralManager"]
 - ["PSo25CLLocationManagerDelegate", "centralManagerDidUpdateState"]
+- !private ["PSo25CLLocationManagerDelegate", "connectingPeripheral"]
 - !private ["PSo25CLLocationManagerDelegate", "count"]
 - !private ["PSo25CLLocationManagerDelegate", "discoverDevices"]
 - !private ["PSo25CLLocationManagerDelegate", "kCLLocationAccuracyBest"]
@@ -199,7 +199,6 @@ depends-member:
 - !private ["PSo25CLLocationManagerDelegate", "startUpCentralManager"]
 - ["PSo25CLLocationManagerDelegate", ""]
 - !private ["PSs11CVarArgType", "CBCentralManager"]
-- ["PSs11CVarArgType", "CBPeripheral"]
 - !private ["PSs11CVarArgType", "CLLocationManager"]
 - !private ["PSs11CVarArgType", "Distance"]
 - !private ["PSs11CVarArgType", "IntegerLiteralType"]
@@ -210,9 +209,9 @@ depends-member:
 - ["PSs11CVarArgType", "centralManager"]
 - ["PSs11CVarArgType", "centralManagerDidUpdateState"]
 - !private ["PSs11CVarArgType", "connectPeripheral"]
+- ["PSs11CVarArgType", "connectingPeripheral"]
 - !private ["PSs11CVarArgType", "coordinate"]
 - ["PSs11CVarArgType", "count"]
-- ["PSs11CVarArgType", "currentPeripheral"]
 - !private ["PSs11CVarArgType", "defaultCenter"]
 - !private ["PSs11CVarArgType", "delegate"]
 - !private ["PSs11CVarArgType", "desiredAccuracy"]
@@ -263,7 +262,6 @@ depends-member:
 - !private ["PSs28CustomDebugStringConvertible", "init"]
 - !private ["PSs28CustomDebugStringConvertible", "last"]
 - !private ["PSs23CustomStringConvertible", "CBCentralManager"]
-- ["PSs23CustomStringConvertible", "CBPeripheral"]
 - !private ["PSs23CustomStringConvertible", "CLLocationManager"]
 - !private ["PSs23CustomStringConvertible", "Distance"]
 - !private ["PSs23CustomStringConvertible", "Generator"]
@@ -279,9 +277,9 @@ depends-member:
 - ["PSs23CustomStringConvertible", "centralManager"]
 - ["PSs23CustomStringConvertible", "centralManagerDidUpdateState"]
 - !private ["PSs23CustomStringConvertible", "connectPeripheral"]
+- ["PSs23CustomStringConvertible", "connectingPeripheral"]
 - !private ["PSs23CustomStringConvertible", "coordinate"]
 - ["PSs23CustomStringConvertible", "count"]
-- ["PSs23CustomStringConvertible", "currentPeripheral"]
 - !private ["PSs23CustomStringConvertible", "defaultCenter"]
 - !private ["PSs23CustomStringConvertible", "delegate"]
 - !private ["PSs23CustomStringConvertible", "desiredAccuracy"]
@@ -319,7 +317,6 @@ depends-member:
 - ["PSs23CustomStringConvertible", ""]
 - !private ["Sd", "deinit"]
 - !private ["PSs9Equatable", "CBCentralManager"]
-- ["PSs9Equatable", "CBPeripheral"]
 - !private ["PSs9Equatable", "CLLocationManager"]
 - ["PSs9Equatable", "Denied"]
 - !private ["PSs9Equatable", "Distance"]
@@ -340,9 +337,9 @@ depends-member:
 - ["PSs9Equatable", "centralManager"]
 - ["PSs9Equatable", "centralManagerDidUpdateState"]
 - !private ["PSs9Equatable", "connectPeripheral"]
+- ["PSs9Equatable", "connectingPeripheral"]
 - !private ["PSs9Equatable", "coordinate"]
 - ["PSs9Equatable", "count"]
-- ["PSs9Equatable", "currentPeripheral"]
 - !private ["PSs9Equatable", "defaultCenter"]
 - !private ["PSs9Equatable", "delegate"]
 - !private ["PSs9Equatable", "desiredAccuracy"]
@@ -383,7 +380,6 @@ depends-member:
 - !private ["PSs16ForwardIndexType", "IntegerLiteralType"]
 - !private ["PSs13GeneratorType", "Element"]
 - !private ["PSs8Hashable", "CBCentralManager"]
-- ["PSs8Hashable", "CBPeripheral"]
 - !private ["PSs8Hashable", "CLLocationManager"]
 - ["PSs8Hashable", "Denied"]
 - !private ["PSs8Hashable", "Distance"]
@@ -404,9 +400,9 @@ depends-member:
 - ["PSs8Hashable", "centralManager"]
 - ["PSs8Hashable", "centralManagerDidUpdateState"]
 - !private ["PSs8Hashable", "connectPeripheral"]
+- ["PSs8Hashable", "connectingPeripheral"]
 - !private ["PSs8Hashable", "coordinate"]
 - ["PSs8Hashable", "count"]
-- ["PSs8Hashable", "currentPeripheral"]
 - !private ["PSs8Hashable", "defaultCenter"]
 - !private ["PSs8Hashable", "delegate"]
 - !private ["PSs8Hashable", "desiredAccuracy"]
@@ -480,7 +476,6 @@ depends-member:
 - !private ["PSs16MutableSliceable", "last"]
 - !private ["CSo7NSArray", "lastObject"]
 - !private ["PSo8NSCoding", "CBCentralManager"]
-- ["PSo8NSCoding", "CBPeripheral"]
 - !private ["PSo8NSCoding", "CLLocationManager"]
 - !private ["PSo8NSCoding", "NSLog"]
 - !private ["PSo8NSCoding", "NSNotificationCenter"]
@@ -488,9 +483,9 @@ depends-member:
 - ["PSo8NSCoding", "blueToothReady"]
 - ["PSo8NSCoding", "centralManager"]
 - ["PSo8NSCoding", "centralManagerDidUpdateState"]
+- ["PSo8NSCoding", "connectingPeripheral"]
 - !private ["PSo8NSCoding", "coordinate"]
 - ["PSo8NSCoding", "count"]
-- ["PSo8NSCoding", "currentPeripheral"]
 - ["PSo8NSCoding", "didReceiveMemoryWarning"]
 - ["PSo8NSCoding", "discoverDevices"]
 - ["PSo8NSCoding", "init"]
@@ -521,7 +516,6 @@ depends-member:
 - !private ["PSo9NSCopying", "name"]
 - !private ["PSo9NSCopying", "speed"]
 - !private ["PSo26NSExtensionRequestHandling", "CBCentralManager"]
-- ["PSo26NSExtensionRequestHandling", "CBPeripheral"]
 - !private ["PSo26NSExtensionRequestHandling", "CLLocationManager"]
 - !private ["PSo26NSExtensionRequestHandling", "NSLog"]
 - !private ["PSo26NSExtensionRequestHandling", "NSNotificationCenter"]
@@ -529,8 +523,8 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "blueToothReady"]
 - ["PSo26NSExtensionRequestHandling", "centralManager"]
 - ["PSo26NSExtensionRequestHandling", "centralManagerDidUpdateState"]
+- ["PSo26NSExtensionRequestHandling", "connectingPeripheral"]
 - ["PSo26NSExtensionRequestHandling", "count"]
-- ["PSo26NSExtensionRequestHandling", "currentPeripheral"]
 - ["PSo26NSExtensionRequestHandling", "didReceiveMemoryWarning"]
 - ["PSo26NSExtensionRequestHandling", "discoverDevices"]
 - ["PSo26NSExtensionRequestHandling", "init"]
@@ -573,9 +567,9 @@ depends-member:
 - ["CSo8NSObject", "centralManager"]
 - ["CSo8NSObject", "centralManagerDidUpdateState"]
 - !private ["CSo8NSObject", "connectPeripheral"]
+- ["CSo8NSObject", "connectingPeripheral"]
 - !private ["CSo8NSObject", "coordinate"]
 - ["CSo8NSObject", "count"]
-- ["CSo8NSObject", "currentPeripheral"]
 - !private ["CSo8NSObject", "defaultCenter"]
 - !private ["CSo8NSObject", "delegate"]
 - !private ["CSo8NSObject", "desiredAccuracy"]
@@ -610,7 +604,6 @@ depends-member:
 - !private ["CSo8NSObject", "value"]
 - ["CSo8NSObject", "viewDidLoad"]
 - !private ["PSo16NSObjectProtocol", "CBCentralManager"]
-- ["PSo16NSObjectProtocol", "CBPeripheral"]
 - !private ["PSo16NSObjectProtocol", "CLLocationManager"]
 - !private ["PSo16NSObjectProtocol", "NSLog"]
 - !private ["PSo16NSObjectProtocol", "NSNotificationCenter"]
@@ -619,9 +612,9 @@ depends-member:
 - ["PSo16NSObjectProtocol", "centralManager"]
 - ["PSo16NSObjectProtocol", "centralManagerDidUpdateState"]
 - !private ["PSo16NSObjectProtocol", "connectPeripheral"]
+- ["PSo16NSObjectProtocol", "connectingPeripheral"]
 - !private ["PSo16NSObjectProtocol", "coordinate"]
 - ["PSo16NSObjectProtocol", "count"]
-- ["PSo16NSObjectProtocol", "currentPeripheral"]
 - !private ["PSo16NSObjectProtocol", "defaultCenter"]
 - !private ["PSo16NSObjectProtocol", "delegate"]
 - !private ["PSo16NSObjectProtocol", "desiredAccuracy"]
@@ -702,7 +695,6 @@ depends-member:
 - !private ["PSo12UIAppearance", "text"]
 - !private ["PSo12UIAppearance", "value"]
 - !private ["PSo21UIAppearanceContainer", "CBCentralManager"]
-- ["PSo21UIAppearanceContainer", "CBPeripheral"]
 - !private ["PSo21UIAppearanceContainer", "CLLocationManager"]
 - !private ["PSo21UIAppearanceContainer", "NSLog"]
 - !private ["PSo21UIAppearanceContainer", "NSNotificationCenter"]
@@ -710,8 +702,8 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "blueToothReady"]
 - ["PSo21UIAppearanceContainer", "centralManager"]
 - ["PSo21UIAppearanceContainer", "centralManagerDidUpdateState"]
+- ["PSo21UIAppearanceContainer", "connectingPeripheral"]
 - ["PSo21UIAppearanceContainer", "count"]
-- ["PSo21UIAppearanceContainer", "currentPeripheral"]
 - ["PSo21UIAppearanceContainer", "didReceiveMemoryWarning"]
 - ["PSo21UIAppearanceContainer", "discoverDevices"]
 - ["PSo21UIAppearanceContainer", "init"]
@@ -735,7 +727,6 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "viewDidLoad"]
 - ["PSo21UIAppearanceContainer", ""]
 - !private ["PSo18UIContentContainer", "CBCentralManager"]
-- ["PSo18UIContentContainer", "CBPeripheral"]
 - !private ["PSo18UIContentContainer", "CLLocationManager"]
 - !private ["PSo18UIContentContainer", "NSLog"]
 - !private ["PSo18UIContentContainer", "NSNotificationCenter"]
@@ -743,8 +734,8 @@ depends-member:
 - ["PSo18UIContentContainer", "blueToothReady"]
 - ["PSo18UIContentContainer", "centralManager"]
 - ["PSo18UIContentContainer", "centralManagerDidUpdateState"]
+- ["PSo18UIContentContainer", "connectingPeripheral"]
 - ["PSo18UIContentContainer", "count"]
-- ["PSo18UIContentContainer", "currentPeripheral"]
 - ["PSo18UIContentContainer", "didReceiveMemoryWarning"]
 - ["PSo18UIContentContainer", "discoverDevices"]
 - ["PSo18UIContentContainer", "init"]
@@ -771,7 +762,6 @@ depends-member:
 - !private ["PSo13UIDynamicItem", "text"]
 - !private ["PSo13UIDynamicItem", "value"]
 - !private ["PSo18UIFocusEnvironment", "CBCentralManager"]
-- ["PSo18UIFocusEnvironment", "CBPeripheral"]
 - !private ["PSo18UIFocusEnvironment", "CLLocationManager"]
 - !private ["PSo18UIFocusEnvironment", "NSLog"]
 - !private ["PSo18UIFocusEnvironment", "NSNotificationCenter"]
@@ -779,8 +769,8 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "blueToothReady"]
 - ["PSo18UIFocusEnvironment", "centralManager"]
 - ["PSo18UIFocusEnvironment", "centralManagerDidUpdateState"]
+- ["PSo18UIFocusEnvironment", "connectingPeripheral"]
 - ["PSo18UIFocusEnvironment", "count"]
-- ["PSo18UIFocusEnvironment", "currentPeripheral"]
 - ["PSo18UIFocusEnvironment", "didReceiveMemoryWarning"]
 - ["PSo18UIFocusEnvironment", "discoverDevices"]
 - ["PSo18UIFocusEnvironment", "init"]
@@ -820,8 +810,8 @@ depends-member:
 - ["CSo11UIResponder", "blueToothReady"]
 - ["CSo11UIResponder", "centralManager"]
 - ["CSo11UIResponder", "centralManagerDidUpdateState"]
+- ["CSo11UIResponder", "connectingPeripheral"]
 - ["CSo11UIResponder", "count"]
-- ["CSo11UIResponder", "currentPeripheral"]
 - ["CSo11UIResponder", "didReceiveMemoryWarning"]
 - ["CSo11UIResponder", "discoverDevices"]
 - ["CSo11UIResponder", "init"]
@@ -845,7 +835,6 @@ depends-member:
 - ["CSo11UIResponder", "viewDidLoad"]
 - !private ["CSo8UISlider", "value"]
 - !private ["PSo16UIStateRestoring", "CBCentralManager"]
-- ["PSo16UIStateRestoring", "CBPeripheral"]
 - !private ["PSo16UIStateRestoring", "CLLocationManager"]
 - !private ["PSo16UIStateRestoring", "NSLog"]
 - !private ["PSo16UIStateRestoring", "NSNotificationCenter"]
@@ -853,8 +842,8 @@ depends-member:
 - ["PSo16UIStateRestoring", "blueToothReady"]
 - ["PSo16UIStateRestoring", "centralManager"]
 - ["PSo16UIStateRestoring", "centralManagerDidUpdateState"]
+- ["PSo16UIStateRestoring", "connectingPeripheral"]
 - ["PSo16UIStateRestoring", "count"]
-- ["PSo16UIStateRestoring", "currentPeripheral"]
 - ["PSo16UIStateRestoring", "didReceiveMemoryWarning"]
 - ["PSo16UIStateRestoring", "discoverDevices"]
 - ["PSo16UIStateRestoring", "init"]
@@ -876,7 +865,6 @@ depends-member:
 - ["PSo16UIStateRestoring", "viewDidLoad"]
 - ["PSo16UIStateRestoring", ""]
 - !private ["PSo18UITraitEnvironment", "CBCentralManager"]
-- ["PSo18UITraitEnvironment", "CBPeripheral"]
 - !private ["PSo18UITraitEnvironment", "CLLocationManager"]
 - !private ["PSo18UITraitEnvironment", "NSLog"]
 - !private ["PSo18UITraitEnvironment", "NSNotificationCenter"]
@@ -884,8 +872,8 @@ depends-member:
 - ["PSo18UITraitEnvironment", "blueToothReady"]
 - ["PSo18UITraitEnvironment", "centralManager"]
 - ["PSo18UITraitEnvironment", "centralManagerDidUpdateState"]
+- ["PSo18UITraitEnvironment", "connectingPeripheral"]
 - ["PSo18UITraitEnvironment", "count"]
-- ["PSo18UITraitEnvironment", "currentPeripheral"]
 - ["PSo18UITraitEnvironment", "didReceiveMemoryWarning"]
 - ["PSo18UITraitEnvironment", "discoverDevices"]
 - ["PSo18UITraitEnvironment", "init"]
@@ -926,8 +914,8 @@ depends-member:
 - ["CSo16UIViewController", "blueToothReady"]
 - ["CSo16UIViewController", "centralManager"]
 - ["CSo16UIViewController", "centralManagerDidUpdateState"]
+- ["CSo16UIViewController", "connectingPeripheral"]
 - ["CSo16UIViewController", "count"]
-- ["CSo16UIViewController", "currentPeripheral"]
 - ["CSo16UIViewController", "didReceiveMemoryWarning"]
 - ["CSo16UIViewController", "discoverDevices"]
 - ["CSo16UIViewController", "init"]
@@ -971,8 +959,8 @@ depends-member:
 - ["C17running_assistant14ViewController", "blueToothReady"]
 - ["C17running_assistant14ViewController", "centralManager"]
 - ["C17running_assistant14ViewController", "centralManagerDidUpdateState"]
+- ["C17running_assistant14ViewController", "connectingPeripheral"]
 - ["C17running_assistant14ViewController", "count"]
-- ["C17running_assistant14ViewController", "currentPeripheral"]
 - ["C17running_assistant14ViewController", "deinit"]
 - ["C17running_assistant14ViewController", "didReceiveMemoryWarning"]
 - ["C17running_assistant14ViewController", "discoverDevices"]
@@ -1169,4 +1157,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreLocation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreBluetooth.swiftmodule"
-interface-hash: "2ebe419d9c51645cb246a9a0aa40f9d0"
+interface-hash: "87c1e39bcb1d1e9ed3553542b96f4681"

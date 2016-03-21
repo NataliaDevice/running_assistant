@@ -137,6 +137,7 @@ SWIFT_CLASS("_TtC17running_assistant14ViewController")
 - (void)locationManager:(CLLocationManager * __nonnull)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status;
 @property (nonatomic, strong) CBCentralManager * __null_unspecified centralManager;
 @property (nonatomic) BOOL blueToothReady;
+@property (nonatomic, strong) CBPeripheral * __null_unspecified connectingPeripheral;
 - (void)startUpCentralManager;
 - (void)discoverDevices;
 - (void)centralManager:(CBCentralManager * __nonnull)central didDiscoverPeripheral:(CBPeripheral * __nonnull)peripheral advertisementData:(NSDictionary<NSString *, id> * __nonnull)advertisementData RSSI:(NSNumber * __nonnull)RSSI;

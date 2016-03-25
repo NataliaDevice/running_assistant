@@ -6,58 +6,60 @@ provides-nominal:
 provides-member:
 - ["C17running_assistant14ViewController", ""]
 provides-dynamic-lookup:
-- "paceSlider"
-- "locationStatus"
-- "sliderValueChange"
-- "viewDidLoad"
 - "startUpCentralManager"
+- "viewDidLoad"
+- "sliderValueChange"
 - "lonLabel"
-- "connectingPeripheral"
-- "didReceiveMemoryWarning"
+- "blueToothReady"
+- "paceSlider"
+- "count"
+- "locationManager"
+- "locationManager"
+- "locationManager"
 - "centralManagerDidUpdateState"
 - "discoverDevices"
-- "speedLabel"
-- "centralManager"
-- "centralManager"
-- "centralManager"
 - "locationFixAchieved"
-- "paceLabel"
-- "locationManager"
-- "locationManager"
-- "locationManager"
-- "blueToothReady"
 - "latLabel"
-- "count"
+- "centralManager"
+- "centralManager"
+- "centralManager"
+- "speedLabel"
+- "connectingPeripheral"
+- "bleLabel"
+- "didReceiveMemoryWarning"
+- "paceLabel"
+- "locationStatus"
 depends-top-level:
-- "CLLocationManagerDelegate"
-- "UIViewController"
-- "NSNumber"
-- "CBCentralManagerDelegate"
-- "CBPeripheral"
-- !private "NSLog"
+- "CLLocationManager"
 - "UISlider"
-- !private "kCLLocationAccuracyBest"
+- "CLLocation"
+- "String"
+- "NSNumber"
+- "UIViewController"
+- "CLLocationManagerDelegate"
+- "CBCentralManagerDelegate"
+- !private "NSArray"
 - "BooleanLiteralType"
-- "CLAuthorizationStatus"
+- "CBCentralManager"
 - "AnyObject"
+- "CLAuthorizationStatus"
+- !private "++"
+- "ViewController"
+- !private "NSLog"
+- "CBPeripheral"
 - !private "NSNotificationCenter"
+- !private "print"
+- !private "kCLLocationAccuracyBest"
+- "StringLiteralType"
 - "UILabel"
 - !private "=="
-- !private "print"
-- "String"
-- "CLLocation"
-- "ViewController"
-- !private "NSArray"
-- "StringLiteralType"
-- "CLLocationManager"
-- !private "++"
-- "CBCentralManager"
 depends-member:
 - !private ["PSs9AnyObject", "CBCentralManager"]
 - !private ["PSs9AnyObject", "CLLocationManager"]
 - !private ["PSs9AnyObject", "NSLog"]
 - !private ["PSs9AnyObject", "NSNotificationCenter"]
 - !private ["PSs9AnyObject", "String"]
+- ["PSs9AnyObject", "bleLabel"]
 - ["PSs9AnyObject", "blueToothReady"]
 - ["PSs9AnyObject", "centralManager"]
 - ["PSs9AnyObject", "centralManagerDidUpdateState"]
@@ -131,6 +133,7 @@ depends-member:
 - !private ["PSo24CBCentralManagerDelegate", "NSLog"]
 - !private ["PSo24CBCentralManagerDelegate", "NSNotificationCenter"]
 - !private ["PSo24CBCentralManagerDelegate", "String"]
+- !private ["PSo24CBCentralManagerDelegate", "bleLabel"]
 - !private ["PSo24CBCentralManagerDelegate", "blueToothReady"]
 - ["PSo24CBCentralManagerDelegate", "centralManager"]
 - ["PSo24CBCentralManagerDelegate", "centralManagerDidUpdateState"]
@@ -177,6 +180,7 @@ depends-member:
 - !private ["PSo25CLLocationManagerDelegate", "NSLog"]
 - !private ["PSo25CLLocationManagerDelegate", "NSNotificationCenter"]
 - !private ["PSo25CLLocationManagerDelegate", "String"]
+- !private ["PSo25CLLocationManagerDelegate", "bleLabel"]
 - !private ["PSo25CLLocationManagerDelegate", "blueToothReady"]
 - ["PSo25CLLocationManagerDelegate", "centralManager"]
 - ["PSo25CLLocationManagerDelegate", "centralManagerDidUpdateState"]
@@ -205,6 +209,7 @@ depends-member:
 - !private ["PSs11CVarArgType", "NSLog"]
 - !private ["PSs11CVarArgType", "NSNotificationCenter"]
 - !private ["PSs11CVarArgType", "String"]
+- ["PSs11CVarArgType", "bleLabel"]
 - ["PSs11CVarArgType", "blueToothReady"]
 - ["PSs11CVarArgType", "centralManager"]
 - ["PSs11CVarArgType", "centralManagerDidUpdateState"]
@@ -273,6 +278,7 @@ depends-member:
 - !private ["PSs23CustomStringConvertible", "SubSequence"]
 - !private ["PSs23CustomStringConvertible", "_Element"]
 - !private ["PSs23CustomStringConvertible", "_getBuiltinLogicValue"]
+- ["PSs23CustomStringConvertible", "bleLabel"]
 - ["PSs23CustomStringConvertible", "blueToothReady"]
 - ["PSs23CustomStringConvertible", "centralManager"]
 - ["PSs23CustomStringConvertible", "centralManagerDidUpdateState"]
@@ -333,6 +339,7 @@ depends-member:
 - ["PSs9Equatable", "Unknown"]
 - ["PSs9Equatable", "Unsupported"]
 - !private ["PSs9Equatable", "_getBuiltinLogicValue"]
+- ["PSs9Equatable", "bleLabel"]
 - ["PSs9Equatable", "blueToothReady"]
 - ["PSs9Equatable", "centralManager"]
 - ["PSs9Equatable", "centralManagerDidUpdateState"]
@@ -396,6 +403,7 @@ depends-member:
 - ["PSs8Hashable", "Unknown"]
 - ["PSs8Hashable", "Unsupported"]
 - !private ["PSs8Hashable", "_getBuiltinLogicValue"]
+- ["PSs8Hashable", "bleLabel"]
 - ["PSs8Hashable", "blueToothReady"]
 - ["PSs8Hashable", "centralManager"]
 - ["PSs8Hashable", "centralManagerDidUpdateState"]
@@ -480,6 +488,7 @@ depends-member:
 - !private ["PSo8NSCoding", "NSLog"]
 - !private ["PSo8NSCoding", "NSNotificationCenter"]
 - !private ["PSo8NSCoding", "String"]
+- ["PSo8NSCoding", "bleLabel"]
 - ["PSo8NSCoding", "blueToothReady"]
 - ["PSo8NSCoding", "centralManager"]
 - ["PSo8NSCoding", "centralManagerDidUpdateState"]
@@ -520,6 +529,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "NSLog"]
 - !private ["PSo26NSExtensionRequestHandling", "NSNotificationCenter"]
 - !private ["PSo26NSExtensionRequestHandling", "String"]
+- ["PSo26NSExtensionRequestHandling", "bleLabel"]
 - ["PSo26NSExtensionRequestHandling", "blueToothReady"]
 - ["PSo26NSExtensionRequestHandling", "centralManager"]
 - ["PSo26NSExtensionRequestHandling", "centralManagerDidUpdateState"]
@@ -563,6 +573,7 @@ depends-member:
 - ["CSo8NSObject", "String"]
 - ["CSo8NSObject", "UILabel"]
 - ["CSo8NSObject", "UISlider"]
+- ["CSo8NSObject", "bleLabel"]
 - ["CSo8NSObject", "blueToothReady"]
 - ["CSo8NSObject", "centralManager"]
 - ["CSo8NSObject", "centralManagerDidUpdateState"]
@@ -608,6 +619,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "NSLog"]
 - !private ["PSo16NSObjectProtocol", "NSNotificationCenter"]
 - !private ["PSo16NSObjectProtocol", "String"]
+- ["PSo16NSObjectProtocol", "bleLabel"]
 - ["PSo16NSObjectProtocol", "blueToothReady"]
 - ["PSo16NSObjectProtocol", "centralManager"]
 - ["PSo16NSObjectProtocol", "centralManagerDidUpdateState"]
@@ -699,6 +711,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "NSLog"]
 - !private ["PSo21UIAppearanceContainer", "NSNotificationCenter"]
 - !private ["PSo21UIAppearanceContainer", "String"]
+- ["PSo21UIAppearanceContainer", "bleLabel"]
 - ["PSo21UIAppearanceContainer", "blueToothReady"]
 - ["PSo21UIAppearanceContainer", "centralManager"]
 - ["PSo21UIAppearanceContainer", "centralManagerDidUpdateState"]
@@ -731,6 +744,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "NSLog"]
 - !private ["PSo18UIContentContainer", "NSNotificationCenter"]
 - !private ["PSo18UIContentContainer", "String"]
+- ["PSo18UIContentContainer", "bleLabel"]
 - ["PSo18UIContentContainer", "blueToothReady"]
 - ["PSo18UIContentContainer", "centralManager"]
 - ["PSo18UIContentContainer", "centralManagerDidUpdateState"]
@@ -766,6 +780,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "NSLog"]
 - !private ["PSo18UIFocusEnvironment", "NSNotificationCenter"]
 - !private ["PSo18UIFocusEnvironment", "String"]
+- ["PSo18UIFocusEnvironment", "bleLabel"]
 - ["PSo18UIFocusEnvironment", "blueToothReady"]
 - ["PSo18UIFocusEnvironment", "centralManager"]
 - ["PSo18UIFocusEnvironment", "centralManagerDidUpdateState"]
@@ -807,6 +822,7 @@ depends-member:
 - ["CSo11UIResponder", "String"]
 - ["CSo11UIResponder", "UILabel"]
 - ["CSo11UIResponder", "UISlider"]
+- ["CSo11UIResponder", "bleLabel"]
 - ["CSo11UIResponder", "blueToothReady"]
 - ["CSo11UIResponder", "centralManager"]
 - ["CSo11UIResponder", "centralManagerDidUpdateState"]
@@ -839,6 +855,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "NSLog"]
 - !private ["PSo16UIStateRestoring", "NSNotificationCenter"]
 - !private ["PSo16UIStateRestoring", "String"]
+- ["PSo16UIStateRestoring", "bleLabel"]
 - ["PSo16UIStateRestoring", "blueToothReady"]
 - ["PSo16UIStateRestoring", "centralManager"]
 - ["PSo16UIStateRestoring", "centralManagerDidUpdateState"]
@@ -869,6 +886,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "NSLog"]
 - !private ["PSo18UITraitEnvironment", "NSNotificationCenter"]
 - !private ["PSo18UITraitEnvironment", "String"]
+- ["PSo18UITraitEnvironment", "bleLabel"]
 - ["PSo18UITraitEnvironment", "blueToothReady"]
 - ["PSo18UITraitEnvironment", "centralManager"]
 - ["PSo18UITraitEnvironment", "centralManagerDidUpdateState"]
@@ -911,6 +929,7 @@ depends-member:
 - ["CSo16UIViewController", "String"]
 - ["CSo16UIViewController", "UILabel"]
 - ["CSo16UIViewController", "UISlider"]
+- ["CSo16UIViewController", "bleLabel"]
 - ["CSo16UIViewController", "blueToothReady"]
 - ["CSo16UIViewController", "centralManager"]
 - ["CSo16UIViewController", "centralManagerDidUpdateState"]
@@ -956,6 +975,7 @@ depends-member:
 - ["C17running_assistant14ViewController", "String"]
 - ["C17running_assistant14ViewController", "UILabel"]
 - ["C17running_assistant14ViewController", "UISlider"]
+- ["C17running_assistant14ViewController", "bleLabel"]
 - ["C17running_assistant14ViewController", "blueToothReady"]
 - ["C17running_assistant14ViewController", "centralManager"]
 - ["C17running_assistant14ViewController", "centralManagerDidUpdateState"]
@@ -1157,4 +1177,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreLocation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreBluetooth.swiftmodule"
-interface-hash: "87c1e39bcb1d1e9ed3553542b96f4681"
+interface-hash: "8475a79926c863a2cae122ec4b22a437"

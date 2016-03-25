@@ -125,6 +125,7 @@ SWIFT_CLASS("_TtC17running_assistant14ViewController")
 @property (nonatomic, weak) IBOutlet UILabel * __null_unspecified latLabel;
 @property (nonatomic, weak) IBOutlet UILabel * __null_unspecified paceLabel;
 @property (nonatomic, weak) IBOutlet UISlider * __null_unspecified paceSlider;
+@property (nonatomic, weak) IBOutlet UILabel * __null_unspecified bleLabel;
 @property (nonatomic, weak) IBOutlet UILabel * __null_unspecified speedLabel;
 @property (nonatomic, strong) CLLocationManager * __null_unspecified locationManager;
 @property (nonatomic, copy) NSString * __nonnull locationStatus;

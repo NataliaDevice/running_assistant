@@ -47,10 +47,17 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BLE Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGe-ke-wGP">
+                                <rect key="frame" x="28" y="35" width="254" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="bleLabel" destination="QGe-ke-wGP" id="Ydn-Lf-6tq"/>
                         <outlet property="latLabel" destination="RTh-Zd-1hc" id="0wZ-Pw-HCB"/>
                         <outlet property="lonLabel" destination="Vq7-im-Z7L" id="d1y-Bf-gr0"/>
                         <outlet property="paceLabel" destination="aRk-5X-jIT" id="IjZ-Xd-ohm"/>

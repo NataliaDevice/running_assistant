@@ -19,6 +19,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     @IBOutlet weak var paceLabel: UILabel!
     @IBOutlet weak var paceSlider: UISlider!
     
+    @IBOutlet weak var bleLabel: UILabel!
+    
     @IBOutlet weak var speedLabel: UILabel!
     
     var locationManager:CLLocationManager!
@@ -131,8 +133,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     }
     
     func centralManager(central: CBCentralManager, didConnectPeripheral peripheral: CBPeripheral) {
-        print("callback function run")
+        print("Connected to peripheral")
+        bleLabel.text = "Connected to peripheral"
         centralManager.stopScan()
+        //
     }
     
     

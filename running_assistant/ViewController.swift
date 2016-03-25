@@ -109,7 +109,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     var centralManager:CBCentralManager!
     var blueToothReady = false
 //    var currentPeripheral = CBPeripheral.Type.self
-    var connectingPeripheral:CBPeripheral!
+    var currentPeripheral:CBPeripheral!
     
     func startUpCentralManager() {
         print("Initializing central manager")
@@ -124,11 +124,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber) {
         
         print("Discovered \(peripheral.name)")
-        connectingPeripheral = peripheral
+        currentPeripheral = peripheral
         if peripheral.name == "BLE_Firmata" {
-            print(connectingPeripheral.name)
+            print(currentPeripheral.name)
             print("this worked!")
-            centralManager.connectPeripheral(connectingPeripheral, options: nil)
+            centralManager.connectPeripheral(currentPeripheral, options: nil)
         }
     }
     

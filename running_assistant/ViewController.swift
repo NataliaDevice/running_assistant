@@ -13,6 +13,11 @@ import CoreBluetooth
 
 class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralManagerDelegate {
 
+    @IBAction func dataButton(sender: UIButton) {
+        print("Button pressed")
+    }
+
+    
     @IBOutlet weak var lonLabel: UILabel!
     @IBOutlet weak var latLabel: UILabel!
     

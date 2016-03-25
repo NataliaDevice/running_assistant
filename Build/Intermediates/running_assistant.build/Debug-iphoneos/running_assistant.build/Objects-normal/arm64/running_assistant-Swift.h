@@ -109,6 +109,7 @@ SWIFT_CLASS("_TtC17running_assistant11AppDelegate")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UIButton;
 @class CLLocationManager;
 @class UISlider;
 @class CLLocation;
@@ -121,6 +122,7 @@ SWIFT_CLASS("_TtC17running_assistant11AppDelegate")
 
 SWIFT_CLASS("_TtC17running_assistant14ViewController")
 @interface ViewController : UIViewController <CLLocationManagerDelegate, CBCentralManagerDelegate>
+- (IBAction)dataButton:(UIButton * __nonnull)sender;
 @property (nonatomic, weak) IBOutlet UILabel * __null_unspecified lonLabel;
 @property (nonatomic, weak) IBOutlet UILabel * __null_unspecified latLabel;
 @property (nonatomic, weak) IBOutlet UILabel * __null_unspecified paceLabel;
@@ -138,7 +140,7 @@ SWIFT_CLASS("_TtC17running_assistant14ViewController")
 - (void)locationManager:(CLLocationManager * __nonnull)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status;
 @property (nonatomic, strong) CBCentralManager * __null_unspecified centralManager;
 @property (nonatomic) BOOL blueToothReady;
-@property (nonatomic, strong) CBPeripheral * __null_unspecified connectingPeripheral;
+@property (nonatomic, strong) CBPeripheral * __null_unspecified currentPeripheral;
 - (void)startUpCentralManager;
 - (void)discoverDevices;
 - (void)centralManager:(CBCentralManager * __nonnull)central didDiscoverPeripheral:(CBPeripheral * __nonnull)peripheral advertisementData:(NSDictionary<NSString *, id> * __nonnull)advertisementData RSSI:(NSNumber * __nonnull)RSSI;

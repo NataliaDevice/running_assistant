@@ -53,6 +53,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sj9-1f-8zl">
+                                <rect key="frame" x="109" y="291" width="92" height="30"/>
+                                <state key="normal" title="Data Button"/>
+                                <connections>
+                                    <action selector="dataButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A89-oj-SiG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

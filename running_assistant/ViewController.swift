@@ -42,6 +42,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     var uartService:CBService?
     var rxCharacteristic:CBCharacteristic?
     var txCharacteristic:CBCharacteristic?
+    
+    private var portMasks = [UInt8](count: 3, repeatedValue: 0)
+    
+    enum PinState:Int{
+        case Low = 0
+        case High
+    }
+    
+    enum PinMode:Int{
+        case Unknown = -1
+        case Input
+        case Output
+        case Analog
+        case PWM
+        case Servo
+    }
     // end Bluetooth variables
     
     override func viewDidLoad() {
@@ -157,7 +173,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         bleLabel.text = "Connected to peripheral"
 //        peripheral.delegate = self
         peripheral.discoverServices(nil)
-//        peripheral.discoverServices([CBUUID(string: "00001530-1212-efde-1523-785feabcd123"), CBUUID(string: "180A")]) //array of dfuServiceUUID and deviceInformationServiceUUID
+//        peripheral.discoverServices([CBUUID(string: "00001530-1212-EFDE-1523-785FEABCD123"), CBUUID(string: "180A")]) //array of dfuServiceUUID and deviceInformationServiceUUID
         
     }
     
@@ -167,15 +183,76 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
             print(s)
             uartService = s
 //            peripheral.discoverCharacteristics([txCharacteristicUUID(), rxCharacteristicUUID()], forService: uartService!)
-            peripheral.discoverCharacteristics([CBUUID(string: "6e400002-b5a3-f393-e0a9-e50e24dcca9e"), CBUUID(string: "6e400003-b5a3-f393-e0a9-e50e24dcca9e")], forService: uartService!) // for txCharacteristicUUID and rxCharacteristicUUID
+            peripheral.discoverCharacteristics([CBUUID(string: "6E400002-B5A3-F393-E0A9-E50E24DCCA9E"), CBUUID(string: "6E400003-B5A3-F393-E0A9-E50E24DCCA9E")], forService: s) // for txCharacteristicUUID and rxCharacteristicUUID
 //            peripheral.discoverCharacteristics(nil, forService: s)
         }
     }
     
     func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error: NSError?) {
         for c in (service.characteristics as [CBCharacteristic]!) {
-            print(c)
+            if (c.UUID == CBUUID(string: "6E400002-B5A3-F393-E0A9-E50E24DCCA9E")) { // if txCharacteristicUUID
+                print("IF STATEMENT WORKED!")
+                print(c)
+                writePinMode(PinMode.Output, pin:3, characteristic:c)
+                writePinState(PinState.High, pin:3, characteristic:c)
+            }            
         }
+    }
+    
+    func writePinMode(newMode:PinMode, pin:UInt8, characteristic:CBCharacteristic) {
+        
+        //Set a pin's mode
+        
+        let data0:UInt8 = 0xf4        //Status byte == 244
+        let data1:UInt8 = pin        //Pin#
+        let data2:UInt8 = UInt8(newMode.rawValue)    //Mode
+        
+        let bytes:[UInt8] = [data0, data1, data2]
+        let newData:NSData = NSData(bytes: bytes, length: 3)
+        print("Setting pin to OUTPUT")
+        currentPeripheral.writeValue(newData, forCharacteristic: characteristic, type: CBCharacteristicWriteType.WithResponse)
+        
+    }
+    
+    func writePinState(newState: PinState, pin:UInt8, characteristic:CBCharacteristic){
+        
+        
+        print((self, funcName: (__FUNCTION__), logString: "writing to pin: \(pin)"))
+        
+        //Set an output pin's state
+        
+        var data0:UInt8  //Status
+        var data1:UInt8  //LSB of bitmask
+        var data2:UInt8  //MSB of bitmask
+        
+        //Status byte == 144 + port#
+        let port:UInt8 = pin / 8
+        data0 = 0x90 + port
+        
+        //Data1 == pin0State + 2*pin1State + 4*pin2State + 8*pin3State + 16*pin4State + 32*pin5State
+        let pinIndex:UInt8 = pin - (port*8)
+        var newMask = UInt8(newState.rawValue * Int(powf(2, Float(pinIndex))))
+        
+        portMasks[Int(port)] &= ~(1 << pinIndex) //prep the saved mask by zeroing this pin's corresponding bit
+        newMask |= portMasks[Int(port)] //merge with saved port state
+        portMasks[Int(port)] = newMask
+        data1 = newMask<<1; data1 >>= 1  //remove MSB
+        data2 = newMask >> 7 //use data1's MSB as data2's LSB
+        
+        let bytes:[UInt8] = [data0, data1, data2]
+        let newData:NSData = NSData(bytes: bytes, length: 3)
+//        delegate!.sendData(newData)
+        print("Setting pin to HIGH")
+        currentPeripheral.writeValue(newData, forCharacteristic: characteristic, type: CBCharacteristicWriteType.WithResponse)
+        
+//        print((self, funcName: "setting pin states -->", logString: "[\(binaryforByte(portMasks[0]))] [\(binaryforByte(portMasks[1]))] [\(binaryforByte(portMasks[2]))]"))
+        
+    }
+    
+    func peripheral(peripheral: CBPeripheral, didWriteValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
+        print("----------")
+        print(characteristic)
+        print(error)
     }
 
     

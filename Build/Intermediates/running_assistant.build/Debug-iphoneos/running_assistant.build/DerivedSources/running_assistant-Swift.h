@@ -154,6 +154,7 @@ SWIFT_CLASS("_TtC17running_assistant14ViewController")
 - (void)centralManager:(CBCentralManager * __nonnull)central didConnectPeripheral:(CBPeripheral * __nonnull)peripheral;
 - (void)peripheral:(CBPeripheral * __nonnull)peripheral didDiscoverServices:(NSError * __nullable)error;
 - (void)peripheral:(CBPeripheral * __nonnull)peripheral didDiscoverCharacteristicsForService:(CBService * __nonnull)service error:(NSError * __nullable)error;
+- (void)peripheral:(CBPeripheral * __nonnull)peripheral didWriteValueForCharacteristic:(CBCharacteristic * __nonnull)characteristic error:(NSError * __nullable)error;
 - (void)centralManagerDidUpdateState:(CBCentralManager * __nonnull)central;
 - (nonnull instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;

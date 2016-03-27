@@ -3,77 +3,108 @@ provides-top-level:
 - "ViewController"
 provides-nominal:
 - "C17running_assistant14ViewController"
+- "OC17running_assistant14ViewController8PinState"
+- "OC17running_assistant14ViewController7PinMode"
 provides-member:
 - ["C17running_assistant14ViewController", ""]
+- ["OC17running_assistant14ViewController8PinState", ""]
+- ["OC17running_assistant14ViewController7PinMode", ""]
 provides-dynamic-lookup:
+- "lonLabel"
+- "centralManagerDidUpdateState"
+- "locationFixAchieved"
+- "rxCharacteristic"
+- "didReceiveMemoryWarning"
+- "paceSlider"
+- "peripheralConnected"
+- "viewDidLoad"
+- "locationManager"
+- "locationManager"
+- "locationManager"
+- "count"
+- "sliderValueChange"
 - "discoverDevices"
+- "centralManager"
+- "centralManager"
+- "centralManager"
+- "bleLabel"
+- "locationStatus"
+- "latLabel"
+- "currentPeripheral"
+- "txCharacteristic"
+- "paceLabel"
+- "startUpCentralManager"
+- "peripheral"
+- "peripheral"
+- "peripheral"
+- "dataButton"
 - "speedLabel"
 - "blueToothReady"
-- "rxCharacteristic"
-- "paceLabel"
-- "peripheralConnected"
-- "sliderValueChange"
-- "centralManagerDidUpdateState"
-- "locationStatus"
-- "dataButton"
-- "centralManager"
-- "centralManager"
-- "centralManager"
-- "didReceiveMemoryWarning"
-- "bleLabel"
-- "latLabel"
-- "peripheral"
-- "peripheral"
-- "currentPeripheral"
-- "locationManager"
-- "locationManager"
-- "locationManager"
-- "txCharacteristic"
-- "count"
-- "paceSlider"
-- "viewDidLoad"
-- "lonLabel"
-- "startUpCentralManager"
-- "locationFixAchieved"
 - "uartService"
 depends-top-level:
-- "UIButton"
-- "String"
-- !private "++"
-- !private "NSArray"
-- "CLAuthorizationStatus"
-- !private "NSLog"
-- "UILabel"
-- !private "=="
-- !private "NSNotificationCenter"
-- "CBCentralManager"
 - "NSNumber"
-- "ViewController"
-- !private "kCLLocationAccuracyBest"
-- !private "CBUUID"
-- "StringLiteralType"
-- "CBCharacteristic"
-- "CLLocationManagerDelegate"
+- !private ">>"
 - "CLLocation"
-- "CLLocationManager"
-- "CBPeripheral"
-- "UIViewController"
 - !private "print"
-- "AnyObject"
+- !private "|="
+- "UInt8"
+- !private "kCLLocationAccuracyBest"
+- !private "+"
+- !private "~="
+- "=="
 - "CBPeripheralDelegate"
 - "UISlider"
-- "NSError"
+- !private "/"
 - "CBCentralManagerDelegate"
+- !private "NSArray"
+- "CLLocationManagerDelegate"
+- "CLLocationManager"
+- "StringLiteralType"
+- "UIViewController"
+- "String"
+- "AnyObject"
+- "CBPeripheral"
+- "UIButton"
+- !private "++"
+- !private "-"
+- "CLAuthorizationStatus"
 - !private "Array"
+- "CBCentralManager"
+- !private "CBUUID"
+- !private "Float"
+- "CBCharacteristic"
+- "NSError"
+- "ViewController"
+- !private "~"
+- !private "NSLog"
+- !private "*"
+- !private "<<"
+- !private "&="
+- !private "powf"
 - "CBService"
+- "UILabel"
+- "Int"
+- !private "NSNotificationCenter"
+- !private "NSData"
 - "BooleanLiteralType"
+- !private ">>="
+- !private "CBCharacteristicWriteType"
 depends-member:
+- !private ["PSs16AbsoluteValuable", "init"]
 - !private ["PSs9AnyObject", "CBCentralManager"]
+- !private ["PSs9AnyObject", "CBCharacteristicWriteType"]
 - !private ["PSs9AnyObject", "CBUUID"]
 - !private ["PSs9AnyObject", "CLLocationManager"]
+- !private ["PSs9AnyObject", "Float"]
+- !private ["PSs9AnyObject", "Int"]
+- !private ["PSs9AnyObject", "NSData"]
 - !private ["PSs9AnyObject", "NSLog"]
 - !private ["PSs9AnyObject", "NSNotificationCenter"]
+- !private ["PSs9AnyObject", "PinMode"]
+- !private ["PSs9AnyObject", "PinState"]
 - !private ["PSs9AnyObject", "String"]
+- ["PSs9AnyObject", "UInt8"]
+- !private ["PSs9AnyObject", "UUID"]
 - ["PSs9AnyObject", "bleLabel"]
 - ["PSs9AnyObject", "blueToothReady"]
 - ["PSs9AnyObject", "centralManager"]
@@ -109,7 +140,9 @@ depends-member:
 - ["PSs9AnyObject", "peripheralConnected"]
 - ["PSs9AnyObject", "peripheralDidUpdateName"]
 - ["PSs9AnyObject", "peripheralDidUpdateRSSI"]
+- ["PSs9AnyObject", "portMasks"]
 - !private ["PSs9AnyObject", "postNotificationName"]
+- !private ["PSs9AnyObject", "powf"]
 - !private ["PSs9AnyObject", "print"]
 - !private ["PSs9AnyObject", "requestAlwaysAuthorization"]
 - ["PSs9AnyObject", "rxCharacteristic"]
@@ -127,6 +160,9 @@ depends-member:
 - ["PSs9AnyObject", "uartService"]
 - !private ["PSs9AnyObject", "value"]
 - ["PSs9AnyObject", "viewDidLoad"]
+- ["PSs9AnyObject", "writePinMode"]
+- ["PSs9AnyObject", "writePinState"]
+- !private ["PSs9AnyObject", "writeValue"]
 - ["PSs9AnyObject", ""]
 - !private ["Sa", "Element"]
 - !private ["Sa", "Generator"]
@@ -134,24 +170,34 @@ depends-member:
 - !private ["Sa", "SubSequence"]
 - !private ["Sa", "_Element"]
 - !private ["Sa", "deinit"]
+- ["Sa", "init"]
 - !private ["Sa", "last"]
+- !private ["Sa", "subscript"]
 - !private ["PSs23ArrayLiteralConvertible", "Element"]
 - !private ["PSs23ArrayLiteralConvertible", "Generator"]
 - !private ["PSs23ArrayLiteralConvertible", "Index"]
 - !private ["PSs23ArrayLiteralConvertible", "SubSequence"]
 - !private ["PSs23ArrayLiteralConvertible", "_Element"]
+- ["PSs23ArrayLiteralConvertible", "init"]
 - !private ["PSs23ArrayLiteralConvertible", "last"]
 - !private ["PSs23ArrayLiteralConvertible", "lastObject"]
+- !private ["PSs23ArrayLiteralConvertible", "subscript"]
 - !private ["VSs10ArraySlice", "Generator"]
 - !private ["VSs10ArraySlice", "Index"]
+- !private ["VSs10ArraySlice", "deinit"]
 - !private ["PSs22BidirectionalIndexType", "Distance"]
 - !private ["PSs22BidirectionalIndexType", "IntegerLiteralType"]
+- !private ["PSs22BidirectionalIndexType", "hashValue"]
+- !private ["PSs22BidirectionalIndexType", "init"]
 - !private ["PSs21BitwiseOperationsType", "Distance"]
 - !private ["PSs21BitwiseOperationsType", "IntegerLiteralType"]
+- !private ["PSs21BitwiseOperationsType", "hashValue"]
+- !private ["PSs21BitwiseOperationsType", "init"]
 - !private ["Sb", "_getBuiltinLogicValue"]
 - !private ["Sb", "deinit"]
 - !private ["PSs25BooleanLiteralConvertible", "_getBuiltinLogicValue"]
 - !private ["PSs11BooleanType", "_getBuiltinLogicValue"]
+- !private ["CSo11CBAttribute", "UUID"]
 - !private ["CSo11CBAttribute", "characteristics"]
 - !private ["CSo16CBCentralManager", "connectPeripheral"]
 - !private ["CSo16CBCentralManager", "init"]
@@ -159,11 +205,18 @@ depends-member:
 - !private ["CSo16CBCentralManager", "state"]
 - !private ["CSo16CBCentralManager", "stopScan"]
 - !private ["PSo24CBCentralManagerDelegate", "CBCentralManager"]
+- !private ["PSo24CBCentralManagerDelegate", "CBCharacteristicWriteType"]
 - !private ["PSo24CBCentralManagerDelegate", "CBUUID"]
 - !private ["PSo24CBCentralManagerDelegate", "CLLocationManager"]
+- !private ["PSo24CBCentralManagerDelegate", "Float"]
+- !private ["PSo24CBCentralManagerDelegate", "Int"]
+- !private ["PSo24CBCentralManagerDelegate", "NSData"]
 - !private ["PSo24CBCentralManagerDelegate", "NSLog"]
 - !private ["PSo24CBCentralManagerDelegate", "NSNotificationCenter"]
+- !private ["PSo24CBCentralManagerDelegate", "PinMode"]
+- !private ["PSo24CBCentralManagerDelegate", "PinState"]
 - !private ["PSo24CBCentralManagerDelegate", "String"]
+- ["PSo24CBCentralManagerDelegate", "UInt8"]
 - !private ["PSo24CBCentralManagerDelegate", "bleLabel"]
 - !private ["PSo24CBCentralManagerDelegate", "blueToothReady"]
 - ["PSo24CBCentralManagerDelegate", "centralManager"]
@@ -186,10 +239,14 @@ depends-member:
 - !private ["PSo24CBCentralManagerDelegate", "peripheralConnected"]
 - ["PSo24CBCentralManagerDelegate", "peripheralDidUpdateName"]
 - ["PSo24CBCentralManagerDelegate", "peripheralDidUpdateRSSI"]
+- !private ["PSo24CBCentralManagerDelegate", "portMasks"]
+- !private ["PSo24CBCentralManagerDelegate", "powf"]
 - !private ["PSo24CBCentralManagerDelegate", "print"]
 - !private ["PSo24CBCentralManagerDelegate", "speedLabel"]
 - !private ["PSo24CBCentralManagerDelegate", "startUpCentralManager"]
 - !private ["PSo24CBCentralManagerDelegate", "uartService"]
+- !private ["PSo24CBCentralManagerDelegate", "writePinMode"]
+- !private ["PSo24CBCentralManagerDelegate", "writePinState"]
 - ["PSo24CBCentralManagerDelegate", ""]
 - ["OSC21CBCentralManagerState", "PoweredOff"]
 - ["OSC21CBCentralManagerState", "PoweredOn"]
@@ -197,22 +254,33 @@ depends-member:
 - ["OSC21CBCentralManagerState", "Unauthorized"]
 - ["OSC21CBCentralManagerState", "Unknown"]
 - ["OSC21CBCentralManagerState", "Unsupported"]
+- !private ["CSo16CBCharacteristic", "UUID"]
+- !private ["OSC25CBCharacteristicWriteType", "WithResponse"]
 - !private ["CSo6CBPeer", "delegate"]
 - !private ["CSo6CBPeer", "discoverCharacteristics"]
 - !private ["CSo6CBPeer", "discoverServices"]
 - !private ["CSo6CBPeer", "name"]
 - !private ["CSo6CBPeer", "services"]
+- !private ["CSo6CBPeer", "writeValue"]
 - !private ["CSo12CBPeripheral", "delegate"]
 - !private ["CSo12CBPeripheral", "discoverCharacteristics"]
 - !private ["CSo12CBPeripheral", "discoverServices"]
 - !private ["CSo12CBPeripheral", "name"]
 - !private ["CSo12CBPeripheral", "services"]
+- !private ["CSo12CBPeripheral", "writeValue"]
 - !private ["PSo20CBPeripheralDelegate", "CBCentralManager"]
+- !private ["PSo20CBPeripheralDelegate", "CBCharacteristicWriteType"]
 - !private ["PSo20CBPeripheralDelegate", "CBUUID"]
 - !private ["PSo20CBPeripheralDelegate", "CLLocationManager"]
+- !private ["PSo20CBPeripheralDelegate", "Float"]
+- !private ["PSo20CBPeripheralDelegate", "Int"]
+- !private ["PSo20CBPeripheralDelegate", "NSData"]
 - !private ["PSo20CBPeripheralDelegate", "NSLog"]
 - !private ["PSo20CBPeripheralDelegate", "NSNotificationCenter"]
+- !private ["PSo20CBPeripheralDelegate", "PinMode"]
+- !private ["PSo20CBPeripheralDelegate", "PinState"]
 - !private ["PSo20CBPeripheralDelegate", "String"]
+- ["PSo20CBPeripheralDelegate", "UInt8"]
 - !private ["PSo20CBPeripheralDelegate", "bleLabel"]
 - !private ["PSo20CBPeripheralDelegate", "blueToothReady"]
 - ["PSo20CBPeripheralDelegate", "centralManager"]
@@ -235,10 +303,14 @@ depends-member:
 - !private ["PSo20CBPeripheralDelegate", "peripheralConnected"]
 - ["PSo20CBPeripheralDelegate", "peripheralDidUpdateName"]
 - ["PSo20CBPeripheralDelegate", "peripheralDidUpdateRSSI"]
+- !private ["PSo20CBPeripheralDelegate", "portMasks"]
+- !private ["PSo20CBPeripheralDelegate", "powf"]
 - !private ["PSo20CBPeripheralDelegate", "print"]
 - !private ["PSo20CBPeripheralDelegate", "speedLabel"]
 - !private ["PSo20CBPeripheralDelegate", "startUpCentralManager"]
 - !private ["PSo20CBPeripheralDelegate", "uartService"]
+- !private ["PSo20CBPeripheralDelegate", "writePinMode"]
+- !private ["PSo20CBPeripheralDelegate", "writePinState"]
 - ["PSo20CBPeripheralDelegate", ""]
 - !private ["CSo9CBService", "characteristics"]
 - !private ["CSo6CBUUID", "init"]
@@ -255,11 +327,18 @@ depends-member:
 - !private ["CSo17CLLocationManager", "requestAlwaysAuthorization"]
 - !private ["CSo17CLLocationManager", "startUpdatingLocation"]
 - !private ["PSo25CLLocationManagerDelegate", "CBCentralManager"]
+- !private ["PSo25CLLocationManagerDelegate", "CBCharacteristicWriteType"]
 - !private ["PSo25CLLocationManagerDelegate", "CBUUID"]
 - !private ["PSo25CLLocationManagerDelegate", "CLLocationManager"]
+- !private ["PSo25CLLocationManagerDelegate", "Float"]
+- !private ["PSo25CLLocationManagerDelegate", "Int"]
+- !private ["PSo25CLLocationManagerDelegate", "NSData"]
 - !private ["PSo25CLLocationManagerDelegate", "NSLog"]
 - !private ["PSo25CLLocationManagerDelegate", "NSNotificationCenter"]
+- !private ["PSo25CLLocationManagerDelegate", "PinMode"]
+- !private ["PSo25CLLocationManagerDelegate", "PinState"]
 - !private ["PSo25CLLocationManagerDelegate", "String"]
+- ["PSo25CLLocationManagerDelegate", "UInt8"]
 - !private ["PSo25CLLocationManagerDelegate", "bleLabel"]
 - !private ["PSo25CLLocationManagerDelegate", "blueToothReady"]
 - ["PSo25CLLocationManagerDelegate", "centralManager"]
@@ -282,19 +361,31 @@ depends-member:
 - !private ["PSo25CLLocationManagerDelegate", "peripheralConnected"]
 - ["PSo25CLLocationManagerDelegate", "peripheralDidUpdateName"]
 - ["PSo25CLLocationManagerDelegate", "peripheralDidUpdateRSSI"]
+- !private ["PSo25CLLocationManagerDelegate", "portMasks"]
+- !private ["PSo25CLLocationManagerDelegate", "powf"]
 - !private ["PSo25CLLocationManagerDelegate", "print"]
 - !private ["PSo25CLLocationManagerDelegate", "speedLabel"]
 - !private ["PSo25CLLocationManagerDelegate", "startUpCentralManager"]
 - !private ["PSo25CLLocationManagerDelegate", "uartService"]
+- !private ["PSo25CLLocationManagerDelegate", "writePinMode"]
+- !private ["PSo25CLLocationManagerDelegate", "writePinState"]
 - ["PSo25CLLocationManagerDelegate", ""]
 - !private ["PSs11CVarArgType", "CBCentralManager"]
+- !private ["PSs11CVarArgType", "CBCharacteristicWriteType"]
 - !private ["PSs11CVarArgType", "CBUUID"]
 - !private ["PSs11CVarArgType", "CLLocationManager"]
 - !private ["PSs11CVarArgType", "Distance"]
+- !private ["PSs11CVarArgType", "Float"]
+- !private ["PSs11CVarArgType", "Int"]
 - !private ["PSs11CVarArgType", "IntegerLiteralType"]
+- !private ["PSs11CVarArgType", "NSData"]
 - !private ["PSs11CVarArgType", "NSLog"]
 - !private ["PSs11CVarArgType", "NSNotificationCenter"]
+- !private ["PSs11CVarArgType", "PinMode"]
+- !private ["PSs11CVarArgType", "PinState"]
 - !private ["PSs11CVarArgType", "String"]
+- ["PSs11CVarArgType", "UInt8"]
+- !private ["PSs11CVarArgType", "UUID"]
 - ["PSs11CVarArgType", "bleLabel"]
 - ["PSs11CVarArgType", "blueToothReady"]
 - ["PSs11CVarArgType", "centralManager"]
@@ -312,6 +403,7 @@ depends-member:
 - !private ["PSs11CVarArgType", "discoverCharacteristics"]
 - ["PSs11CVarArgType", "discoverDevices"]
 - !private ["PSs11CVarArgType", "discoverServices"]
+- !private ["PSs11CVarArgType", "hashValue"]
 - ["PSs11CVarArgType", "init"]
 - !private ["PSs11CVarArgType", "kCLLocationAccuracyBest"]
 - !private ["PSs11CVarArgType", "lastObject"]
@@ -330,7 +422,9 @@ depends-member:
 - ["PSs11CVarArgType", "peripheralConnected"]
 - ["PSs11CVarArgType", "peripheralDidUpdateName"]
 - ["PSs11CVarArgType", "peripheralDidUpdateRSSI"]
+- ["PSs11CVarArgType", "portMasks"]
 - !private ["PSs11CVarArgType", "postNotificationName"]
+- !private ["PSs11CVarArgType", "powf"]
 - !private ["PSs11CVarArgType", "print"]
 - !private ["PSs11CVarArgType", "requestAlwaysAuthorization"]
 - ["PSs11CVarArgType", "rxCharacteristic"]
@@ -348,6 +442,9 @@ depends-member:
 - ["PSs11CVarArgType", "uartService"]
 - !private ["PSs11CVarArgType", "value"]
 - ["PSs11CVarArgType", "viewDidLoad"]
+- ["PSs11CVarArgType", "writePinMode"]
+- ["PSs11CVarArgType", "writePinState"]
+- !private ["PSs11CVarArgType", "writeValue"]
 - ["PSs11CVarArgType", ""]
 - !private ["VSs9Character", "deinit"]
 - !private ["PSs14CollectionType", "Element"]
@@ -355,29 +452,41 @@ depends-member:
 - !private ["PSs14CollectionType", "Index"]
 - !private ["PSs14CollectionType", "SubSequence"]
 - !private ["PSs14CollectionType", "_Element"]
+- ["PSs14CollectionType", "init"]
 - !private ["PSs14CollectionType", "last"]
+- !private ["PSs14CollectionType", "subscript"]
 - !private ["PSs10Comparable", "Distance"]
 - !private ["PSs10Comparable", "IntegerLiteralType"]
+- !private ["PSs10Comparable", "hashValue"]
 - !private ["PSs10Comparable", "init"]
 - !private ["PSs28CustomDebugStringConvertible", "Element"]
 - !private ["PSs28CustomDebugStringConvertible", "Generator"]
 - !private ["PSs28CustomDebugStringConvertible", "Index"]
 - !private ["PSs28CustomDebugStringConvertible", "SubSequence"]
 - !private ["PSs28CustomDebugStringConvertible", "_Element"]
-- !private ["PSs28CustomDebugStringConvertible", "init"]
+- ["PSs28CustomDebugStringConvertible", "init"]
 - !private ["PSs28CustomDebugStringConvertible", "last"]
+- !private ["PSs28CustomDebugStringConvertible", "subscript"]
 - !private ["PSs23CustomStringConvertible", "CBCentralManager"]
+- !private ["PSs23CustomStringConvertible", "CBCharacteristicWriteType"]
 - !private ["PSs23CustomStringConvertible", "CBUUID"]
 - !private ["PSs23CustomStringConvertible", "CLLocationManager"]
 - !private ["PSs23CustomStringConvertible", "Distance"]
 - !private ["PSs23CustomStringConvertible", "Element"]
+- !private ["PSs23CustomStringConvertible", "Float"]
 - !private ["PSs23CustomStringConvertible", "Generator"]
 - !private ["PSs23CustomStringConvertible", "Index"]
+- !private ["PSs23CustomStringConvertible", "Int"]
 - !private ["PSs23CustomStringConvertible", "IntegerLiteralType"]
+- !private ["PSs23CustomStringConvertible", "NSData"]
 - !private ["PSs23CustomStringConvertible", "NSLog"]
 - !private ["PSs23CustomStringConvertible", "NSNotificationCenter"]
+- !private ["PSs23CustomStringConvertible", "PinMode"]
+- !private ["PSs23CustomStringConvertible", "PinState"]
 - !private ["PSs23CustomStringConvertible", "String"]
 - !private ["PSs23CustomStringConvertible", "SubSequence"]
+- ["PSs23CustomStringConvertible", "UInt8"]
+- !private ["PSs23CustomStringConvertible", "UUID"]
 - !private ["PSs23CustomStringConvertible", "_Element"]
 - !private ["PSs23CustomStringConvertible", "_getBuiltinLogicValue"]
 - ["PSs23CustomStringConvertible", "bleLabel"]
@@ -397,6 +506,7 @@ depends-member:
 - !private ["PSs23CustomStringConvertible", "discoverCharacteristics"]
 - ["PSs23CustomStringConvertible", "discoverDevices"]
 - !private ["PSs23CustomStringConvertible", "discoverServices"]
+- !private ["PSs23CustomStringConvertible", "hashValue"]
 - ["PSs23CustomStringConvertible", "init"]
 - !private ["PSs23CustomStringConvertible", "kCLLocationAccuracyBest"]
 - !private ["PSs23CustomStringConvertible", "last"]
@@ -416,7 +526,9 @@ depends-member:
 - ["PSs23CustomStringConvertible", "peripheralConnected"]
 - ["PSs23CustomStringConvertible", "peripheralDidUpdateName"]
 - ["PSs23CustomStringConvertible", "peripheralDidUpdateRSSI"]
+- ["PSs23CustomStringConvertible", "portMasks"]
 - !private ["PSs23CustomStringConvertible", "postNotificationName"]
+- !private ["PSs23CustomStringConvertible", "powf"]
 - !private ["PSs23CustomStringConvertible", "print"]
 - !private ["PSs23CustomStringConvertible", "requestAlwaysAuthorization"]
 - ["PSs23CustomStringConvertible", "rxCharacteristic"]
@@ -429,30 +541,46 @@ depends-member:
 - !private ["PSs23CustomStringConvertible", "startUpdatingLocation"]
 - !private ["PSs23CustomStringConvertible", "state"]
 - !private ["PSs23CustomStringConvertible", "stopScan"]
+- !private ["PSs23CustomStringConvertible", "subscript"]
 - !private ["PSs23CustomStringConvertible", "text"]
 - ["PSs23CustomStringConvertible", "txCharacteristic"]
 - ["PSs23CustomStringConvertible", "uartService"]
 - !private ["PSs23CustomStringConvertible", "value"]
 - ["PSs23CustomStringConvertible", "viewDidLoad"]
+- ["PSs23CustomStringConvertible", "writePinMode"]
+- ["PSs23CustomStringConvertible", "writePinState"]
+- !private ["PSs23CustomStringConvertible", "writeValue"]
 - ["PSs23CustomStringConvertible", ""]
 - !private ["Sd", "deinit"]
 - !private ["PSs9Equatable", "CBCentralManager"]
+- !private ["PSs9Equatable", "CBCharacteristicWriteType"]
 - !private ["PSs9Equatable", "CBUUID"]
 - !private ["PSs9Equatable", "CLLocationManager"]
 - ["PSs9Equatable", "Denied"]
 - !private ["PSs9Equatable", "Distance"]
+- !private ["PSs9Equatable", "Float"]
+- !private ["PSs9Equatable", "High"]
+- !private ["PSs9Equatable", "Int"]
 - !private ["PSs9Equatable", "IntegerLiteralType"]
+- !private ["PSs9Equatable", "NSData"]
 - !private ["PSs9Equatable", "NSLog"]
 - !private ["PSs9Equatable", "NSNotificationCenter"]
 - ["PSs9Equatable", "NotDetermined"]
+- !private ["PSs9Equatable", "Output"]
+- !private ["PSs9Equatable", "PinMode"]
+- !private ["PSs9Equatable", "PinState"]
 - ["PSs9Equatable", "PoweredOff"]
 - ["PSs9Equatable", "PoweredOn"]
+- ["PSs9Equatable", "RawValue"]
 - ["PSs9Equatable", "Resetting"]
 - ["PSs9Equatable", "Restricted"]
 - !private ["PSs9Equatable", "String"]
+- ["PSs9Equatable", "UInt8"]
+- !private ["PSs9Equatable", "UUID"]
 - ["PSs9Equatable", "Unauthorized"]
 - ["PSs9Equatable", "Unknown"]
 - ["PSs9Equatable", "Unsupported"]
+- !private ["PSs9Equatable", "WithResponse"]
 - !private ["PSs9Equatable", "_getBuiltinLogicValue"]
 - ["PSs9Equatable", "bleLabel"]
 - ["PSs9Equatable", "blueToothReady"]
@@ -471,6 +599,7 @@ depends-member:
 - !private ["PSs9Equatable", "discoverCharacteristics"]
 - ["PSs9Equatable", "discoverDevices"]
 - !private ["PSs9Equatable", "discoverServices"]
+- ["PSs9Equatable", "hashValue"]
 - ["PSs9Equatable", "init"]
 - !private ["PSs9Equatable", "kCLLocationAccuracyBest"]
 - !private ["PSs9Equatable", "lastObject"]
@@ -489,8 +618,11 @@ depends-member:
 - ["PSs9Equatable", "peripheralConnected"]
 - ["PSs9Equatable", "peripheralDidUpdateName"]
 - ["PSs9Equatable", "peripheralDidUpdateRSSI"]
+- ["PSs9Equatable", "portMasks"]
 - !private ["PSs9Equatable", "postNotificationName"]
+- !private ["PSs9Equatable", "powf"]
 - !private ["PSs9Equatable", "print"]
+- ["PSs9Equatable", "rawValue"]
 - !private ["PSs9Equatable", "requestAlwaysAuthorization"]
 - ["PSs9Equatable", "rxCharacteristic"]
 - !private ["PSs9Equatable", "scanForPeripheralsWithServices"]
@@ -507,29 +639,49 @@ depends-member:
 - ["PSs9Equatable", "uartService"]
 - !private ["PSs9Equatable", "value"]
 - ["PSs9Equatable", "viewDidLoad"]
+- ["PSs9Equatable", "writePinMode"]
+- ["PSs9Equatable", "writePinState"]
+- !private ["PSs9Equatable", "writeValue"]
 - ["PSs9Equatable", ""]
 - !private ["PSs41ExtendedGraphemeClusterLiteralConvertible", "init"]
 - !private ["Sf", "deinit"]
+- !private ["Sf", "init"]
+- !private ["PSs23FloatLiteralConvertible", "init"]
+- !private ["PSs17FloatingPointType", "init"]
 - !private ["PSs16ForwardIndexType", "Distance"]
 - !private ["PSs16ForwardIndexType", "IntegerLiteralType"]
+- !private ["PSs16ForwardIndexType", "hashValue"]
+- !private ["PSs16ForwardIndexType", "init"]
 - !private ["PSs13GeneratorType", "Element"]
 - !private ["PSs8Hashable", "CBCentralManager"]
+- !private ["PSs8Hashable", "CBCharacteristicWriteType"]
 - !private ["PSs8Hashable", "CBUUID"]
 - !private ["PSs8Hashable", "CLLocationManager"]
 - ["PSs8Hashable", "Denied"]
 - !private ["PSs8Hashable", "Distance"]
+- !private ["PSs8Hashable", "Float"]
+- !private ["PSs8Hashable", "High"]
+- !private ["PSs8Hashable", "Int"]
 - !private ["PSs8Hashable", "IntegerLiteralType"]
+- !private ["PSs8Hashable", "NSData"]
 - !private ["PSs8Hashable", "NSLog"]
 - !private ["PSs8Hashable", "NSNotificationCenter"]
 - ["PSs8Hashable", "NotDetermined"]
+- !private ["PSs8Hashable", "Output"]
+- !private ["PSs8Hashable", "PinMode"]
+- !private ["PSs8Hashable", "PinState"]
 - ["PSs8Hashable", "PoweredOff"]
 - ["PSs8Hashable", "PoweredOn"]
+- ["PSs8Hashable", "RawValue"]
 - ["PSs8Hashable", "Resetting"]
 - ["PSs8Hashable", "Restricted"]
 - !private ["PSs8Hashable", "String"]
+- ["PSs8Hashable", "UInt8"]
+- !private ["PSs8Hashable", "UUID"]
 - ["PSs8Hashable", "Unauthorized"]
 - ["PSs8Hashable", "Unknown"]
 - ["PSs8Hashable", "Unsupported"]
+- !private ["PSs8Hashable", "WithResponse"]
 - !private ["PSs8Hashable", "_getBuiltinLogicValue"]
 - ["PSs8Hashable", "bleLabel"]
 - ["PSs8Hashable", "blueToothReady"]
@@ -548,6 +700,7 @@ depends-member:
 - !private ["PSs8Hashable", "discoverCharacteristics"]
 - ["PSs8Hashable", "discoverDevices"]
 - !private ["PSs8Hashable", "discoverServices"]
+- ["PSs8Hashable", "hashValue"]
 - ["PSs8Hashable", "init"]
 - !private ["PSs8Hashable", "kCLLocationAccuracyBest"]
 - !private ["PSs8Hashable", "lastObject"]
@@ -566,8 +719,11 @@ depends-member:
 - ["PSs8Hashable", "peripheralConnected"]
 - ["PSs8Hashable", "peripheralDidUpdateName"]
 - ["PSs8Hashable", "peripheralDidUpdateRSSI"]
+- ["PSs8Hashable", "portMasks"]
 - !private ["PSs8Hashable", "postNotificationName"]
+- !private ["PSs8Hashable", "powf"]
 - !private ["PSs8Hashable", "print"]
+- ["PSs8Hashable", "rawValue"]
 - !private ["PSs8Hashable", "requestAlwaysAuthorization"]
 - ["PSs8Hashable", "rxCharacteristic"]
 - !private ["PSs8Hashable", "scanForPeripheralsWithServices"]
@@ -584,6 +740,9 @@ depends-member:
 - ["PSs8Hashable", "uartService"]
 - !private ["PSs8Hashable", "value"]
 - ["PSs8Hashable", "viewDidLoad"]
+- ["PSs8Hashable", "writePinMode"]
+- ["PSs8Hashable", "writePinState"]
+- !private ["PSs8Hashable", "writeValue"]
 - ["PSs8Hashable", ""]
 - !private ["SQ", "Generator"]
 - !private ["SQ", "deinit"]
@@ -592,49 +751,74 @@ depends-member:
 - !private ["PSs9Indexable", "Index"]
 - !private ["PSs9Indexable", "SubSequence"]
 - !private ["PSs9Indexable", "_Element"]
+- ["PSs9Indexable", "init"]
 - !private ["PSs9Indexable", "last"]
+- !private ["PSs9Indexable", "subscript"]
 - !private ["VSs17IndexingGenerator", "Element"]
 - !private ["Si", "Distance"]
 - !private ["Si", "IntegerLiteralType"]
 - !private ["Si", "deinit"]
+- !private ["Si", "hashValue"]
+- !private ["Si", "init"]
 - !private ["VSs5Int16", "deinit"]
 - !private ["VSs5Int32", "deinit"]
 - !private ["VSs5Int64", "deinit"]
 - !private ["VSs4Int8", "deinit"]
 - !private ["PSs21IntegerArithmeticType", "Distance"]
 - !private ["PSs21IntegerArithmeticType", "IntegerLiteralType"]
+- !private ["PSs21IntegerArithmeticType", "hashValue"]
+- !private ["PSs21IntegerArithmeticType", "init"]
 - !private ["PSs25IntegerLiteralConvertible", "Distance"]
 - !private ["PSs25IntegerLiteralConvertible", "IntegerLiteralType"]
+- !private ["PSs25IntegerLiteralConvertible", "hashValue"]
+- !private ["PSs25IntegerLiteralConvertible", "init"]
 - !private ["PSs11IntegerType", "Distance"]
 - !private ["PSs11IntegerType", "IntegerLiteralType"]
+- !private ["PSs11IntegerType", "hashValue"]
+- !private ["PSs11IntegerType", "init"]
 - !private ["PSs14MirrorPathType", "Distance"]
 - !private ["PSs14MirrorPathType", "IntegerLiteralType"]
+- !private ["PSs14MirrorPathType", "hashValue"]
 - !private ["PSs14MirrorPathType", "init"]
 - !private ["PSs21MutableCollectionType", "Element"]
 - !private ["PSs21MutableCollectionType", "Generator"]
 - !private ["PSs21MutableCollectionType", "Index"]
 - !private ["PSs21MutableCollectionType", "SubSequence"]
 - !private ["PSs21MutableCollectionType", "_Element"]
+- ["PSs21MutableCollectionType", "init"]
 - !private ["PSs21MutableCollectionType", "last"]
+- !private ["PSs21MutableCollectionType", "subscript"]
 - !private ["PSs16MutableIndexable", "Element"]
 - !private ["PSs16MutableIndexable", "Generator"]
 - !private ["PSs16MutableIndexable", "Index"]
 - !private ["PSs16MutableIndexable", "SubSequence"]
 - !private ["PSs16MutableIndexable", "_Element"]
+- ["PSs16MutableIndexable", "init"]
 - !private ["PSs16MutableIndexable", "last"]
+- !private ["PSs16MutableIndexable", "subscript"]
+- !private ["VSs12MutableSlice", "deinit"]
 - !private ["PSs16MutableSliceable", "Element"]
 - !private ["PSs16MutableSliceable", "Generator"]
 - !private ["PSs16MutableSliceable", "Index"]
 - !private ["PSs16MutableSliceable", "SubSequence"]
 - !private ["PSs16MutableSliceable", "_Element"]
+- ["PSs16MutableSliceable", "init"]
 - !private ["PSs16MutableSliceable", "last"]
+- !private ["PSs16MutableSliceable", "subscript"]
 - !private ["CSo7NSArray", "lastObject"]
 - !private ["PSo8NSCoding", "CBCentralManager"]
+- !private ["PSo8NSCoding", "CBCharacteristicWriteType"]
 - !private ["PSo8NSCoding", "CBUUID"]
 - !private ["PSo8NSCoding", "CLLocationManager"]
+- !private ["PSo8NSCoding", "Float"]
+- !private ["PSo8NSCoding", "Int"]
+- !private ["PSo8NSCoding", "NSData"]
 - !private ["PSo8NSCoding", "NSLog"]
 - !private ["PSo8NSCoding", "NSNotificationCenter"]
+- !private ["PSo8NSCoding", "PinMode"]
+- !private ["PSo8NSCoding", "PinState"]
 - !private ["PSo8NSCoding", "String"]
+- ["PSo8NSCoding", "UInt8"]
 - ["PSo8NSCoding", "bleLabel"]
 - ["PSo8NSCoding", "blueToothReady"]
 - ["PSo8NSCoding", "centralManager"]
@@ -662,6 +846,8 @@ depends-member:
 - ["PSo8NSCoding", "peripheralConnected"]
 - ["PSo8NSCoding", "peripheralDidUpdateName"]
 - ["PSo8NSCoding", "peripheralDidUpdateRSSI"]
+- ["PSo8NSCoding", "portMasks"]
+- !private ["PSo8NSCoding", "powf"]
 - !private ["PSo8NSCoding", "print"]
 - ["PSo8NSCoding", "rxCharacteristic"]
 - ["PSo8NSCoding", "sliderValueChange"]
@@ -673,6 +859,8 @@ depends-member:
 - ["PSo8NSCoding", "uartService"]
 - !private ["PSo8NSCoding", "value"]
 - ["PSo8NSCoding", "viewDidLoad"]
+- ["PSo8NSCoding", "writePinMode"]
+- ["PSo8NSCoding", "writePinState"]
 - ["PSo8NSCoding", ""]
 - !private ["PSo9NSCopying", "coordinate"]
 - !private ["PSo9NSCopying", "delegate"]
@@ -683,12 +871,21 @@ depends-member:
 - !private ["PSo9NSCopying", "name"]
 - !private ["PSo9NSCopying", "services"]
 - !private ["PSo9NSCopying", "speed"]
+- !private ["PSo9NSCopying", "writeValue"]
+- !private ["CSo6NSData", "init"]
 - !private ["PSo26NSExtensionRequestHandling", "CBCentralManager"]
+- !private ["PSo26NSExtensionRequestHandling", "CBCharacteristicWriteType"]
 - !private ["PSo26NSExtensionRequestHandling", "CBUUID"]
 - !private ["PSo26NSExtensionRequestHandling", "CLLocationManager"]
+- !private ["PSo26NSExtensionRequestHandling", "Float"]
+- !private ["PSo26NSExtensionRequestHandling", "Int"]
+- !private ["PSo26NSExtensionRequestHandling", "NSData"]
 - !private ["PSo26NSExtensionRequestHandling", "NSLog"]
 - !private ["PSo26NSExtensionRequestHandling", "NSNotificationCenter"]
+- !private ["PSo26NSExtensionRequestHandling", "PinMode"]
+- !private ["PSo26NSExtensionRequestHandling", "PinState"]
 - !private ["PSo26NSExtensionRequestHandling", "String"]
+- ["PSo26NSExtensionRequestHandling", "UInt8"]
 - ["PSo26NSExtensionRequestHandling", "bleLabel"]
 - ["PSo26NSExtensionRequestHandling", "blueToothReady"]
 - ["PSo26NSExtensionRequestHandling", "centralManager"]
@@ -714,6 +911,8 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "peripheralConnected"]
 - ["PSo26NSExtensionRequestHandling", "peripheralDidUpdateName"]
 - ["PSo26NSExtensionRequestHandling", "peripheralDidUpdateRSSI"]
+- ["PSo26NSExtensionRequestHandling", "portMasks"]
+- !private ["PSo26NSExtensionRequestHandling", "powf"]
 - !private ["PSo26NSExtensionRequestHandling", "print"]
 - ["PSo26NSExtensionRequestHandling", "rxCharacteristic"]
 - ["PSo26NSExtensionRequestHandling", "sliderValueChange"]
@@ -722,30 +921,41 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "txCharacteristic"]
 - ["PSo26NSExtensionRequestHandling", "uartService"]
 - ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
+- ["PSo26NSExtensionRequestHandling", "writePinMode"]
+- ["PSo26NSExtensionRequestHandling", "writePinState"]
 - ["PSo26NSExtensionRequestHandling", ""]
 - !private ["PSo17NSFastEnumeration", "lastObject"]
 - !private ["PSo16NSMutableCopying", "init"]
 - !private ["PSo16NSMutableCopying", "lastObject"]
 - !private ["CSo20NSNotificationCenter", "defaultCenter"]
 - !private ["CSo20NSNotificationCenter", "postNotificationName"]
+- !private ["CSo8NSNumber", "deinit"]
 - ["CSo8NSObject", "AnyObject"]
 - ["CSo8NSObject", "CBCentralManager"]
 - ["CSo8NSObject", "CBCharacteristic"]
+- !private ["CSo8NSObject", "CBCharacteristicWriteType"]
 - ["CSo8NSObject", "CBPeripheral"]
 - ["CSo8NSObject", "CBService"]
 - !private ["CSo8NSObject", "CBUUID"]
 - ["CSo8NSObject", "CLAuthorizationStatus"]
 - ["CSo8NSObject", "CLLocation"]
 - ["CSo8NSObject", "CLLocationManager"]
+- !private ["CSo8NSObject", "Float"]
+- ["CSo8NSObject", "Int"]
 - !private ["CSo8NSObject", "NSArray"]
+- !private ["CSo8NSObject", "NSData"]
 - ["CSo8NSObject", "NSError"]
 - !private ["CSo8NSObject", "NSLog"]
 - !private ["CSo8NSObject", "NSNotificationCenter"]
 - ["CSo8NSObject", "NSNumber"]
+- ["CSo8NSObject", "PinMode"]
+- ["CSo8NSObject", "PinState"]
 - ["CSo8NSObject", "String"]
 - ["CSo8NSObject", "UIButton"]
 - ["CSo8NSObject", "UILabel"]
 - ["CSo8NSObject", "UISlider"]
+- ["CSo8NSObject", "UInt8"]
+- !private ["CSo8NSObject", "UUID"]
 - ["CSo8NSObject", "bleLabel"]
 - ["CSo8NSObject", "blueToothReady"]
 - ["CSo8NSObject", "centralManager"]
@@ -757,6 +967,7 @@ depends-member:
 - ["CSo8NSObject", "currentPeripheral"]
 - ["CSo8NSObject", "dataButton"]
 - !private ["CSo8NSObject", "defaultCenter"]
+- !private ["CSo8NSObject", "deinit"]
 - !private ["CSo8NSObject", "delegate"]
 - !private ["CSo8NSObject", "desiredAccuracy"]
 - ["CSo8NSObject", "didReceiveMemoryWarning"]
@@ -781,7 +992,9 @@ depends-member:
 - ["CSo8NSObject", "peripheralConnected"]
 - ["CSo8NSObject", "peripheralDidUpdateName"]
 - ["CSo8NSObject", "peripheralDidUpdateRSSI"]
+- ["CSo8NSObject", "portMasks"]
 - !private ["CSo8NSObject", "postNotificationName"]
+- !private ["CSo8NSObject", "powf"]
 - !private ["CSo8NSObject", "print"]
 - !private ["CSo8NSObject", "requestAlwaysAuthorization"]
 - ["CSo8NSObject", "rxCharacteristic"]
@@ -799,12 +1012,23 @@ depends-member:
 - ["CSo8NSObject", "uartService"]
 - !private ["CSo8NSObject", "value"]
 - ["CSo8NSObject", "viewDidLoad"]
+- ["CSo8NSObject", "writePinMode"]
+- ["CSo8NSObject", "writePinState"]
+- !private ["CSo8NSObject", "writeValue"]
 - !private ["PSo16NSObjectProtocol", "CBCentralManager"]
+- !private ["PSo16NSObjectProtocol", "CBCharacteristicWriteType"]
 - !private ["PSo16NSObjectProtocol", "CBUUID"]
 - !private ["PSo16NSObjectProtocol", "CLLocationManager"]
+- !private ["PSo16NSObjectProtocol", "Float"]
+- !private ["PSo16NSObjectProtocol", "Int"]
+- !private ["PSo16NSObjectProtocol", "NSData"]
 - !private ["PSo16NSObjectProtocol", "NSLog"]
 - !private ["PSo16NSObjectProtocol", "NSNotificationCenter"]
+- !private ["PSo16NSObjectProtocol", "PinMode"]
+- !private ["PSo16NSObjectProtocol", "PinState"]
 - !private ["PSo16NSObjectProtocol", "String"]
+- ["PSo16NSObjectProtocol", "UInt8"]
+- !private ["PSo16NSObjectProtocol", "UUID"]
 - ["PSo16NSObjectProtocol", "bleLabel"]
 - ["PSo16NSObjectProtocol", "blueToothReady"]
 - ["PSo16NSObjectProtocol", "centralManager"]
@@ -840,7 +1064,9 @@ depends-member:
 - ["PSo16NSObjectProtocol", "peripheralConnected"]
 - ["PSo16NSObjectProtocol", "peripheralDidUpdateName"]
 - ["PSo16NSObjectProtocol", "peripheralDidUpdateRSSI"]
+- ["PSo16NSObjectProtocol", "portMasks"]
 - !private ["PSo16NSObjectProtocol", "postNotificationName"]
+- !private ["PSo16NSObjectProtocol", "powf"]
 - !private ["PSo16NSObjectProtocol", "print"]
 - !private ["PSo16NSObjectProtocol", "requestAlwaysAuthorization"]
 - ["PSo16NSObjectProtocol", "rxCharacteristic"]
@@ -858,6 +1084,9 @@ depends-member:
 - ["PSo16NSObjectProtocol", "uartService"]
 - !private ["PSo16NSObjectProtocol", "value"]
 - ["PSo16NSObjectProtocol", "viewDidLoad"]
+- ["PSo16NSObjectProtocol", "writePinMode"]
+- ["PSo16NSObjectProtocol", "writePinState"]
+- !private ["PSo16NSObjectProtocol", "writeValue"]
 - ["PSo16NSObjectProtocol", ""]
 - !private ["PSo14NSSecureCoding", "coordinate"]
 - !private ["PSo14NSSecureCoding", "init"]
@@ -865,40 +1094,84 @@ depends-member:
 - !private ["PSo14NSSecureCoding", "speed"]
 - !private ["CSo8NSString", "deinit"]
 - !private ["CSo8NSString", "init"]
+- !private ["CSo7NSValue", "deinit"]
 - !private ["PSs21NilLiteralConvertible", "Generator"]
 - !private ["Sq", "deinit"]
 - !private ["PSs16OutputStreamType", "init"]
+- ["OC17running_assistant14ViewController7PinMode", "Analog"]
+- ["OC17running_assistant14ViewController7PinMode", "Input"]
+- ["OC17running_assistant14ViewController7PinMode", "Output"]
+- ["OC17running_assistant14ViewController7PinMode", "PWM"]
+- ["OC17running_assistant14ViewController7PinMode", "RawValue"]
+- ["OC17running_assistant14ViewController7PinMode", "Servo"]
+- ["OC17running_assistant14ViewController7PinMode", "Unknown"]
+- ["OC17running_assistant14ViewController7PinMode", "deinit"]
+- ["OC17running_assistant14ViewController7PinMode", "hashValue"]
+- ["OC17running_assistant14ViewController7PinMode", "init"]
+- ["OC17running_assistant14ViewController7PinMode", "rawValue"]
+- ["OC17running_assistant14ViewController8PinState", "High"]
+- ["OC17running_assistant14ViewController8PinState", "Low"]
+- ["OC17running_assistant14ViewController8PinState", "RawValue"]
+- ["OC17running_assistant14ViewController8PinState", "deinit"]
+- ["OC17running_assistant14ViewController8PinState", "hashValue"]
+- ["OC17running_assistant14ViewController8PinState", "init"]
+- ["OC17running_assistant14ViewController8PinState", "rawValue"]
 - !private ["PSs21RandomAccessIndexType", "Distance"]
 - !private ["PSs21RandomAccessIndexType", "IntegerLiteralType"]
+- !private ["PSs21RandomAccessIndexType", "hashValue"]
+- !private ["PSs21RandomAccessIndexType", "init"]
+- !private ["VSs5Range", "deinit"]
 - !private ["PSs30RangeReplaceableCollectionType", "Element"]
 - !private ["PSs30RangeReplaceableCollectionType", "Generator"]
 - !private ["PSs30RangeReplaceableCollectionType", "Index"]
 - !private ["PSs30RangeReplaceableCollectionType", "SubSequence"]
 - !private ["PSs30RangeReplaceableCollectionType", "_Element"]
+- ["PSs30RangeReplaceableCollectionType", "init"]
 - !private ["PSs30RangeReplaceableCollectionType", "last"]
+- !private ["PSs30RangeReplaceableCollectionType", "subscript"]
 - ["PSs16RawRepresentable", "Denied"]
+- !private ["PSs16RawRepresentable", "High"]
 - ["PSs16RawRepresentable", "NotDetermined"]
+- !private ["PSs16RawRepresentable", "Output"]
 - ["PSs16RawRepresentable", "PoweredOff"]
 - ["PSs16RawRepresentable", "PoweredOn"]
+- ["PSs16RawRepresentable", "RawValue"]
 - ["PSs16RawRepresentable", "Resetting"]
 - ["PSs16RawRepresentable", "Restricted"]
 - ["PSs16RawRepresentable", "Unauthorized"]
 - ["PSs16RawRepresentable", "Unknown"]
 - ["PSs16RawRepresentable", "Unsupported"]
+- !private ["PSs16RawRepresentable", "WithResponse"]
+- ["PSs16RawRepresentable", "hashValue"]
+- ["PSs16RawRepresentable", "init"]
+- ["PSs16RawRepresentable", "rawValue"]
+- ["PSs16RawRepresentable", ""]
 - !private ["PSs12SequenceType", "Element"]
 - !private ["PSs12SequenceType", "Generator"]
 - !private ["PSs12SequenceType", "Index"]
 - !private ["PSs12SequenceType", "SubSequence"]
 - !private ["PSs12SequenceType", "_Element"]
+- ["PSs12SequenceType", "init"]
 - !private ["PSs12SequenceType", "last"]
 - !private ["PSs12SequenceType", "lastObject"]
+- !private ["PSs12SequenceType", "subscript"]
 - !private ["PSs17SignedIntegerType", "Distance"]
 - !private ["PSs17SignedIntegerType", "IntegerLiteralType"]
+- !private ["PSs17SignedIntegerType", "hashValue"]
+- !private ["PSs17SignedIntegerType", "init"]
 - !private ["PSs16SignedNumberType", "Distance"]
 - !private ["PSs16SignedNumberType", "IntegerLiteralType"]
+- !private ["PSs16SignedNumberType", "hashValue"]
+- !private ["PSs16SignedNumberType", "init"]
+- !private ["VSs5Slice", "Generator"]
+- !private ["VSs5Slice", "Index"]
+- !private ["VSs5Slice", "SubSequence"]
+- !private ["VSs5Slice", "_Element"]
 - !private ["PSs10Streamable", "init"]
 - !private ["PSs10Strideable", "Distance"]
 - !private ["PSs10Strideable", "IntegerLiteralType"]
+- !private ["PSs10Strideable", "hashValue"]
+- !private ["PSs10Strideable", "init"]
 - !private ["SS", "init"]
 - !private ["PSs30StringInterpolationConvertible", "init"]
 - !private ["PSs24StringLiteralConvertible", "init"]
@@ -907,11 +1180,18 @@ depends-member:
 - !private ["PSo12UIAppearance", "text"]
 - !private ["PSo12UIAppearance", "value"]
 - !private ["PSo21UIAppearanceContainer", "CBCentralManager"]
+- !private ["PSo21UIAppearanceContainer", "CBCharacteristicWriteType"]
 - !private ["PSo21UIAppearanceContainer", "CBUUID"]
 - !private ["PSo21UIAppearanceContainer", "CLLocationManager"]
+- !private ["PSo21UIAppearanceContainer", "Float"]
+- !private ["PSo21UIAppearanceContainer", "Int"]
+- !private ["PSo21UIAppearanceContainer", "NSData"]
 - !private ["PSo21UIAppearanceContainer", "NSLog"]
 - !private ["PSo21UIAppearanceContainer", "NSNotificationCenter"]
+- !private ["PSo21UIAppearanceContainer", "PinMode"]
+- !private ["PSo21UIAppearanceContainer", "PinState"]
 - !private ["PSo21UIAppearanceContainer", "String"]
+- ["PSo21UIAppearanceContainer", "UInt8"]
 - ["PSo21UIAppearanceContainer", "bleLabel"]
 - ["PSo21UIAppearanceContainer", "blueToothReady"]
 - ["PSo21UIAppearanceContainer", "centralManager"]
@@ -937,6 +1217,8 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "peripheralConnected"]
 - ["PSo21UIAppearanceContainer", "peripheralDidUpdateName"]
 - ["PSo21UIAppearanceContainer", "peripheralDidUpdateRSSI"]
+- ["PSo21UIAppearanceContainer", "portMasks"]
+- !private ["PSo21UIAppearanceContainer", "powf"]
 - !private ["PSo21UIAppearanceContainer", "print"]
 - ["PSo21UIAppearanceContainer", "rxCharacteristic"]
 - ["PSo21UIAppearanceContainer", "sliderValueChange"]
@@ -947,13 +1229,22 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "uartService"]
 - !private ["PSo21UIAppearanceContainer", "value"]
 - ["PSo21UIAppearanceContainer", "viewDidLoad"]
+- ["PSo21UIAppearanceContainer", "writePinMode"]
+- ["PSo21UIAppearanceContainer", "writePinState"]
 - ["PSo21UIAppearanceContainer", ""]
 - !private ["PSo18UIContentContainer", "CBCentralManager"]
+- !private ["PSo18UIContentContainer", "CBCharacteristicWriteType"]
 - !private ["PSo18UIContentContainer", "CBUUID"]
 - !private ["PSo18UIContentContainer", "CLLocationManager"]
+- !private ["PSo18UIContentContainer", "Float"]
+- !private ["PSo18UIContentContainer", "Int"]
+- !private ["PSo18UIContentContainer", "NSData"]
 - !private ["PSo18UIContentContainer", "NSLog"]
 - !private ["PSo18UIContentContainer", "NSNotificationCenter"]
+- !private ["PSo18UIContentContainer", "PinMode"]
+- !private ["PSo18UIContentContainer", "PinState"]
 - !private ["PSo18UIContentContainer", "String"]
+- ["PSo18UIContentContainer", "UInt8"]
 - ["PSo18UIContentContainer", "bleLabel"]
 - ["PSo18UIContentContainer", "blueToothReady"]
 - ["PSo18UIContentContainer", "centralManager"]
@@ -979,6 +1270,8 @@ depends-member:
 - ["PSo18UIContentContainer", "peripheralConnected"]
 - ["PSo18UIContentContainer", "peripheralDidUpdateName"]
 - ["PSo18UIContentContainer", "peripheralDidUpdateRSSI"]
+- ["PSo18UIContentContainer", "portMasks"]
+- !private ["PSo18UIContentContainer", "powf"]
 - !private ["PSo18UIContentContainer", "print"]
 - ["PSo18UIContentContainer", "rxCharacteristic"]
 - ["PSo18UIContentContainer", "sliderValueChange"]
@@ -987,6 +1280,8 @@ depends-member:
 - ["PSo18UIContentContainer", "txCharacteristic"]
 - ["PSo18UIContentContainer", "uartService"]
 - ["PSo18UIContentContainer", "viewDidLoad"]
+- ["PSo18UIContentContainer", "writePinMode"]
+- ["PSo18UIContentContainer", "writePinState"]
 - ["PSo18UIContentContainer", ""]
 - !private ["CSo9UIControl", "value"]
 - !private ["PSo17UICoordinateSpace", "text"]
@@ -994,11 +1289,18 @@ depends-member:
 - !private ["PSo13UIDynamicItem", "text"]
 - !private ["PSo13UIDynamicItem", "value"]
 - !private ["PSo18UIFocusEnvironment", "CBCentralManager"]
+- !private ["PSo18UIFocusEnvironment", "CBCharacteristicWriteType"]
 - !private ["PSo18UIFocusEnvironment", "CBUUID"]
 - !private ["PSo18UIFocusEnvironment", "CLLocationManager"]
+- !private ["PSo18UIFocusEnvironment", "Float"]
+- !private ["PSo18UIFocusEnvironment", "Int"]
+- !private ["PSo18UIFocusEnvironment", "NSData"]
 - !private ["PSo18UIFocusEnvironment", "NSLog"]
 - !private ["PSo18UIFocusEnvironment", "NSNotificationCenter"]
+- !private ["PSo18UIFocusEnvironment", "PinMode"]
+- !private ["PSo18UIFocusEnvironment", "PinState"]
 - !private ["PSo18UIFocusEnvironment", "String"]
+- ["PSo18UIFocusEnvironment", "UInt8"]
 - ["PSo18UIFocusEnvironment", "bleLabel"]
 - ["PSo18UIFocusEnvironment", "blueToothReady"]
 - ["PSo18UIFocusEnvironment", "centralManager"]
@@ -1024,6 +1326,8 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "peripheralConnected"]
 - ["PSo18UIFocusEnvironment", "peripheralDidUpdateName"]
 - ["PSo18UIFocusEnvironment", "peripheralDidUpdateRSSI"]
+- ["PSo18UIFocusEnvironment", "portMasks"]
+- !private ["PSo18UIFocusEnvironment", "powf"]
 - !private ["PSo18UIFocusEnvironment", "print"]
 - ["PSo18UIFocusEnvironment", "rxCharacteristic"]
 - ["PSo18UIFocusEnvironment", "sliderValueChange"]
@@ -1034,26 +1338,35 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "uartService"]
 - !private ["PSo18UIFocusEnvironment", "value"]
 - ["PSo18UIFocusEnvironment", "viewDidLoad"]
+- ["PSo18UIFocusEnvironment", "writePinMode"]
+- ["PSo18UIFocusEnvironment", "writePinState"]
 - ["PSo18UIFocusEnvironment", ""]
 - !private ["CSo7UILabel", "text"]
 - ["CSo11UIResponder", "AnyObject"]
 - ["CSo11UIResponder", "CBCentralManager"]
 - ["CSo11UIResponder", "CBCharacteristic"]
+- !private ["CSo11UIResponder", "CBCharacteristicWriteType"]
 - ["CSo11UIResponder", "CBPeripheral"]
 - ["CSo11UIResponder", "CBService"]
 - !private ["CSo11UIResponder", "CBUUID"]
 - ["CSo11UIResponder", "CLAuthorizationStatus"]
 - ["CSo11UIResponder", "CLLocation"]
 - ["CSo11UIResponder", "CLLocationManager"]
+- !private ["CSo11UIResponder", "Float"]
+- ["CSo11UIResponder", "Int"]
 - !private ["CSo11UIResponder", "NSArray"]
+- !private ["CSo11UIResponder", "NSData"]
 - ["CSo11UIResponder", "NSError"]
 - !private ["CSo11UIResponder", "NSLog"]
 - !private ["CSo11UIResponder", "NSNotificationCenter"]
 - ["CSo11UIResponder", "NSNumber"]
+- ["CSo11UIResponder", "PinMode"]
+- ["CSo11UIResponder", "PinState"]
 - ["CSo11UIResponder", "String"]
 - ["CSo11UIResponder", "UIButton"]
 - ["CSo11UIResponder", "UILabel"]
 - ["CSo11UIResponder", "UISlider"]
+- ["CSo11UIResponder", "UInt8"]
 - ["CSo11UIResponder", "bleLabel"]
 - ["CSo11UIResponder", "blueToothReady"]
 - ["CSo11UIResponder", "centralManager"]
@@ -1079,6 +1392,8 @@ depends-member:
 - ["CSo11UIResponder", "peripheralConnected"]
 - ["CSo11UIResponder", "peripheralDidUpdateName"]
 - ["CSo11UIResponder", "peripheralDidUpdateRSSI"]
+- ["CSo11UIResponder", "portMasks"]
+- !private ["CSo11UIResponder", "powf"]
 - !private ["CSo11UIResponder", "print"]
 - ["CSo11UIResponder", "rxCharacteristic"]
 - ["CSo11UIResponder", "sliderValueChange"]
@@ -1089,13 +1404,22 @@ depends-member:
 - ["CSo11UIResponder", "uartService"]
 - !private ["CSo11UIResponder", "value"]
 - ["CSo11UIResponder", "viewDidLoad"]
+- ["CSo11UIResponder", "writePinMode"]
+- ["CSo11UIResponder", "writePinState"]
 - !private ["CSo8UISlider", "value"]
 - !private ["PSo16UIStateRestoring", "CBCentralManager"]
+- !private ["PSo16UIStateRestoring", "CBCharacteristicWriteType"]
 - !private ["PSo16UIStateRestoring", "CBUUID"]
 - !private ["PSo16UIStateRestoring", "CLLocationManager"]
+- !private ["PSo16UIStateRestoring", "Float"]
+- !private ["PSo16UIStateRestoring", "Int"]
+- !private ["PSo16UIStateRestoring", "NSData"]
 - !private ["PSo16UIStateRestoring", "NSLog"]
 - !private ["PSo16UIStateRestoring", "NSNotificationCenter"]
+- !private ["PSo16UIStateRestoring", "PinMode"]
+- !private ["PSo16UIStateRestoring", "PinState"]
 - !private ["PSo16UIStateRestoring", "String"]
+- ["PSo16UIStateRestoring", "UInt8"]
 - ["PSo16UIStateRestoring", "bleLabel"]
 - ["PSo16UIStateRestoring", "blueToothReady"]
 - ["PSo16UIStateRestoring", "centralManager"]
@@ -1121,6 +1445,8 @@ depends-member:
 - ["PSo16UIStateRestoring", "peripheralConnected"]
 - ["PSo16UIStateRestoring", "peripheralDidUpdateName"]
 - ["PSo16UIStateRestoring", "peripheralDidUpdateRSSI"]
+- ["PSo16UIStateRestoring", "portMasks"]
+- !private ["PSo16UIStateRestoring", "powf"]
 - !private ["PSo16UIStateRestoring", "print"]
 - ["PSo16UIStateRestoring", "rxCharacteristic"]
 - ["PSo16UIStateRestoring", "sliderValueChange"]
@@ -1129,13 +1455,22 @@ depends-member:
 - ["PSo16UIStateRestoring", "txCharacteristic"]
 - ["PSo16UIStateRestoring", "uartService"]
 - ["PSo16UIStateRestoring", "viewDidLoad"]
+- ["PSo16UIStateRestoring", "writePinMode"]
+- ["PSo16UIStateRestoring", "writePinState"]
 - ["PSo16UIStateRestoring", ""]
 - !private ["PSo18UITraitEnvironment", "CBCentralManager"]
+- !private ["PSo18UITraitEnvironment", "CBCharacteristicWriteType"]
 - !private ["PSo18UITraitEnvironment", "CBUUID"]
 - !private ["PSo18UITraitEnvironment", "CLLocationManager"]
+- !private ["PSo18UITraitEnvironment", "Float"]
+- !private ["PSo18UITraitEnvironment", "Int"]
+- !private ["PSo18UITraitEnvironment", "NSData"]
 - !private ["PSo18UITraitEnvironment", "NSLog"]
 - !private ["PSo18UITraitEnvironment", "NSNotificationCenter"]
+- !private ["PSo18UITraitEnvironment", "PinMode"]
+- !private ["PSo18UITraitEnvironment", "PinState"]
 - !private ["PSo18UITraitEnvironment", "String"]
+- ["PSo18UITraitEnvironment", "UInt8"]
 - ["PSo18UITraitEnvironment", "bleLabel"]
 - ["PSo18UITraitEnvironment", "blueToothReady"]
 - ["PSo18UITraitEnvironment", "centralManager"]
@@ -1161,6 +1496,8 @@ depends-member:
 - ["PSo18UITraitEnvironment", "peripheralConnected"]
 - ["PSo18UITraitEnvironment", "peripheralDidUpdateName"]
 - ["PSo18UITraitEnvironment", "peripheralDidUpdateRSSI"]
+- ["PSo18UITraitEnvironment", "portMasks"]
+- !private ["PSo18UITraitEnvironment", "powf"]
 - !private ["PSo18UITraitEnvironment", "print"]
 - ["PSo18UITraitEnvironment", "rxCharacteristic"]
 - ["PSo18UITraitEnvironment", "sliderValueChange"]
@@ -1171,27 +1508,36 @@ depends-member:
 - ["PSo18UITraitEnvironment", "uartService"]
 - !private ["PSo18UITraitEnvironment", "value"]
 - ["PSo18UITraitEnvironment", "viewDidLoad"]
+- ["PSo18UITraitEnvironment", "writePinMode"]
+- ["PSo18UITraitEnvironment", "writePinState"]
 - ["PSo18UITraitEnvironment", ""]
 - !private ["CSo6UIView", "text"]
 - !private ["CSo6UIView", "value"]
 - ["CSo16UIViewController", "AnyObject"]
 - ["CSo16UIViewController", "CBCentralManager"]
 - ["CSo16UIViewController", "CBCharacteristic"]
+- !private ["CSo16UIViewController", "CBCharacteristicWriteType"]
 - ["CSo16UIViewController", "CBPeripheral"]
 - ["CSo16UIViewController", "CBService"]
 - !private ["CSo16UIViewController", "CBUUID"]
 - ["CSo16UIViewController", "CLAuthorizationStatus"]
 - ["CSo16UIViewController", "CLLocation"]
 - ["CSo16UIViewController", "CLLocationManager"]
+- !private ["CSo16UIViewController", "Float"]
+- ["CSo16UIViewController", "Int"]
 - !private ["CSo16UIViewController", "NSArray"]
+- !private ["CSo16UIViewController", "NSData"]
 - ["CSo16UIViewController", "NSError"]
 - !private ["CSo16UIViewController", "NSLog"]
 - !private ["CSo16UIViewController", "NSNotificationCenter"]
 - ["CSo16UIViewController", "NSNumber"]
+- ["CSo16UIViewController", "PinMode"]
+- ["CSo16UIViewController", "PinState"]
 - ["CSo16UIViewController", "String"]
 - ["CSo16UIViewController", "UIButton"]
 - ["CSo16UIViewController", "UILabel"]
 - ["CSo16UIViewController", "UISlider"]
+- ["CSo16UIViewController", "UInt8"]
 - ["CSo16UIViewController", "bleLabel"]
 - ["CSo16UIViewController", "blueToothReady"]
 - ["CSo16UIViewController", "centralManager"]
@@ -1217,6 +1563,8 @@ depends-member:
 - ["CSo16UIViewController", "peripheralConnected"]
 - ["CSo16UIViewController", "peripheralDidUpdateName"]
 - ["CSo16UIViewController", "peripheralDidUpdateRSSI"]
+- ["CSo16UIViewController", "portMasks"]
+- !private ["CSo16UIViewController", "powf"]
 - !private ["CSo16UIViewController", "print"]
 - ["CSo16UIViewController", "rxCharacteristic"]
 - ["CSo16UIViewController", "sliderValueChange"]
@@ -1225,32 +1573,43 @@ depends-member:
 - ["CSo16UIViewController", "txCharacteristic"]
 - ["CSo16UIViewController", "uartService"]
 - ["CSo16UIViewController", "viewDidLoad"]
+- ["CSo16UIViewController", "writePinMode"]
+- ["CSo16UIViewController", "writePinState"]
 - ["CSo16UIViewController", ""]
 - !private ["Su", "deinit"]
 - !private ["VSs6UInt16", "deinit"]
 - !private ["VSs6UInt32", "deinit"]
 - !private ["VSs6UInt64", "deinit"]
 - !private ["VSs5UInt8", "deinit"]
+- !private ["VSs5UInt8", "init"]
 - !private ["Sc", "deinit"]
 - !private ["PSs31UnicodeScalarLiteralConvertible", "init"]
+- !private ["PSs19UnsignedIntegerType", "init"]
 - ["C17running_assistant14ViewController", "AnyObject"]
 - ["C17running_assistant14ViewController", "CBCentralManager"]
 - ["C17running_assistant14ViewController", "CBCharacteristic"]
+- !private ["C17running_assistant14ViewController", "CBCharacteristicWriteType"]
 - ["C17running_assistant14ViewController", "CBPeripheral"]
 - ["C17running_assistant14ViewController", "CBService"]
 - !private ["C17running_assistant14ViewController", "CBUUID"]
 - ["C17running_assistant14ViewController", "CLAuthorizationStatus"]
 - ["C17running_assistant14ViewController", "CLLocation"]
 - ["C17running_assistant14ViewController", "CLLocationManager"]
+- !private ["C17running_assistant14ViewController", "Float"]
+- ["C17running_assistant14ViewController", "Int"]
 - !private ["C17running_assistant14ViewController", "NSArray"]
+- !private ["C17running_assistant14ViewController", "NSData"]
 - ["C17running_assistant14ViewController", "NSError"]
 - !private ["C17running_assistant14ViewController", "NSLog"]
 - !private ["C17running_assistant14ViewController", "NSNotificationCenter"]
 - ["C17running_assistant14ViewController", "NSNumber"]
+- ["C17running_assistant14ViewController", "PinMode"]
+- ["C17running_assistant14ViewController", "PinState"]
 - ["C17running_assistant14ViewController", "String"]
 - ["C17running_assistant14ViewController", "UIButton"]
 - ["C17running_assistant14ViewController", "UILabel"]
 - ["C17running_assistant14ViewController", "UISlider"]
+- ["C17running_assistant14ViewController", "UInt8"]
 - ["C17running_assistant14ViewController", "bleLabel"]
 - ["C17running_assistant14ViewController", "blueToothReady"]
 - ["C17running_assistant14ViewController", "centralManager"]
@@ -1277,6 +1636,8 @@ depends-member:
 - ["C17running_assistant14ViewController", "peripheralConnected"]
 - ["C17running_assistant14ViewController", "peripheralDidUpdateName"]
 - ["C17running_assistant14ViewController", "peripheralDidUpdateRSSI"]
+- !private ["C17running_assistant14ViewController", "portMasks"]
+- !private ["C17running_assistant14ViewController", "powf"]
 - !private ["C17running_assistant14ViewController", "print"]
 - ["C17running_assistant14ViewController", "rxCharacteristic"]
 - ["C17running_assistant14ViewController", "sliderValueChange"]
@@ -1285,32 +1646,50 @@ depends-member:
 - ["C17running_assistant14ViewController", "txCharacteristic"]
 - ["C17running_assistant14ViewController", "uartService"]
 - ["C17running_assistant14ViewController", "viewDidLoad"]
+- ["C17running_assistant14ViewController", "writePinMode"]
+- ["C17running_assistant14ViewController", "writePinState"]
 - !private ["PSs10_ArrayType", "Element"]
 - !private ["PSs10_ArrayType", "Generator"]
 - !private ["PSs10_ArrayType", "Index"]
 - !private ["PSs10_ArrayType", "SubSequence"]
 - !private ["PSs10_ArrayType", "_Element"]
+- ["PSs10_ArrayType", "init"]
 - !private ["PSs10_ArrayType", "last"]
+- !private ["PSs10_ArrayType", "subscript"]
 - !private ["PSs33_BuiltinBooleanLiteralConvertible", "_getBuiltinLogicValue"]
 - !private ["PSs49_BuiltinExtendedGraphemeClusterLiteralConvertible", "init"]
+- !private ["PSs31_BuiltinFloatLiteralConvertible", "init"]
 - !private ["PSs33_BuiltinIntegerLiteralConvertible", "Distance"]
 - !private ["PSs33_BuiltinIntegerLiteralConvertible", "IntegerLiteralType"]
+- !private ["PSs33_BuiltinIntegerLiteralConvertible", "hashValue"]
+- !private ["PSs33_BuiltinIntegerLiteralConvertible", "init"]
 - !private ["PSs32_BuiltinStringLiteralConvertible", "init"]
 - !private ["PSs37_BuiltinUTF16StringLiteralConvertible", "init"]
 - !private ["PSs39_BuiltinUnicodeScalarLiteralConvertible", "init"]
+- !private ["PSs19_CVarArgAlignedType", "init"]
+- !private ["PSs22_CVarArgPassedAsDouble", "init"]
 - !private ["PSs16_CocoaStringType", "init"]
 - !private ["PSs24_DestructorSafeContainer", "Element"]
 - !private ["PSs24_DestructorSafeContainer", "Generator"]
 - !private ["PSs24_DestructorSafeContainer", "Index"]
 - !private ["PSs24_DestructorSafeContainer", "SubSequence"]
 - !private ["PSs24_DestructorSafeContainer", "_Element"]
+- ["PSs24_DestructorSafeContainer", "init"]
 - !private ["PSs24_DestructorSafeContainer", "last"]
+- !private ["PSs24_DestructorSafeContainer", "subscript"]
+- !private ["PSs28_DisallowMixedSignArithmetic", "init"]
 - !private ["PSs14_Incrementable", "Distance"]
 - !private ["PSs14_Incrementable", "IntegerLiteralType"]
+- !private ["PSs14_Incrementable", "hashValue"]
+- !private ["PSs14_Incrementable", "init"]
 - !private ["PSs22_IntegerArithmeticType", "Distance"]
 - !private ["PSs22_IntegerArithmeticType", "IntegerLiteralType"]
+- !private ["PSs22_IntegerArithmeticType", "hashValue"]
+- !private ["PSs22_IntegerArithmeticType", "init"]
 - !private ["PSs12_IntegerType", "Distance"]
 - !private ["PSs12_IntegerType", "IntegerLiteralType"]
+- !private ["PSs12_IntegerType", "hashValue"]
+- !private ["PSs12_IntegerType", "init"]
 - !private ["PSs21_ObjectiveCBridgeable", "Distance"]
 - !private ["PSs21_ObjectiveCBridgeable", "Element"]
 - !private ["PSs21_ObjectiveCBridgeable", "Generator"]
@@ -1319,11 +1698,15 @@ depends-member:
 - !private ["PSs21_ObjectiveCBridgeable", "SubSequence"]
 - !private ["PSs21_ObjectiveCBridgeable", "_Element"]
 - !private ["PSs21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
-- !private ["PSs21_ObjectiveCBridgeable", "init"]
+- !private ["PSs21_ObjectiveCBridgeable", "hashValue"]
+- ["PSs21_ObjectiveCBridgeable", "init"]
 - !private ["PSs21_ObjectiveCBridgeable", "last"]
+- !private ["PSs21_ObjectiveCBridgeable", "subscript"]
 - !private ["VSs26_OptionalNilComparisonType", "deinit"]
 - !private ["PSs22_RandomAccessAmbiguity", "Distance"]
 - !private ["PSs22_RandomAccessAmbiguity", "IntegerLiteralType"]
+- !private ["PSs22_RandomAccessAmbiguity", "hashValue"]
+- !private ["PSs22_RandomAccessAmbiguity", "init"]
 - !private ["PSs12_Reflectable", "Distance"]
 - !private ["PSs12_Reflectable", "Element"]
 - !private ["PSs12_Reflectable", "Generator"]
@@ -1332,19 +1715,27 @@ depends-member:
 - !private ["PSs12_Reflectable", "SubSequence"]
 - !private ["PSs12_Reflectable", "_Element"]
 - !private ["PSs12_Reflectable", "_getBuiltinLogicValue"]
-- !private ["PSs12_Reflectable", "init"]
+- !private ["PSs12_Reflectable", "hashValue"]
+- ["PSs12_Reflectable", "init"]
 - !private ["PSs12_Reflectable", "last"]
 - !private ["PSs12_Reflectable", "lastObject"]
+- !private ["PSs12_Reflectable", "subscript"]
 - !private ["PSs12_Reflectable", "text"]
 - !private ["PSs12_Reflectable", "value"]
 - !private ["PSs18_SignedIntegerType", "Distance"]
 - !private ["PSs18_SignedIntegerType", "IntegerLiteralType"]
+- !private ["PSs18_SignedIntegerType", "hashValue"]
+- !private ["PSs18_SignedIntegerType", "init"]
 - !private ["PSs11_Strideable", "Distance"]
 - !private ["PSs11_Strideable", "IntegerLiteralType"]
+- !private ["PSs11_Strideable", "hashValue"]
+- !private ["PSs11_Strideable", "init"]
+- !private ["PSs18_StringElementType", "init"]
 depends-nominal:
+- !private "PSs16AbsoluteValuable"
 - "PSs9AnyObject"
-- !private "Sa"
-- !private "PSs23ArrayLiteralConvertible"
+- "Sa"
+- "PSs23ArrayLiteralConvertible"
 - !private "VSs10ArraySlice"
 - !private "PSs22BidirectionalIndexType"
 - !private "PSs21BitwiseOperationsType"
@@ -1355,6 +1746,8 @@ depends-nominal:
 - !private "CSo16CBCentralManager"
 - "PSo24CBCentralManagerDelegate"
 - "OSC21CBCentralManagerState"
+- !private "CSo16CBCharacteristic"
+- !private "OSC25CBCharacteristicWriteType"
 - !private "CSo6CBPeer"
 - !private "CSo12CBPeripheral"
 - "PSo20CBPeripheralDelegate"
@@ -1367,19 +1760,21 @@ depends-nominal:
 - "PSo25CLLocationManagerDelegate"
 - "PSs11CVarArgType"
 - !private "VSs9Character"
-- !private "PSs14CollectionType"
+- "PSs14CollectionType"
 - !private "PSs10Comparable"
-- !private "PSs28CustomDebugStringConvertible"
+- "PSs28CustomDebugStringConvertible"
 - "PSs23CustomStringConvertible"
 - !private "Sd"
 - "PSs9Equatable"
 - !private "PSs41ExtendedGraphemeClusterLiteralConvertible"
 - !private "Sf"
+- !private "PSs23FloatLiteralConvertible"
+- !private "PSs17FloatingPointType"
 - !private "PSs16ForwardIndexType"
 - !private "PSs13GeneratorType"
 - "PSs8Hashable"
 - !private "SQ"
-- !private "PSs9Indexable"
+- "PSs9Indexable"
 - !private "VSs17IndexingGenerator"
 - !private "Si"
 - !private "VSs5Int16"
@@ -1390,29 +1785,37 @@ depends-nominal:
 - !private "PSs25IntegerLiteralConvertible"
 - !private "PSs11IntegerType"
 - !private "PSs14MirrorPathType"
-- !private "PSs21MutableCollectionType"
-- !private "PSs16MutableIndexable"
-- !private "PSs16MutableSliceable"
+- "PSs21MutableCollectionType"
+- "PSs16MutableIndexable"
+- !private "VSs12MutableSlice"
+- "PSs16MutableSliceable"
 - !private "CSo7NSArray"
 - "PSo8NSCoding"
 - !private "PSo9NSCopying"
+- !private "CSo6NSData"
 - "PSo26NSExtensionRequestHandling"
 - !private "PSo17NSFastEnumeration"
 - !private "PSo16NSMutableCopying"
 - !private "CSo20NSNotificationCenter"
+- !private "CSo8NSNumber"
 - "CSo8NSObject"
 - "PSo16NSObjectProtocol"
 - !private "PSo14NSSecureCoding"
 - !private "CSo8NSString"
+- !private "CSo7NSValue"
 - !private "PSs21NilLiteralConvertible"
 - !private "Sq"
 - !private "PSs16OutputStreamType"
+- "OC17running_assistant14ViewController7PinMode"
+- "OC17running_assistant14ViewController8PinState"
 - !private "PSs21RandomAccessIndexType"
-- !private "PSs30RangeReplaceableCollectionType"
+- !private "VSs5Range"
+- "PSs30RangeReplaceableCollectionType"
 - "PSs16RawRepresentable"
-- !private "PSs12SequenceType"
+- "PSs12SequenceType"
 - !private "PSs17SignedIntegerType"
 - !private "PSs16SignedNumberType"
+- !private "VSs5Slice"
 - !private "PSs10Streamable"
 - !private "PSs10Strideable"
 - !private "SS"
@@ -1440,25 +1843,31 @@ depends-nominal:
 - !private "VSs5UInt8"
 - !private "Sc"
 - !private "PSs31UnicodeScalarLiteralConvertible"
+- !private "PSs19UnsignedIntegerType"
 - "C17running_assistant14ViewController"
-- !private "PSs10_ArrayType"
+- "PSs10_ArrayType"
 - !private "PSs33_BuiltinBooleanLiteralConvertible"
 - !private "PSs49_BuiltinExtendedGraphemeClusterLiteralConvertible"
+- !private "PSs31_BuiltinFloatLiteralConvertible"
 - !private "PSs33_BuiltinIntegerLiteralConvertible"
 - !private "PSs32_BuiltinStringLiteralConvertible"
 - !private "PSs37_BuiltinUTF16StringLiteralConvertible"
 - !private "PSs39_BuiltinUnicodeScalarLiteralConvertible"
+- !private "PSs19_CVarArgAlignedType"
+- !private "PSs22_CVarArgPassedAsDouble"
 - !private "PSs16_CocoaStringType"
-- !private "PSs24_DestructorSafeContainer"
+- "PSs24_DestructorSafeContainer"
+- !private "PSs28_DisallowMixedSignArithmetic"
 - !private "PSs14_Incrementable"
 - !private "PSs22_IntegerArithmeticType"
 - !private "PSs12_IntegerType"
-- !private "PSs21_ObjectiveCBridgeable"
+- "PSs21_ObjectiveCBridgeable"
 - !private "VSs26_OptionalNilComparisonType"
 - !private "PSs22_RandomAccessAmbiguity"
-- !private "PSs12_Reflectable"
+- "PSs12_Reflectable"
 - !private "PSs18_SignedIntegerType"
 - !private "PSs11_Strideable"
+- !private "PSs18_StringElementType"
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
@@ -1471,4 +1880,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreLocation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreBluetooth.swiftmodule"
-interface-hash: "6b01f5f9246f5ccba301e4fc21aceddd"
+interface-hash: "5906e06b93cfa3228183dba2a0561f6f"

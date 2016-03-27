@@ -109,20 +109,22 @@ SWIFT_CLASS("_TtC17running_assistant11AppDelegate")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UIButton;
 @class CLLocationManager;
-@class UISlider;
-@class CLLocation;
 @class CBCentralManager;
 @class CBPeripheral;
+@class CBService;
+@class CBCharacteristic;
+@class UISlider;
+@class UIButton;
+@class CLLocation;
 @class NSNumber;
+@class NSError;
 @class UILabel;
 @class NSBundle;
 @class NSCoder;
 
 SWIFT_CLASS("_TtC17running_assistant14ViewController")
-@interface ViewController : UIViewController <CLLocationManagerDelegate, CBCentralManagerDelegate>
-- (IBAction)dataButton:(UIButton * __nonnull)sender;
+@interface ViewController : UIViewController <CLLocationManagerDelegate, CBCentralManagerDelegate, CBPeripheralDelegate>
 @property (nonatomic, weak) IBOutlet UILabel * __null_unspecified lonLabel;
 @property (nonatomic, weak) IBOutlet UILabel * __null_unspecified latLabel;
 @property (nonatomic, weak) IBOutlet UILabel * __null_unspecified paceLabel;
@@ -133,18 +135,25 @@ SWIFT_CLASS("_TtC17running_assistant14ViewController")
 @property (nonatomic, copy) NSString * __nonnull locationStatus;
 @property (nonatomic) BOOL locationFixAchieved;
 @property (nonatomic) NSInteger count;
+@property (nonatomic, strong) CBCentralManager * __null_unspecified centralManager;
+@property (nonatomic) BOOL blueToothReady;
+@property (nonatomic) BOOL peripheralConnected;
+@property (nonatomic, strong) CBPeripheral * __null_unspecified currentPeripheral;
+@property (nonatomic, strong) CBService * __nullable uartService;
+@property (nonatomic, strong) CBCharacteristic * __nullable rxCharacteristic;
+@property (nonatomic, strong) CBCharacteristic * __nullable txCharacteristic;
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
 - (IBAction)sliderValueChange:(UISlider * __nonnull)sender;
+- (IBAction)dataButton:(UIButton * __nonnull)sender;
 - (void)locationManager:(CLLocationManager * __nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * __nonnull)locations;
 - (void)locationManager:(CLLocationManager * __nonnull)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status;
-@property (nonatomic, strong) CBCentralManager * __null_unspecified centralManager;
-@property (nonatomic) BOOL blueToothReady;
-@property (nonatomic, strong) CBPeripheral * __null_unspecified currentPeripheral;
 - (void)startUpCentralManager;
 - (void)discoverDevices;
 - (void)centralManager:(CBCentralManager * __nonnull)central didDiscoverPeripheral:(CBPeripheral * __nonnull)peripheral advertisementData:(NSDictionary<NSString *, id> * __nonnull)advertisementData RSSI:(NSNumber * __nonnull)RSSI;
 - (void)centralManager:(CBCentralManager * __nonnull)central didConnectPeripheral:(CBPeripheral * __nonnull)peripheral;
+- (void)peripheral:(CBPeripheral * __nonnull)peripheral didDiscoverServices:(NSError * __nullable)error;
+- (void)peripheral:(CBPeripheral * __nonnull)peripheral didDiscoverCharacteristicsForService:(CBService * __nonnull)service error:(NSError * __nullable)error;
 - (void)centralManagerDidUpdateState:(CBCentralManager * __nonnull)central;
 - (nonnull instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;

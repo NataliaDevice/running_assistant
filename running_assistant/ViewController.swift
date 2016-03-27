@@ -11,11 +11,7 @@ import Foundation
 import CoreLocation
 import CoreBluetooth
 
-class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralManagerDelegate {
-
-    @IBAction func dataButton(sender: UIButton) {
-        print("Button pressed")
-    }
+class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralManagerDelegate, CBPeripheralDelegate {
 
     
     @IBOutlet weak var lonLabel: UILabel!
@@ -28,11 +24,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     
     @IBOutlet weak var speedLabel: UILabel!
     
+    // Location Manager variables
     var locationManager:CLLocationManager!
     
     var locationStatus = ""
     var locationFixAchieved = false
     var count = 0
+    // end Location Manager variables
+    
+    // Bluetooth variables
+    var centralManager:CBCentralManager!
+    var blueToothReady = false
+    var peripheralConnected = false
+    //    var currentPeripheral = CBPeripheral.Type.self
+    var currentPeripheral:CBPeripheral!
+    
+    var uartService:CBService?
+    var rxCharacteristic:CBCharacteristic?
+    var txCharacteristic:CBCharacteristic?
+    // end Bluetooth variables
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,8 +70,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         paceLabel.text = value
     }
     
+    @IBAction func dataButton(sender: UIButton) {
+        print("Button pressed")
+        if (peripheralConnected == true) {
+            
+        }
+    }
+    
+    // Location Manager (GPS) functions
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        locationManager.stopUpdatingLocation()
         if (locationFixAchieved == false) { //run once
             locationFixAchieved = true
             let locationArray = locations as NSArray
@@ -82,7 +99,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         latLabel.text = String(format:"Lat: %.06f", newLocation!.coordinate.latitude)
         lonLabel.text = String(format:"Lon: %.06f", newLocation!.coordinate.longitude)
         speedLabel.text = String(format:"Speed: %.06f", newLocation!.speed)
-//        locationManager.startUpdatingLocation()
     }
     
     func locationManager(manager: CLLocationManager,
@@ -109,13 +125,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
                 NSLog("Denied access: \(locationStatus)")
             }
     }
-    
-    //Bluetooth variables and functions
-    var centralManager:CBCentralManager!
-    var blueToothReady = false
-//    var currentPeripheral = CBPeripheral.Type.self
-    var currentPeripheral:CBPeripheral!
-    
+    // end Location Manager (GPS) functions
+
+    // Bluetooth functions
     func startUpCentralManager() {
         print("Initializing central manager")
         centralManager = CBCentralManager(delegate: self, queue: nil)
@@ -126,11 +138,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         centralManager.scanForPeripheralsWithServices(nil, options: nil)
     }
     
+    // Bluetooth central manager delegate functions
     func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber) {
         
         print("Discovered \(peripheral.name)")
         currentPeripheral = peripheral
         if peripheral.name == "BLE_Firmata" {
+            currentPeripheral.delegate = self
+            centralManager.stopScan()
             print(currentPeripheral.name)
             print("this worked!")
             centralManager.connectPeripheral(currentPeripheral, options: nil)
@@ -140,9 +155,29 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     func centralManager(central: CBCentralManager, didConnectPeripheral peripheral: CBPeripheral) {
         print("Connected to peripheral")
         bleLabel.text = "Connected to peripheral"
-        centralManager.stopScan()
-        //
+//        peripheral.delegate = self
+        peripheral.discoverServices(nil)
+//        peripheral.discoverServices([CBUUID(string: "00001530-1212-efde-1523-785feabcd123"), CBUUID(string: "180A")]) //array of dfuServiceUUID and deviceInformationServiceUUID
+        
     }
+    
+    func peripheral(peripheral: CBPeripheral, didDiscoverServices error: NSError?) {
+        let services = peripheral.services as [CBService]!
+        for s in services {
+            print(s)
+            uartService = s
+//            peripheral.discoverCharacteristics([txCharacteristicUUID(), rxCharacteristicUUID()], forService: uartService!)
+            peripheral.discoverCharacteristics([CBUUID(string: "6e400002-b5a3-f393-e0a9-e50e24dcca9e"), CBUUID(string: "6e400003-b5a3-f393-e0a9-e50e24dcca9e")], forService: uartService!) // for txCharacteristicUUID and rxCharacteristicUUID
+//            peripheral.discoverCharacteristics(nil, forService: s)
+        }
+    }
+    
+    func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error: NSError?) {
+        for c in (service.characteristics as [CBCharacteristic]!) {
+            print(c)
+        }
+    }
+
     
     
     func centralManagerDidUpdateState(central: CBCentralManager) {
@@ -172,140 +207,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
             discoverDevices()
         }
     }
-    
-    //
-//    let centralManager:CBCentralManager!
-//    var connectingPeripheral:CBPeripheral!
-//    
-//    required init(coder aDecoder: NSCoder) {
-//        
-//        super.init(coder: aDecoder)!
-//        centralManager = CBCentralManager(delegate: self, queue: dispatch_get_main_queue())
-//    }
-//    
-//    func centralManagerDidUpdateState(central: CBCentralManager){
-//        
-//        switch central.state{
-//        case .PoweredOn:
-//            print("poweredOn")
-//            
-//            let serviceUUIDs:[AnyObject] = [CBUUID(string: "180D")]
-//            let lastPeripherals = centralManager.retrieveConnectedPeripheralsWithServices(serviceUUIDs)
-//            
-//            if lastPeripherals.count > 0{
-//                let device = lastPeripherals.last as CBPeripheral;
-//                connectingPeripheral = device;
-//                centralManager.connectPeripheral(connectingPeripheral, options: nil)
-//            }
-//            else {
-//                centralManager.scanForPeripheralsWithServices(serviceUUIDs, options: nil)
-//            }
-//            
-//        default:
-//            print(central.state)
-//        }
-//    }
-//    
-//    func centralManager(central: CBCentralManager!, didDiscoverPeripheral peripheral: CBPeripheral!, advertisementData: [NSObject : AnyObject]!, RSSI: NSNumber!) {
-//        
-//        connectingPeripheral = peripheral
-//        connectingPeripheral.delegate = self
-//        centralManager.connectPeripheral(connectingPeripheral, options: nil)
-//    }
-//    
-//    func centralManager(central: CBCentralManager, didConnectPeripheral peripheral: CBPeripheral) {
-//        
-//        peripheral.discoverServices(nil)
-//    }
-//    
-//    func peripheral(peripheral: CBPeripheral!, didDiscoverServices error: NSError!) {
-//        
-//        if let actualError = error{
-//            
-//        }
-//        else {
-//            for service in peripheral.services as [CBService]!{
-//                peripheral.discoverCharacteristics(nil, forService: service)
-//            }
-//        }
-//    }
-//    
-//    func peripheral(peripheral: CBPeripheral!, didDiscoverCharacteristicsForService service: CBService!, error: NSError!) {
-//        
-//        if let actualError = error{
-//            
-//        }
-//        else {
-//            
-//            if service.UUID == CBUUID(string: "180D"){
-//                for characteristic in service.characteristics! as [CBCharacteristic]{
-//                    switch characteristic.UUID.UUIDString{
-//                        
-//                    case "2A37":
-//                        // Set notification on heart rate measurement
-//                        print("Found a Heart Rate Measurement Characteristic")
-//                        peripheral.setNotifyValue(true, forCharacteristic: characteristic)
-//                        
-//                    case "2A38":
-//                        // Read body sensor location
-//                        print("Found a Body Sensor Location Characteristic")
-//                        peripheral.readValueForCharacteristic(characteristic)
-//                        
-//                    case "2A39":
-//                        // Write heart rate control point
-//                        print("Found a Heart Rate Control Point Characteristic")
-//                        
-//                        var rawArray:[UInt8] = [0x01];
-//                        let data = NSData(bytes: &rawArray, length: rawArray.count)
-//                        peripheral.writeValue(data, forCharacteristic: characteristic, type: CBCharacteristicWriteType.WithoutResponse)
-//                        
-//                    default:
-//                        print()
-//                    }
-//                    
-//                }
-//            }
-//        }
-//    }
-//    
-//    func update(heartRateData heartRateData:NSData){
-//        
-//        var buffer = [UInt8](count: heartRateData.length, repeatedValue: 0x00)
-//        heartRateData.getBytes(&buffer, length: buffer.count)
-//        
-//        var bpm:UInt16?
-//        if (buffer.count >= 2){
-//            if (buffer[0] & 0x01 == 0){
-//                bpm = UInt16(buffer[1]);
-//            }else {
-//                bpm = UInt16(buffer[1]) << 8
-//                bpm =  bpm! | UInt16(buffer[2])
-//            }
-//        }
-//        
-//        if let actualBpm = bpm{
-//            print(actualBpm)
-//        }else {
-//            print(bpm)
-//        }
-//    }
-//    
-//    func peripheral(peripheral: CBPeripheral!, didUpdateValueForCharacteristic characteristic: CBCharacteristic!, error: NSError!) {
-//        
-//        if let actualError = error{
-//            
-//        }else {
-//            switch characteristic.UUID.UUIDString{
-//            case "2A37":
-//                update(heartRateData:characteristic.value!)
-//                
-//            default:
-//                print(())
-//            }
-//        }
-//    }
-
-    //
+    // end Bluetooth functions
 
 }
 

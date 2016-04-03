@@ -30,6 +30,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     var locationStatus = ""
     var locationFixAchieved = false
     var count = 0
+    
+    var pace: Double = 0.0
+    var desiredPace: Double = 0.0
+    var previousDifference: Double = 0.0
     // end Location Manager variables
     
     // Bluetooth variables
@@ -61,7 +65,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     // end Bluetooth variables
     
     // Miscellaneous variables
+    let ledPins: [UInt8] = [2, 3, 5, 6, 9, 10, 17, 18] //17=A0 18=A1
+//    let ledPins: [[String:Any]] = [["pinNumber": 2, "currentState": PinState.Low], ["pinNumber": 3, "currentState": PinState.Low], ["pinNumber": 5, "currentState": PinState.Low], ["pinNumber": 6, "currentState": PinState.Low], ["pinNumber": 9, "currentState": PinState.Low], ["pinNumber": 10, "currentState": PinState.Low], ["pinNumber": 17, "currentState": PinState.Low], ["pinNumber": 18, "currentState": PinState.Low]] //17=A0 18=A1
+    var connectedToBLEAndSetModeToOutPut = false
+    var previousLed: UInt8 = 0
     
+    let metersPerSecondToMilesPerMinute = 0.0372823
     // end Miscelaneous variables
     
     override func viewDidLoad() {
@@ -86,6 +95,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     }
 
     @IBAction func sliderValueChange(sender: UISlider) {
+        desiredPace = Double(paceSlider.value)
         let value = String(format:"%.02f", paceSlider.value)
         paceLabel.text = value
     }
@@ -105,7 +115,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
             let locationObj = locationArray.lastObject as! CLLocation
             let coord = locationObj.coordinate
             
-            count++
+            count += 1
             
             print(count)
 //            latLabel.text = String(format:"Lat: %.02f", coord.latitude)
@@ -119,6 +129,57 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         latLabel.text = String(format:"Lat: %.06f", newLocation!.coordinate.latitude)
         lonLabel.text = String(format:"Lon: %.06f", newLocation!.coordinate.longitude)
         speedLabel.text = String(format:"Speed: %.06f", newLocation!.speed)
+        if (connectedToBLEAndSetModeToOutPut == true) {
+            chooseLeds(newLocation!.speed)
+        }
+    }
+    
+    func chooseLeds(speed: CLLocationSpeed) {
+        let speedMilesPerSecond = metersPerSecondToMilesPerMinute*speed //convert from m/s to miles/min
+        let pace = 1/speedMilesPerSecond // convert from miles/min to min/mile
+        let difference = desiredPace - pace
+        if (difference != previousDifference) {
+            writePinState(PinState.Low, pin:previousLed, characteristic:txCharacteristic!)
+            if (difference < -45 && difference >= -60) {
+                writePinState(PinState.High, pin:ledPins[0], characteristic:txCharacteristic!)
+                previousLed = ledPins[0]
+            }
+            else if (difference < -30 && difference >= -45){
+                writePinState(PinState.High, pin:ledPins[1], characteristic:txCharacteristic!)
+                previousLed = ledPins[1]
+            }
+                
+            else if (difference < -15 && difference >= -30) {
+                writePinState(PinState.High, pin:ledPins[2], characteristic:txCharacteristic!)
+                previousLed = ledPins[2]
+            }
+                
+            else if (difference < 0 && difference >= -15) {
+                writePinState(PinState.High, pin:ledPins[3], characteristic:txCharacteristic!)
+                previousLed = ledPins[3]
+            }
+                
+            else if (difference > 0 && difference <= 15) {
+                writePinState(PinState.High, pin:ledPins[4], characteristic:txCharacteristic!)
+                previousLed = ledPins[4]
+            }
+                
+            else if difference > 15 && difference <= 30 {
+                writePinState(PinState.High, pin:ledPins[5], characteristic:txCharacteristic!)
+                previousLed = ledPins[5]
+            }
+                
+            else if (difference > 30 && difference <= 45) {
+                writePinState(PinState.High, pin:ledPins[6], characteristic:txCharacteristic!)
+                previousLed = ledPins[6]
+            }
+                
+            else if (difference>45 && difference<=60) {
+                writePinState(PinState.High, pin:ledPins[7], characteristic:txCharacteristic!)
+                previousLed = ledPins[7]
+            }            
+        }
+        previousDifference = difference
     }
     
     func locationManager(manager: CLLocationManager,
@@ -195,11 +256,27 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error: NSError?) {
         for c in (service.characteristics as [CBCharacteristic]!) {
             if (c.UUID == CBUUID(string: "6E400002-B5A3-F393-E0A9-E50E24DCCA9E")) { // if txCharacteristicUUID
+                txCharacteristic = c
                 print("IF STATEMENT WORKED!")
                 print(c)
-                writePinMode(PinMode.Output, pin:3, characteristic:c)
-                writePinState(PinState.High, pin:3, characteristic:c)
-            }            
+                //set pin modes to OUTPUT
+                for pin in (ledPins as [UInt8]) {
+                    print("Setting pin to OUTPUT: ")
+                    print(pin)
+                    writePinMode(PinMode.Output, pin:pin, characteristic:c)
+                }
+//                for pin in (ledPins as [UInt8]) {
+//                    print("Setting pin to OUTPUT: ")
+//                    print(pin)
+//                    writePinState(PinState.High, pin:pin, characteristic:c)
+//                }
+//                for pin in (ledPins as [UInt8]) {
+//                    print("Setting pin to OUTPUT: ")
+//                    print(pin)
+//                    writePinState(PinState.Low, pin:pin, characteristic:c)
+//                }
+                connectedToBLEAndSetModeToOutPut = true
+            }
         }
     }
     
@@ -221,7 +298,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     func writePinState(newState: PinState, pin:UInt8, characteristic:CBCharacteristic){
         
         
-        print((self, funcName: (__FUNCTION__), logString: "writing to pin: \(pin)"))
+        print((self, funcName: (#function), logString: "writing to pin: \(pin)"))
         
         //Set an output pin's state
         

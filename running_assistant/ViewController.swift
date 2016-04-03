@@ -65,12 +65,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     // end Bluetooth variables
     
     // Miscellaneous variables
-    let ledPins: [UInt8] = [2, 3, 5, 6, 9, 10, 17, 18] //17=A0 18=A1
+    let ledPins: [UInt8] = [2, 3, 5, 6, 9, 10, 18, 19] //17=A0 18=A1
 //    let ledPins: [[String:Any]] = [["pinNumber": 2, "currentState": PinState.Low], ["pinNumber": 3, "currentState": PinState.Low], ["pinNumber": 5, "currentState": PinState.Low], ["pinNumber": 6, "currentState": PinState.Low], ["pinNumber": 9, "currentState": PinState.Low], ["pinNumber": 10, "currentState": PinState.Low], ["pinNumber": 17, "currentState": PinState.Low], ["pinNumber": 18, "currentState": PinState.Low]] //17=A0 18=A1
     var connectedToBLEAndSetModeToOutPut = false
     var previousLed: UInt8 = 0
     
     let metersPerSecondToMilesPerMinute = 0.0372823
+    
+    let timeNeutralConstant: Double = 0.167
     // end Miscelaneous variables
     
     override func viewDidLoad() {
@@ -137,47 +139,66 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     func chooseLeds(speed: CLLocationSpeed) {
         let speedMilesPerSecond = metersPerSecondToMilesPerMinute*speed //convert from m/s to miles/min
         let pace = 1/speedMilesPerSecond // convert from miles/min to min/mile
+//        let pace = 8.0 //test value
         let difference = desiredPace - pace
+        print("Difference: ")
+        print(difference)
         if (difference != previousDifference) {
             writePinState(PinState.Low, pin:previousLed, characteristic:txCharacteristic!)
-            if (difference < -45 && difference >= -60) {
+            if (difference < -0.75-timeNeutralConstant) {
                 writePinState(PinState.High, pin:ledPins[0], characteristic:txCharacteristic!)
                 previousLed = ledPins[0]
+                print("writing to pin:")
+                print(ledPins[0])
             }
-            else if (difference < -30 && difference >= -45){
+            else if (difference < -0.5-timeNeutralConstant && difference >= -0.75-timeNeutralConstant){
                 writePinState(PinState.High, pin:ledPins[1], characteristic:txCharacteristic!)
                 previousLed = ledPins[1]
+                print("writing to pin:")
+                print(ledPins[1])
             }
                 
-            else if (difference < -15 && difference >= -30) {
+            else if (difference < -0.25-timeNeutralConstant && difference >= -0.5-timeNeutralConstant) {
                 writePinState(PinState.High, pin:ledPins[2], characteristic:txCharacteristic!)
                 previousLed = ledPins[2]
+                print("writing to pin:")
+                print(ledPins[2])
             }
                 
-            else if (difference < 0 && difference >= -15) {
+            else if (difference < -timeNeutralConstant && difference >= -0.25-timeNeutralConstant) {
                 writePinState(PinState.High, pin:ledPins[3], characteristic:txCharacteristic!)
                 previousLed = ledPins[3]
+                print("writing to pin:")
+                print(ledPins[3])
             }
                 
-            else if (difference > 0 && difference <= 15) {
+            else if (difference > timeNeutralConstant && difference <= 0.25+timeNeutralConstant) {
                 writePinState(PinState.High, pin:ledPins[4], characteristic:txCharacteristic!)
                 previousLed = ledPins[4]
+                print("writing to pin:")
+                print(ledPins[4])
             }
                 
-            else if difference > 15 && difference <= 30 {
+            else if (difference > 0.25+timeNeutralConstant && difference <= 0.5+timeNeutralConstant) {
                 writePinState(PinState.High, pin:ledPins[5], characteristic:txCharacteristic!)
                 previousLed = ledPins[5]
+                print("writing to pin:")
+                print(ledPins[5])
             }
                 
-            else if (difference > 30 && difference <= 45) {
+            else if (difference > 0.5+timeNeutralConstant && difference <= 0.75+timeNeutralConstant) {
                 writePinState(PinState.High, pin:ledPins[6], characteristic:txCharacteristic!)
                 previousLed = ledPins[6]
+                print("writing to pin:")
+                print(ledPins[6])
             }
                 
-            else if (difference>45 && difference<=60) {
+            else if (difference > 0.75+timeNeutralConstant) {
                 writePinState(PinState.High, pin:ledPins[7], characteristic:txCharacteristic!)
                 previousLed = ledPins[7]
-            }            
+                print("writing to pin:")
+                print(ledPins[7])
+            }
         }
         previousDifference = difference
     }

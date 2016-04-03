@@ -11,97 +11,100 @@ provides-member:
 - ["OC17running_assistant14ViewController7PinMode", ""]
 provides-dynamic-lookup:
 - "bleLabel"
-- "previousLed"
-- "peripheral"
-- "peripheral"
-- "peripheral"
-- "rxCharacteristic"
-- "latLabel"
-- "peripheralConnected"
-- "connectedToBLEAndSetModeToOutPut"
-- "previousDifference"
-- "paceLabel"
-- "discoverDevices"
-- "pace"
-- "startUpCentralManager"
-- "locationStatus"
-- "blueToothReady"
+- "timeNeutralConstant"
 - "uartService"
-- "viewDidLoad"
-- "txCharacteristic"
-- "count"
-- "currentPeripheral"
-- "speedLabel"
-- "centralManager"
-- "centralManager"
-- "centralManager"
+- "desiredPace"
 - "centralManagerDidUpdateState"
-- "lonLabel"
-- "sliderValueChange"
-- "dataButton"
-- "locationManager"
-- "locationManager"
-- "locationManager"
+- "pace"
+- "currentPeripheral"
+- "peripheralConnected"
+- "viewDidLoad"
+- "count"
+- "startUpCentralManager"
+- "discoverDevices"
+- "blueToothReady"
 - "didReceiveMemoryWarning"
 - "locationFixAchieved"
 - "paceSlider"
+- "latLabel"
+- "connectedToBLEAndSetModeToOutPut"
+- "paceLabel"
+- "centralManager"
+- "centralManager"
+- "centralManager"
+- "locationStatus"
+- "txCharacteristic"
+- "previousLed"
+- "rxCharacteristic"
+- "previousDifference"
+- "speedLabel"
+- "dataButton"
+- "sliderValueChange"
+- "lonLabel"
 - "chooseLeds"
+- "locationManager"
+- "locationManager"
+- "locationManager"
+- "metersPerSecondToMilesPerMinute"
+- "peripheral"
+- "peripheral"
+- "peripheral"
 depends-top-level:
+- !private "&="
 - "Double"
-- !private "+"
 - "UIViewController"
-- "CBService"
-- "CLAuthorizationStatus"
+- "Int"
+- !private ">>="
+- "CBPeripheral"
 - "BooleanLiteralType"
+- !private "~"
 - "AnyObject"
 - "CBPeripheralDelegate"
 - "CLLocationManagerDelegate"
-- !private "<"
-- "CBCentralManagerDelegate"
-- "CLLocation"
-- "Int"
-- !private "~"
-- "StringLiteralType"
-- "CBPeripheral"
 - !private "*"
-- !private "!="
-- !private "&="
-- !private ">>="
-- "ViewController"
-- !private ">>"
-- "UISlider"
-- !private "<<"
-- !private "NSData"
-- !private "kCLLocationAccuracyBest"
-- !private "Array"
-- "UIButton"
-- "UInt8"
-- !private "|="
-- "CLLocationManager"
-- "CBCentralManager"
-- !private "<="
-- !private "powf"
+- "CBCentralManagerDelegate"
 - !private "print"
 - !private "NSNotificationCenter"
-- !private ">"
-- !private "-"
-- !private "CBUUID"
-- "UILabel"
-- "String"
-- "NSNumber"
-- !private "/"
-- "NSError"
-- !private "NSLog"
+- !private "|="
 - "CLLocationSpeed"
-- !private "&&"
-- "CBCharacteristic"
-- !private "++"
-- !private "Float"
-- !private "NSArray"
-- !private ">="
-- !private "CBCharacteristicWriteType"
+- !private "!="
+- !private ">>"
+- "UInt8"
+- !private "NSData"
+- "ViewController"
+- !private "+="
+- "UISlider"
+- "String"
 - "=="
 - !private "~="
+- !private "<<"
+- "NSNumber"
+- "CLLocation"
+- !private "Float"
+- "CLLocationManager"
+- !private "powf"
+- "CBCentralManager"
+- !private "-"
+- !private ">="
+- !private "NSLog"
+- !private "Array"
+- !private "&&"
+- "StringLiteralType"
+- !private ">"
+- "UILabel"
+- "CBCharacteristic"
+- "CLAuthorizationStatus"
+- !private "NSArray"
+- "CBService"
+- !private "/"
+- "NSError"
+- !private "CBUUID"
+- "UIButton"
+- !private "<"
+- !private "<="
+- !private "+"
+- !private "kCLLocationAccuracyBest"
+- !private "CBCharacteristicWriteType"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "init"]
 - !private ["Ps9AnyObject", "CBCentralManager"]
@@ -134,6 +137,7 @@ depends-member:
 - !private ["Ps9AnyObject", "defaultCenter"]
 - !private ["Ps9AnyObject", "delegate"]
 - !private ["Ps9AnyObject", "desiredAccuracy"]
+- ["Ps9AnyObject", "desiredPace"]
 - ["Ps9AnyObject", "didReceiveMemoryWarning"]
 - !private ["Ps9AnyObject", "discoverCharacteristics"]
 - ["Ps9AnyObject", "discoverDevices"]
@@ -150,6 +154,7 @@ depends-member:
 - ["Ps9AnyObject", "locationManagerShouldDisplayHeadingCalibration"]
 - ["Ps9AnyObject", "locationStatus"]
 - ["Ps9AnyObject", "lonLabel"]
+- ["Ps9AnyObject", "metersPerSecondToMilesPerMinute"]
 - !private ["Ps9AnyObject", "name"]
 - ["Ps9AnyObject", "pace"]
 - ["Ps9AnyObject", "paceLabel"]
@@ -176,6 +181,7 @@ depends-member:
 - !private ["Ps9AnyObject", "state"]
 - !private ["Ps9AnyObject", "stopScan"]
 - !private ["Ps9AnyObject", "text"]
+- ["Ps9AnyObject", "timeNeutralConstant"]
 - ["Ps9AnyObject", "txCharacteristic"]
 - ["Ps9AnyObject", "uartService"]
 - !private ["Ps9AnyObject", "value"]
@@ -247,6 +253,7 @@ depends-member:
 - !private ["PSo24CBCentralManagerDelegate", "connectedToBLEAndSetModeToOutPut"]
 - !private ["PSo24CBCentralManagerDelegate", "count"]
 - !private ["PSo24CBCentralManagerDelegate", "currentPeripheral"]
+- !private ["PSo24CBCentralManagerDelegate", "desiredPace"]
 - !private ["PSo24CBCentralManagerDelegate", "discoverDevices"]
 - !private ["PSo24CBCentralManagerDelegate", "kCLLocationAccuracyBest"]
 - !private ["PSo24CBCentralManagerDelegate", "latLabel"]
@@ -258,7 +265,7 @@ depends-member:
 - ["PSo24CBCentralManagerDelegate", "locationManagerShouldDisplayHeadingCalibration"]
 - !private ["PSo24CBCentralManagerDelegate", "locationStatus"]
 - !private ["PSo24CBCentralManagerDelegate", "lonLabel"]
-- !private ["PSo24CBCentralManagerDelegate", "pace"]
+- !private ["PSo24CBCentralManagerDelegate", "metersPerSecondToMilesPerMinute"]
 - !private ["PSo24CBCentralManagerDelegate", "paceLabel"]
 - !private ["PSo24CBCentralManagerDelegate", "paceSlider"]
 - ["PSo24CBCentralManagerDelegate", "peripheral"]
@@ -272,6 +279,7 @@ depends-member:
 - !private ["PSo24CBCentralManagerDelegate", "print"]
 - !private ["PSo24CBCentralManagerDelegate", "speedLabel"]
 - !private ["PSo24CBCentralManagerDelegate", "startUpCentralManager"]
+- !private ["PSo24CBCentralManagerDelegate", "timeNeutralConstant"]
 - !private ["PSo24CBCentralManagerDelegate", "txCharacteristic"]
 - !private ["PSo24CBCentralManagerDelegate", "uartService"]
 - !private ["PSo24CBCentralManagerDelegate", "writePinMode"]
@@ -319,6 +327,7 @@ depends-member:
 - !private ["PSo20CBPeripheralDelegate", "connectedToBLEAndSetModeToOutPut"]
 - !private ["PSo20CBPeripheralDelegate", "count"]
 - !private ["PSo20CBPeripheralDelegate", "currentPeripheral"]
+- !private ["PSo20CBPeripheralDelegate", "desiredPace"]
 - !private ["PSo20CBPeripheralDelegate", "discoverDevices"]
 - !private ["PSo20CBPeripheralDelegate", "kCLLocationAccuracyBest"]
 - !private ["PSo20CBPeripheralDelegate", "latLabel"]
@@ -330,7 +339,7 @@ depends-member:
 - ["PSo20CBPeripheralDelegate", "locationManagerShouldDisplayHeadingCalibration"]
 - !private ["PSo20CBPeripheralDelegate", "locationStatus"]
 - !private ["PSo20CBPeripheralDelegate", "lonLabel"]
-- !private ["PSo20CBPeripheralDelegate", "pace"]
+- !private ["PSo20CBPeripheralDelegate", "metersPerSecondToMilesPerMinute"]
 - !private ["PSo20CBPeripheralDelegate", "paceLabel"]
 - !private ["PSo20CBPeripheralDelegate", "paceSlider"]
 - ["PSo20CBPeripheralDelegate", "peripheral"]
@@ -344,6 +353,7 @@ depends-member:
 - !private ["PSo20CBPeripheralDelegate", "print"]
 - !private ["PSo20CBPeripheralDelegate", "speedLabel"]
 - !private ["PSo20CBPeripheralDelegate", "startUpCentralManager"]
+- !private ["PSo20CBPeripheralDelegate", "timeNeutralConstant"]
 - !private ["PSo20CBPeripheralDelegate", "txCharacteristic"]
 - !private ["PSo20CBPeripheralDelegate", "uartService"]
 - !private ["PSo20CBPeripheralDelegate", "writePinMode"]
@@ -385,6 +395,7 @@ depends-member:
 - !private ["PSo25CLLocationManagerDelegate", "connectedToBLEAndSetModeToOutPut"]
 - !private ["PSo25CLLocationManagerDelegate", "count"]
 - !private ["PSo25CLLocationManagerDelegate", "currentPeripheral"]
+- !private ["PSo25CLLocationManagerDelegate", "desiredPace"]
 - !private ["PSo25CLLocationManagerDelegate", "discoverDevices"]
 - !private ["PSo25CLLocationManagerDelegate", "kCLLocationAccuracyBest"]
 - !private ["PSo25CLLocationManagerDelegate", "latLabel"]
@@ -396,7 +407,7 @@ depends-member:
 - ["PSo25CLLocationManagerDelegate", "locationManagerShouldDisplayHeadingCalibration"]
 - !private ["PSo25CLLocationManagerDelegate", "locationStatus"]
 - !private ["PSo25CLLocationManagerDelegate", "lonLabel"]
-- !private ["PSo25CLLocationManagerDelegate", "pace"]
+- !private ["PSo25CLLocationManagerDelegate", "metersPerSecondToMilesPerMinute"]
 - !private ["PSo25CLLocationManagerDelegate", "paceLabel"]
 - !private ["PSo25CLLocationManagerDelegate", "paceSlider"]
 - ["PSo25CLLocationManagerDelegate", "peripheral"]
@@ -410,6 +421,7 @@ depends-member:
 - !private ["PSo25CLLocationManagerDelegate", "print"]
 - !private ["PSo25CLLocationManagerDelegate", "speedLabel"]
 - !private ["PSo25CLLocationManagerDelegate", "startUpCentralManager"]
+- !private ["PSo25CLLocationManagerDelegate", "timeNeutralConstant"]
 - !private ["PSo25CLLocationManagerDelegate", "txCharacteristic"]
 - !private ["PSo25CLLocationManagerDelegate", "uartService"]
 - !private ["PSo25CLLocationManagerDelegate", "writePinMode"]
@@ -447,6 +459,7 @@ depends-member:
 - !private ["Ps11CVarArgType", "defaultCenter"]
 - !private ["Ps11CVarArgType", "delegate"]
 - !private ["Ps11CVarArgType", "desiredAccuracy"]
+- ["Ps11CVarArgType", "desiredPace"]
 - ["Ps11CVarArgType", "didReceiveMemoryWarning"]
 - !private ["Ps11CVarArgType", "discoverCharacteristics"]
 - ["Ps11CVarArgType", "discoverDevices"]
@@ -464,6 +477,7 @@ depends-member:
 - ["Ps11CVarArgType", "locationManagerShouldDisplayHeadingCalibration"]
 - ["Ps11CVarArgType", "locationStatus"]
 - ["Ps11CVarArgType", "lonLabel"]
+- ["Ps11CVarArgType", "metersPerSecondToMilesPerMinute"]
 - !private ["Ps11CVarArgType", "name"]
 - ["Ps11CVarArgType", "pace"]
 - ["Ps11CVarArgType", "paceLabel"]
@@ -490,6 +504,7 @@ depends-member:
 - !private ["Ps11CVarArgType", "state"]
 - !private ["Ps11CVarArgType", "stopScan"]
 - !private ["Ps11CVarArgType", "text"]
+- ["Ps11CVarArgType", "timeNeutralConstant"]
 - ["Ps11CVarArgType", "txCharacteristic"]
 - ["Ps11CVarArgType", "uartService"]
 - !private ["Ps11CVarArgType", "value"]
@@ -546,6 +561,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "defaultCenter"]
 - !private ["Ps28CustomDebugStringConvertible", "delegate"]
 - !private ["Ps28CustomDebugStringConvertible", "desiredAccuracy"]
+- ["Ps28CustomDebugStringConvertible", "desiredPace"]
 - ["Ps28CustomDebugStringConvertible", "didReceiveMemoryWarning"]
 - !private ["Ps28CustomDebugStringConvertible", "discoverCharacteristics"]
 - ["Ps28CustomDebugStringConvertible", "discoverDevices"]
@@ -563,6 +579,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "locationManagerShouldDisplayHeadingCalibration"]
 - ["Ps28CustomDebugStringConvertible", "locationStatus"]
 - ["Ps28CustomDebugStringConvertible", "lonLabel"]
+- ["Ps28CustomDebugStringConvertible", "metersPerSecondToMilesPerMinute"]
 - !private ["Ps28CustomDebugStringConvertible", "name"]
 - ["Ps28CustomDebugStringConvertible", "pace"]
 - ["Ps28CustomDebugStringConvertible", "paceLabel"]
@@ -590,6 +607,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "stopScan"]
 - !private ["Ps28CustomDebugStringConvertible", "subscript"]
 - !private ["Ps28CustomDebugStringConvertible", "text"]
+- ["Ps28CustomDebugStringConvertible", "timeNeutralConstant"]
 - ["Ps28CustomDebugStringConvertible", "txCharacteristic"]
 - ["Ps28CustomDebugStringConvertible", "uartService"]
 - !private ["Ps28CustomDebugStringConvertible", "value"]
@@ -636,6 +654,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "defaultCenter"]
 - !private ["Ps23CustomStringConvertible", "delegate"]
 - !private ["Ps23CustomStringConvertible", "desiredAccuracy"]
+- ["Ps23CustomStringConvertible", "desiredPace"]
 - ["Ps23CustomStringConvertible", "didReceiveMemoryWarning"]
 - !private ["Ps23CustomStringConvertible", "discoverCharacteristics"]
 - ["Ps23CustomStringConvertible", "discoverDevices"]
@@ -654,6 +673,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "locationManagerShouldDisplayHeadingCalibration"]
 - ["Ps23CustomStringConvertible", "locationStatus"]
 - ["Ps23CustomStringConvertible", "lonLabel"]
+- ["Ps23CustomStringConvertible", "metersPerSecondToMilesPerMinute"]
 - !private ["Ps23CustomStringConvertible", "name"]
 - ["Ps23CustomStringConvertible", "pace"]
 - ["Ps23CustomStringConvertible", "paceLabel"]
@@ -681,6 +701,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "stopScan"]
 - !private ["Ps23CustomStringConvertible", "subscript"]
 - !private ["Ps23CustomStringConvertible", "text"]
+- ["Ps23CustomStringConvertible", "timeNeutralConstant"]
 - ["Ps23CustomStringConvertible", "txCharacteristic"]
 - ["Ps23CustomStringConvertible", "uartService"]
 - !private ["Ps23CustomStringConvertible", "value"]
@@ -738,6 +759,7 @@ depends-member:
 - !private ["Ps9Equatable", "defaultCenter"]
 - !private ["Ps9Equatable", "delegate"]
 - !private ["Ps9Equatable", "desiredAccuracy"]
+- ["Ps9Equatable", "desiredPace"]
 - ["Ps9Equatable", "didReceiveMemoryWarning"]
 - !private ["Ps9Equatable", "discoverCharacteristics"]
 - ["Ps9Equatable", "discoverDevices"]
@@ -755,6 +777,7 @@ depends-member:
 - ["Ps9Equatable", "locationManagerShouldDisplayHeadingCalibration"]
 - ["Ps9Equatable", "locationStatus"]
 - ["Ps9Equatable", "lonLabel"]
+- ["Ps9Equatable", "metersPerSecondToMilesPerMinute"]
 - !private ["Ps9Equatable", "name"]
 - ["Ps9Equatable", "pace"]
 - ["Ps9Equatable", "paceLabel"]
@@ -782,6 +805,7 @@ depends-member:
 - !private ["Ps9Equatable", "state"]
 - !private ["Ps9Equatable", "stopScan"]
 - !private ["Ps9Equatable", "text"]
+- ["Ps9Equatable", "timeNeutralConstant"]
 - ["Ps9Equatable", "txCharacteristic"]
 - ["Ps9Equatable", "uartService"]
 - !private ["Ps9Equatable", "value"]
@@ -847,6 +871,7 @@ depends-member:
 - !private ["Ps8Hashable", "defaultCenter"]
 - !private ["Ps8Hashable", "delegate"]
 - !private ["Ps8Hashable", "desiredAccuracy"]
+- ["Ps8Hashable", "desiredPace"]
 - ["Ps8Hashable", "didReceiveMemoryWarning"]
 - !private ["Ps8Hashable", "discoverCharacteristics"]
 - ["Ps8Hashable", "discoverDevices"]
@@ -864,6 +889,7 @@ depends-member:
 - ["Ps8Hashable", "locationManagerShouldDisplayHeadingCalibration"]
 - ["Ps8Hashable", "locationStatus"]
 - ["Ps8Hashable", "lonLabel"]
+- ["Ps8Hashable", "metersPerSecondToMilesPerMinute"]
 - !private ["Ps8Hashable", "name"]
 - ["Ps8Hashable", "pace"]
 - ["Ps8Hashable", "paceLabel"]
@@ -891,6 +917,7 @@ depends-member:
 - !private ["Ps8Hashable", "state"]
 - !private ["Ps8Hashable", "stopScan"]
 - !private ["Ps8Hashable", "text"]
+- ["Ps8Hashable", "timeNeutralConstant"]
 - ["Ps8Hashable", "txCharacteristic"]
 - ["Ps8Hashable", "uartService"]
 - !private ["Ps8Hashable", "value"]
@@ -985,6 +1012,7 @@ depends-member:
 - ["PSo8NSCoding", "count"]
 - ["PSo8NSCoding", "currentPeripheral"]
 - ["PSo8NSCoding", "dataButton"]
+- ["PSo8NSCoding", "desiredPace"]
 - ["PSo8NSCoding", "didReceiveMemoryWarning"]
 - ["PSo8NSCoding", "discoverDevices"]
 - ["PSo8NSCoding", "init"]
@@ -999,6 +1027,7 @@ depends-member:
 - ["PSo8NSCoding", "locationManagerShouldDisplayHeadingCalibration"]
 - ["PSo8NSCoding", "locationStatus"]
 - ["PSo8NSCoding", "lonLabel"]
+- ["PSo8NSCoding", "metersPerSecondToMilesPerMinute"]
 - ["PSo8NSCoding", "pace"]
 - ["PSo8NSCoding", "paceLabel"]
 - ["PSo8NSCoding", "paceSlider"]
@@ -1017,6 +1046,7 @@ depends-member:
 - ["PSo8NSCoding", "speedLabel"]
 - ["PSo8NSCoding", "startUpCentralManager"]
 - !private ["PSo8NSCoding", "text"]
+- ["PSo8NSCoding", "timeNeutralConstant"]
 - ["PSo8NSCoding", "txCharacteristic"]
 - ["PSo8NSCoding", "uartService"]
 - !private ["PSo8NSCoding", "value"]
@@ -1058,6 +1088,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "count"]
 - ["PSo26NSExtensionRequestHandling", "currentPeripheral"]
 - ["PSo26NSExtensionRequestHandling", "dataButton"]
+- ["PSo26NSExtensionRequestHandling", "desiredPace"]
 - ["PSo26NSExtensionRequestHandling", "didReceiveMemoryWarning"]
 - ["PSo26NSExtensionRequestHandling", "discoverDevices"]
 - ["PSo26NSExtensionRequestHandling", "init"]
@@ -1071,6 +1102,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "locationManagerShouldDisplayHeadingCalibration"]
 - ["PSo26NSExtensionRequestHandling", "locationStatus"]
 - ["PSo26NSExtensionRequestHandling", "lonLabel"]
+- ["PSo26NSExtensionRequestHandling", "metersPerSecondToMilesPerMinute"]
 - ["PSo26NSExtensionRequestHandling", "pace"]
 - ["PSo26NSExtensionRequestHandling", "paceLabel"]
 - ["PSo26NSExtensionRequestHandling", "paceSlider"]
@@ -1087,6 +1119,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "sliderValueChange"]
 - ["PSo26NSExtensionRequestHandling", "speedLabel"]
 - ["PSo26NSExtensionRequestHandling", "startUpCentralManager"]
+- ["PSo26NSExtensionRequestHandling", "timeNeutralConstant"]
 - ["PSo26NSExtensionRequestHandling", "txCharacteristic"]
 - ["PSo26NSExtensionRequestHandling", "uartService"]
 - ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
@@ -1143,6 +1176,7 @@ depends-member:
 - !private ["CSo8NSObject", "deinit"]
 - !private ["CSo8NSObject", "delegate"]
 - !private ["CSo8NSObject", "desiredAccuracy"]
+- ["CSo8NSObject", "desiredPace"]
 - ["CSo8NSObject", "didReceiveMemoryWarning"]
 - !private ["CSo8NSObject", "discoverCharacteristics"]
 - ["CSo8NSObject", "discoverDevices"]
@@ -1159,6 +1193,7 @@ depends-member:
 - ["CSo8NSObject", "locationManagerShouldDisplayHeadingCalibration"]
 - ["CSo8NSObject", "locationStatus"]
 - ["CSo8NSObject", "lonLabel"]
+- ["CSo8NSObject", "metersPerSecondToMilesPerMinute"]
 - !private ["CSo8NSObject", "name"]
 - ["CSo8NSObject", "pace"]
 - ["CSo8NSObject", "paceLabel"]
@@ -1185,6 +1220,7 @@ depends-member:
 - !private ["CSo8NSObject", "state"]
 - !private ["CSo8NSObject", "stopScan"]
 - !private ["CSo8NSObject", "text"]
+- ["CSo8NSObject", "timeNeutralConstant"]
 - ["CSo8NSObject", "txCharacteristic"]
 - ["CSo8NSObject", "uartService"]
 - !private ["CSo8NSObject", "value"]
@@ -1222,6 +1258,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "defaultCenter"]
 - !private ["PSo16NSObjectProtocol", "delegate"]
 - !private ["PSo16NSObjectProtocol", "desiredAccuracy"]
+- ["PSo16NSObjectProtocol", "desiredPace"]
 - ["PSo16NSObjectProtocol", "didReceiveMemoryWarning"]
 - !private ["PSo16NSObjectProtocol", "discoverCharacteristics"]
 - ["PSo16NSObjectProtocol", "discoverDevices"]
@@ -1238,6 +1275,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "locationManagerShouldDisplayHeadingCalibration"]
 - ["PSo16NSObjectProtocol", "locationStatus"]
 - ["PSo16NSObjectProtocol", "lonLabel"]
+- ["PSo16NSObjectProtocol", "metersPerSecondToMilesPerMinute"]
 - !private ["PSo16NSObjectProtocol", "name"]
 - ["PSo16NSObjectProtocol", "pace"]
 - ["PSo16NSObjectProtocol", "paceLabel"]
@@ -1264,6 +1302,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "state"]
 - !private ["PSo16NSObjectProtocol", "stopScan"]
 - !private ["PSo16NSObjectProtocol", "text"]
+- ["PSo16NSObjectProtocol", "timeNeutralConstant"]
 - ["PSo16NSObjectProtocol", "txCharacteristic"]
 - ["PSo16NSObjectProtocol", "uartService"]
 - !private ["PSo16NSObjectProtocol", "value"]
@@ -1387,6 +1426,7 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "count"]
 - ["PSo21UIAppearanceContainer", "currentPeripheral"]
 - ["PSo21UIAppearanceContainer", "dataButton"]
+- ["PSo21UIAppearanceContainer", "desiredPace"]
 - ["PSo21UIAppearanceContainer", "didReceiveMemoryWarning"]
 - ["PSo21UIAppearanceContainer", "discoverDevices"]
 - ["PSo21UIAppearanceContainer", "init"]
@@ -1400,6 +1440,7 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "locationManagerShouldDisplayHeadingCalibration"]
 - ["PSo21UIAppearanceContainer", "locationStatus"]
 - ["PSo21UIAppearanceContainer", "lonLabel"]
+- ["PSo21UIAppearanceContainer", "metersPerSecondToMilesPerMinute"]
 - ["PSo21UIAppearanceContainer", "pace"]
 - ["PSo21UIAppearanceContainer", "paceLabel"]
 - ["PSo21UIAppearanceContainer", "paceSlider"]
@@ -1417,6 +1458,7 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "speedLabel"]
 - ["PSo21UIAppearanceContainer", "startUpCentralManager"]
 - !private ["PSo21UIAppearanceContainer", "text"]
+- ["PSo21UIAppearanceContainer", "timeNeutralConstant"]
 - ["PSo21UIAppearanceContainer", "txCharacteristic"]
 - ["PSo21UIAppearanceContainer", "uartService"]
 - !private ["PSo21UIAppearanceContainer", "value"]
@@ -1447,6 +1489,7 @@ depends-member:
 - ["PSo18UIContentContainer", "count"]
 - ["PSo18UIContentContainer", "currentPeripheral"]
 - ["PSo18UIContentContainer", "dataButton"]
+- ["PSo18UIContentContainer", "desiredPace"]
 - ["PSo18UIContentContainer", "didReceiveMemoryWarning"]
 - ["PSo18UIContentContainer", "discoverDevices"]
 - ["PSo18UIContentContainer", "init"]
@@ -1460,6 +1503,7 @@ depends-member:
 - ["PSo18UIContentContainer", "locationManagerShouldDisplayHeadingCalibration"]
 - ["PSo18UIContentContainer", "locationStatus"]
 - ["PSo18UIContentContainer", "lonLabel"]
+- ["PSo18UIContentContainer", "metersPerSecondToMilesPerMinute"]
 - ["PSo18UIContentContainer", "pace"]
 - ["PSo18UIContentContainer", "paceLabel"]
 - ["PSo18UIContentContainer", "paceSlider"]
@@ -1476,6 +1520,7 @@ depends-member:
 - ["PSo18UIContentContainer", "sliderValueChange"]
 - ["PSo18UIContentContainer", "speedLabel"]
 - ["PSo18UIContentContainer", "startUpCentralManager"]
+- ["PSo18UIContentContainer", "timeNeutralConstant"]
 - ["PSo18UIContentContainer", "txCharacteristic"]
 - ["PSo18UIContentContainer", "uartService"]
 - ["PSo18UIContentContainer", "viewDidLoad"]
@@ -1510,6 +1555,7 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "count"]
 - ["PSo18UIFocusEnvironment", "currentPeripheral"]
 - ["PSo18UIFocusEnvironment", "dataButton"]
+- ["PSo18UIFocusEnvironment", "desiredPace"]
 - ["PSo18UIFocusEnvironment", "didReceiveMemoryWarning"]
 - ["PSo18UIFocusEnvironment", "discoverDevices"]
 - ["PSo18UIFocusEnvironment", "init"]
@@ -1523,6 +1569,7 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "locationManagerShouldDisplayHeadingCalibration"]
 - ["PSo18UIFocusEnvironment", "locationStatus"]
 - ["PSo18UIFocusEnvironment", "lonLabel"]
+- ["PSo18UIFocusEnvironment", "metersPerSecondToMilesPerMinute"]
 - ["PSo18UIFocusEnvironment", "pace"]
 - ["PSo18UIFocusEnvironment", "paceLabel"]
 - ["PSo18UIFocusEnvironment", "paceSlider"]
@@ -1540,6 +1587,7 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "speedLabel"]
 - ["PSo18UIFocusEnvironment", "startUpCentralManager"]
 - !private ["PSo18UIFocusEnvironment", "text"]
+- ["PSo18UIFocusEnvironment", "timeNeutralConstant"]
 - ["PSo18UIFocusEnvironment", "txCharacteristic"]
 - ["PSo18UIFocusEnvironment", "uartService"]
 - !private ["PSo18UIFocusEnvironment", "value"]
@@ -1584,6 +1632,7 @@ depends-member:
 - ["CSo11UIResponder", "count"]
 - ["CSo11UIResponder", "currentPeripheral"]
 - ["CSo11UIResponder", "dataButton"]
+- ["CSo11UIResponder", "desiredPace"]
 - ["CSo11UIResponder", "didReceiveMemoryWarning"]
 - ["CSo11UIResponder", "discoverDevices"]
 - ["CSo11UIResponder", "init"]
@@ -1597,6 +1646,7 @@ depends-member:
 - ["CSo11UIResponder", "locationManagerShouldDisplayHeadingCalibration"]
 - ["CSo11UIResponder", "locationStatus"]
 - ["CSo11UIResponder", "lonLabel"]
+- ["CSo11UIResponder", "metersPerSecondToMilesPerMinute"]
 - ["CSo11UIResponder", "pace"]
 - ["CSo11UIResponder", "paceLabel"]
 - ["CSo11UIResponder", "paceSlider"]
@@ -1614,6 +1664,7 @@ depends-member:
 - ["CSo11UIResponder", "speedLabel"]
 - ["CSo11UIResponder", "startUpCentralManager"]
 - !private ["CSo11UIResponder", "text"]
+- ["CSo11UIResponder", "timeNeutralConstant"]
 - ["CSo11UIResponder", "txCharacteristic"]
 - ["CSo11UIResponder", "uartService"]
 - !private ["CSo11UIResponder", "value"]
@@ -1644,6 +1695,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "count"]
 - ["PSo16UIStateRestoring", "currentPeripheral"]
 - ["PSo16UIStateRestoring", "dataButton"]
+- ["PSo16UIStateRestoring", "desiredPace"]
 - ["PSo16UIStateRestoring", "didReceiveMemoryWarning"]
 - ["PSo16UIStateRestoring", "discoverDevices"]
 - ["PSo16UIStateRestoring", "init"]
@@ -1657,6 +1709,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "locationManagerShouldDisplayHeadingCalibration"]
 - ["PSo16UIStateRestoring", "locationStatus"]
 - ["PSo16UIStateRestoring", "lonLabel"]
+- ["PSo16UIStateRestoring", "metersPerSecondToMilesPerMinute"]
 - ["PSo16UIStateRestoring", "pace"]
 - ["PSo16UIStateRestoring", "paceLabel"]
 - ["PSo16UIStateRestoring", "paceSlider"]
@@ -1673,6 +1726,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "sliderValueChange"]
 - ["PSo16UIStateRestoring", "speedLabel"]
 - ["PSo16UIStateRestoring", "startUpCentralManager"]
+- ["PSo16UIStateRestoring", "timeNeutralConstant"]
 - ["PSo16UIStateRestoring", "txCharacteristic"]
 - ["PSo16UIStateRestoring", "uartService"]
 - ["PSo16UIStateRestoring", "viewDidLoad"]
@@ -1702,6 +1756,7 @@ depends-member:
 - ["PSo18UITraitEnvironment", "count"]
 - ["PSo18UITraitEnvironment", "currentPeripheral"]
 - ["PSo18UITraitEnvironment", "dataButton"]
+- ["PSo18UITraitEnvironment", "desiredPace"]
 - ["PSo18UITraitEnvironment", "didReceiveMemoryWarning"]
 - ["PSo18UITraitEnvironment", "discoverDevices"]
 - ["PSo18UITraitEnvironment", "init"]
@@ -1715,6 +1770,7 @@ depends-member:
 - ["PSo18UITraitEnvironment", "locationManagerShouldDisplayHeadingCalibration"]
 - ["PSo18UITraitEnvironment", "locationStatus"]
 - ["PSo18UITraitEnvironment", "lonLabel"]
+- ["PSo18UITraitEnvironment", "metersPerSecondToMilesPerMinute"]
 - ["PSo18UITraitEnvironment", "pace"]
 - ["PSo18UITraitEnvironment", "paceLabel"]
 - ["PSo18UITraitEnvironment", "paceSlider"]
@@ -1732,6 +1788,7 @@ depends-member:
 - ["PSo18UITraitEnvironment", "speedLabel"]
 - ["PSo18UITraitEnvironment", "startUpCentralManager"]
 - !private ["PSo18UITraitEnvironment", "text"]
+- ["PSo18UITraitEnvironment", "timeNeutralConstant"]
 - ["PSo18UITraitEnvironment", "txCharacteristic"]
 - ["PSo18UITraitEnvironment", "uartService"]
 - !private ["PSo18UITraitEnvironment", "value"]
@@ -1777,6 +1834,7 @@ depends-member:
 - ["CSo16UIViewController", "count"]
 - ["CSo16UIViewController", "currentPeripheral"]
 - ["CSo16UIViewController", "dataButton"]
+- ["CSo16UIViewController", "desiredPace"]
 - ["CSo16UIViewController", "didReceiveMemoryWarning"]
 - ["CSo16UIViewController", "discoverDevices"]
 - ["CSo16UIViewController", "init"]
@@ -1790,6 +1848,7 @@ depends-member:
 - ["CSo16UIViewController", "locationManagerShouldDisplayHeadingCalibration"]
 - ["CSo16UIViewController", "locationStatus"]
 - ["CSo16UIViewController", "lonLabel"]
+- ["CSo16UIViewController", "metersPerSecondToMilesPerMinute"]
 - ["CSo16UIViewController", "pace"]
 - ["CSo16UIViewController", "paceLabel"]
 - ["CSo16UIViewController", "paceSlider"]
@@ -1806,6 +1865,7 @@ depends-member:
 - ["CSo16UIViewController", "sliderValueChange"]
 - ["CSo16UIViewController", "speedLabel"]
 - ["CSo16UIViewController", "startUpCentralManager"]
+- ["CSo16UIViewController", "timeNeutralConstant"]
 - ["CSo16UIViewController", "txCharacteristic"]
 - ["CSo16UIViewController", "uartService"]
 - ["CSo16UIViewController", "viewDidLoad"]
@@ -1858,6 +1918,7 @@ depends-member:
 - ["C17running_assistant14ViewController", "currentPeripheral"]
 - ["C17running_assistant14ViewController", "dataButton"]
 - ["C17running_assistant14ViewController", "deinit"]
+- ["C17running_assistant14ViewController", "desiredPace"]
 - ["C17running_assistant14ViewController", "didReceiveMemoryWarning"]
 - ["C17running_assistant14ViewController", "discoverDevices"]
 - ["C17running_assistant14ViewController", "init"]
@@ -1871,6 +1932,7 @@ depends-member:
 - ["C17running_assistant14ViewController", "locationManagerShouldDisplayHeadingCalibration"]
 - ["C17running_assistant14ViewController", "locationStatus"]
 - ["C17running_assistant14ViewController", "lonLabel"]
+- ["C17running_assistant14ViewController", "metersPerSecondToMilesPerMinute"]
 - ["C17running_assistant14ViewController", "pace"]
 - ["C17running_assistant14ViewController", "paceLabel"]
 - ["C17running_assistant14ViewController", "paceSlider"]
@@ -1887,6 +1949,7 @@ depends-member:
 - ["C17running_assistant14ViewController", "sliderValueChange"]
 - ["C17running_assistant14ViewController", "speedLabel"]
 - ["C17running_assistant14ViewController", "startUpCentralManager"]
+- ["C17running_assistant14ViewController", "timeNeutralConstant"]
 - ["C17running_assistant14ViewController", "txCharacteristic"]
 - ["C17running_assistant14ViewController", "uartService"]
 - ["C17running_assistant14ViewController", "viewDidLoad"]
@@ -2117,4 +2180,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreLocation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreBluetooth.swiftmodule"
-interface-hash: "507434fc20c4a58da8b19acbfe59958a"
+interface-hash: "80b3ec186e750bed92f7a11b20228624"

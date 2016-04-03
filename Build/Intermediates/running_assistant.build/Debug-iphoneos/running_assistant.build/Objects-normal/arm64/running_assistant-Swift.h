@@ -142,6 +142,7 @@ SWIFT_CLASS("_TtC17running_assistant14ViewController")
 @property (nonatomic) BOOL locationFixAchieved;
 @property (nonatomic) NSInteger count;
 @property (nonatomic) double pace;
+@property (nonatomic) double desiredPace;
 @property (nonatomic) double previousDifference;
 @property (nonatomic, strong) CBCentralManager * _Null_unspecified centralManager;
 @property (nonatomic) BOOL blueToothReady;
@@ -152,6 +153,8 @@ SWIFT_CLASS("_TtC17running_assistant14ViewController")
 @property (nonatomic, strong) CBCharacteristic * _Nullable txCharacteristic;
 @property (nonatomic) BOOL connectedToBLEAndSetModeToOutPut;
 @property (nonatomic) uint8_t previousLed;
+@property (nonatomic, readonly) double metersPerSecondToMilesPerMinute;
+@property (nonatomic, readonly) double timeNeutralConstant;
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
 - (IBAction)sliderValueChange:(UISlider * _Nonnull)sender;

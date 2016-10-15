@@ -12,7 +12,7 @@ import CoreLocation
 import CoreBluetooth
 
 class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralManagerDelegate, CBPeripheralDelegate {
-
+    
     
     @IBOutlet weak var lonLabel: UILabel!
     @IBOutlet weak var latLabel: UILabel!
@@ -30,6 +30,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     var locationStatus = ""
     var locationFixAchieved = false
     var count = 0
+    
+    var pace: Double = 0.0
+    var desiredPace: Double = 0.0
+    var previousDifference: Double = 0.0
     // end Location Manager variables
     
     // Bluetooth variables
@@ -61,7 +65,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     // end Bluetooth variables
     
     // Miscellaneous variables
+    let ledPins: [UInt8] = [2, 3, 5, 6, 9, 10, 18, 19] //17=A0 18=A1
+    //    let ledPins: [[String:Any]] = [["pinNumber": 2, "currentState": PinState.Low], ["pinNumber": 3, "currentState": PinState.Low], ["pinNumber": 5, "currentState": PinState.Low], ["pinNumber": 6, "currentState": PinState.Low], ["pinNumber": 9, "currentState": PinState.Low], ["pinNumber": 10, "currentState": PinState.Low], ["pinNumber": 17, "currentState": PinState.Low], ["pinNumber": 18, "currentState": PinState.Low]] //17=A0 18=A1
+    var connectedToBLEAndSetModeToOutPut = false
+    var previousLed: UInt8 = 0
     
+    let metersPerSecondToMilesPerMinute = 0.0372823
+    
+    let timeNeutralConstant: Double = 0.167
     // end Miscelaneous variables
     
     override func viewDidLoad() {
@@ -72,20 +83,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//        locationManager.distanceFilter = 1.0
+        //        locationManager.distanceFilter = 1.0
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         
         // Initializing BlE
         startUpCentralManager()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func sliderValueChange(sender: UISlider) {
+        desiredPace = Double(paceSlider.value)
         let value = String(format:"%.02f", paceSlider.value)
         paceLabel.text = value
     }
@@ -105,11 +117,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
             let locationObj = locationArray.lastObject as! CLLocation
             let coord = locationObj.coordinate
             
-            count++
+            count += 1
             
             print(count)
-//            latLabel.text = String(format:"Lat: %.02f", coord.latitude)
-//            lonLabel.text = String(format:"Lon: %.02f", coord.longitude)
+            //            latLabel.text = String(format:"Lat: %.02f", coord.latitude)
+            //            lonLabel.text = String(format:"Lon: %.02f", coord.longitude)
             print(coord.latitude)
             print(coord.longitude)
         }
@@ -119,34 +131,104 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         latLabel.text = String(format:"Lat: %.06f", newLocation!.coordinate.latitude)
         lonLabel.text = String(format:"Lon: %.06f", newLocation!.coordinate.longitude)
         speedLabel.text = String(format:"Speed: %.06f", newLocation!.speed)
+        if (connectedToBLEAndSetModeToOutPut == true) {
+            chooseLeds(newLocation!.speed)
+        }
+    }
+    
+    func chooseLeds(speed: CLLocationSpeed) {
+        let speedMilesPerSecond = metersPerSecondToMilesPerMinute*speed //convert from m/s to miles/min
+        let pace = 1/speedMilesPerSecond // convert from miles/min to min/mile
+        //        let pace = 8.0 //test value
+        let difference = desiredPace - pace
+        print("Difference: ")
+        print(difference)
+        if (difference != previousDifference) {
+            writePinState(PinState.Low, pin:previousLed, characteristic:txCharacteristic!)
+            if (difference < -0.75-timeNeutralConstant) {
+                writePinState(PinState.High, pin:ledPins[0], characteristic:txCharacteristic!)
+                previousLed = ledPins[0]
+                print("writing to pin:")
+                print(ledPins[0])
+            }
+            else if (difference < -0.5-timeNeutralConstant && difference >= -0.75-timeNeutralConstant){
+                writePinState(PinState.High, pin:ledPins[1], characteristic:txCharacteristic!)
+                previousLed = ledPins[1]
+                print("writing to pin:")
+                print(ledPins[1])
+            }
+                
+            else if (difference < -0.25-timeNeutralConstant && difference >= -0.5-timeNeutralConstant) {
+                writePinState(PinState.High, pin:ledPins[2], characteristic:txCharacteristic!)
+                previousLed = ledPins[2]
+                print("writing to pin:")
+                print(ledPins[2])
+            }
+                
+            else if (difference < -timeNeutralConstant && difference >= -0.25-timeNeutralConstant) {
+                writePinState(PinState.High, pin:ledPins[3], characteristic:txCharacteristic!)
+                previousLed = ledPins[3]
+                print("writing to pin:")
+                print(ledPins[3])
+            }
+                
+            else if (difference > timeNeutralConstant && difference <= 0.25+timeNeutralConstant) {
+                writePinState(PinState.High, pin:ledPins[4], characteristic:txCharacteristic!)
+                previousLed = ledPins[4]
+                print("writing to pin:")
+                print(ledPins[4])
+            }
+                
+            else if (difference > 0.25+timeNeutralConstant && difference <= 0.5+timeNeutralConstant) {
+                writePinState(PinState.High, pin:ledPins[5], characteristic:txCharacteristic!)
+                previousLed = ledPins[5]
+                print("writing to pin:")
+                print(ledPins[5])
+            }
+                
+            else if (difference > 0.5+timeNeutralConstant && difference <= 0.75+timeNeutralConstant) {
+                writePinState(PinState.High, pin:ledPins[6], characteristic:txCharacteristic!)
+                previousLed = ledPins[6]
+                print("writing to pin:")
+                print(ledPins[6])
+            }
+                
+            else if (difference > 0.75+timeNeutralConstant) {
+                writePinState(PinState.High, pin:ledPins[7], characteristic:txCharacteristic!)
+                previousLed = ledPins[7]
+                print("writing to pin:")
+                print(ledPins[7])
+            }
+        }
+        previousDifference = difference
     }
     
     func locationManager(manager: CLLocationManager,
-        didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-            var shouldIAllow = false
-            
-            switch status {
-            case CLAuthorizationStatus.Restricted:
-                locationStatus = "Restricted Access to location"
-            case CLAuthorizationStatus.Denied:
-                locationStatus = "User denied access to location"
-            case CLAuthorizationStatus.NotDetermined:
-                locationStatus = "Status not determined"
-            default:
-                locationStatus = "Allowed to location Access"
-                shouldIAllow = true
-            }
-            NSNotificationCenter.defaultCenter().postNotificationName("LabelHasbeenUpdated", object: nil)
-            if (shouldIAllow == true) {
-                NSLog("Location to Allowed")
-                // Start location services
-                locationManager.startUpdatingLocation()
-            } else {
-                NSLog("Denied access: \(locationStatus)")
-            }
+                         didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        var shouldIAllow = false
+        
+        switch status {
+        case CLAuthorizationStatus.Restricted:
+            locationStatus = "Restricted Access to location"
+        case CLAuthorizationStatus.Denied:
+            locationStatus = "User denied access to location"
+        case CLAuthorizationStatus.NotDetermined:
+            locationStatus = "Status not determined"
+        default:
+            locationStatus = "Allowed to location Access"
+            shouldIAllow = true
+        }
+        NSNotificationCenter.defaultCenter().postNotificationName("LabelHasbeenUpdated", object: nil)
+        if (shouldIAllow == true) {
+            NSLog("Location to Allowed")
+            // Start location services
+            locationManager.startUpdatingLocation()
+        } else {
+            NSLog("Denied access: \(locationStatus)")
+        }
     }
     // end Location Manager (GPS) functions
-
+    
     // Bluetooth functions
     func startUpCentralManager() {
         print("Initializing central manager")
@@ -175,9 +257,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
     func centralManager(central: CBCentralManager, didConnectPeripheral peripheral: CBPeripheral) {
         print("Connected to peripheral")
         bleLabel.text = "Connected to peripheral"
-//        peripheral.delegate = self
+        //        peripheral.delegate = self
         peripheral.discoverServices(nil)
-//        peripheral.discoverServices([CBUUID(string: "00001530-1212-EFDE-1523-785FEABCD123"), CBUUID(string: "180A")]) //array of dfuServiceUUID and deviceInformationServiceUUID
+        //        peripheral.discoverServices([CBUUID(string: "00001530-1212-EFDE-1523-785FEABCD123"), CBUUID(string: "180A")]) //array of dfuServiceUUID and deviceInformationServiceUUID
         
     }
     
@@ -186,20 +268,36 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         for s in services {
             print(s)
             uartService = s
-//            peripheral.discoverCharacteristics([txCharacteristicUUID(), rxCharacteristicUUID()], forService: uartService!)
+            //            peripheral.discoverCharacteristics([txCharacteristicUUID(), rxCharacteristicUUID()], forService: uartService!)
             peripheral.discoverCharacteristics([CBUUID(string: "6E400002-B5A3-F393-E0A9-E50E24DCCA9E"), CBUUID(string: "6E400003-B5A3-F393-E0A9-E50E24DCCA9E")], forService: s) // for txCharacteristicUUID and rxCharacteristicUUID
-//            peripheral.discoverCharacteristics(nil, forService: s)
+            //            peripheral.discoverCharacteristics(nil, forService: s)
         }
     }
     
     func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error: NSError?) {
         for c in (service.characteristics as [CBCharacteristic]!) {
             if (c.UUID == CBUUID(string: "6E400002-B5A3-F393-E0A9-E50E24DCCA9E")) { // if txCharacteristicUUID
+                txCharacteristic = c
                 print("IF STATEMENT WORKED!")
                 print(c)
-                writePinMode(PinMode.Output, pin:3, characteristic:c)
-                writePinState(PinState.High, pin:3, characteristic:c)
-            }            
+                //set pin modes to OUTPUT
+                for pin in (ledPins as [UInt8]) {
+                    print("Setting pin to OUTPUT: ")
+                    print(pin)
+                    writePinMode(PinMode.Output, pin:pin, characteristic:c)
+                }
+                //                for pin in (ledPins as [UInt8]) {
+                //                    print("Setting pin to OUTPUT: ")
+                //                    print(pin)
+                //                    writePinState(PinState.High, pin:pin, characteristic:c)
+                //                }
+                //                for pin in (ledPins as [UInt8]) {
+                //                    print("Setting pin to OUTPUT: ")
+                //                    print(pin)
+                //                    writePinState(PinState.Low, pin:pin, characteristic:c)
+                //                }
+                connectedToBLEAndSetModeToOutPut = true
+            }
         }
     }
     
@@ -214,14 +312,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         let bytes:[UInt8] = [data0, data1, data2]
         let newData:NSData = NSData(bytes: bytes, length: 3)
         print("Setting pin to OUTPUT")
-        currentPeripheral.writeValue(newData, forCharacteristic: characteristic, type: CBCharacteristicWriteType.WithResponse)
+        currentPeripheral.writeValue(newData, forCharacteristic: characteristic, type: CBCharacteristicWriteType.WithoutResponse)
         
     }
     
     func writePinState(newState: PinState, pin:UInt8, characteristic:CBCharacteristic){
         
         
-        print((self, funcName: (__FUNCTION__), logString: "writing to pin: \(pin)"))
+        print((self, funcName: (#function), logString: "writing to pin: \(pin)"))
         
         //Set an output pin's state
         
@@ -245,12 +343,38 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         
         let bytes:[UInt8] = [data0, data1, data2]
         let newData:NSData = NSData(bytes: bytes, length: 3)
-//        delegate!.sendData(newData)
+        //        delegate!.sendData(newData)
         print("Setting pin to HIGH")
-        currentPeripheral.writeValue(newData, forCharacteristic: characteristic, type: CBCharacteristicWriteType.WithResponse)
+        currentPeripheral.writeValue(newData, forCharacteristic: characteristic, type: CBCharacteristicWriteType.WithoutResponse)
         
-//        print((self, funcName: "setting pin states -->", logString: "[\(binaryforByte(portMasks[0]))] [\(binaryforByte(portMasks[1]))] [\(binaryforByte(portMasks[2]))]"))
+        //        print((self, funcName: "setting pin states -->", logString: "[\(binaryforByte(portMasks[0]))] [\(binaryforByte(portMasks[1]))] [\(binaryforByte(portMasks[2]))]"))
         
+    }
+    
+    private var lastSentAnalogValueTime : NSTimeInterval = 0
+    internal func setPMWValue(pin: Int, value: Int) -> Bool {
+        // Limit the amount of messages sent over Uart
+        let currentTime = CACurrentMediaTime()
+        guard currentTime - lastSentAnalogValueTime >= 0.05 else {
+            //            DLog("Won't send: Too many slider messages")
+            print("Won't send: Too many slider messages")
+            return false
+        }
+        lastSentAnalogValueTime = currentTime
+        
+        // Store
+        //        pin.analogValue = value
+        
+        // Send
+        let data0 = 0xe0 + UInt8(pin)
+        let data1 = UInt8(value & 0x7f)         //only 7 bottom bits
+        let data2 = UInt8(value >> 7)           //top bit in second byte
+        
+        let bytes:[UInt8] = [data0, data1, data2]
+        let data = NSData(bytes: bytes, length: bytes.count)
+        currentPeripheral.writeValue(data, forCharacteristic: txCharacteristic!, type: CBCharacteristicWriteType.WithResponse)
+        
+        return true
     }
     
     func peripheral(peripheral: CBPeripheral, didWriteValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
@@ -258,7 +382,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         print(characteristic)
         print(error)
     }
-
+    
     
     
     func centralManagerDidUpdateState(central: CBCentralManager) {
@@ -289,6 +413,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         }
     }
     // end Bluetooth functions
-
+    
 }
 

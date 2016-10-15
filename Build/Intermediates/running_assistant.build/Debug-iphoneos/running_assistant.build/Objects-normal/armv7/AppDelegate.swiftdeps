@@ -6,39 +6,39 @@ provides-nominal:
 provides-member:
 - ["C17running_assistant11AppDelegate", ""]
 provides-dynamic-lookup:
-- "applicationDidBecomeActive"
 - "applicationWillTerminate"
 - "window"
+- "applicationWillEnterForeground"
+- "applicationDidBecomeActive"
+- "applicationDidEnterBackground"
 - "applicationWillResignActive"
 - "application"
-- "applicationDidEnterBackground"
-- "applicationWillEnterForeground"
 depends-top-level:
-- "UIResponder"
-- "NSObject"
 - "AnyObject"
+- "UIResponder"
 - "AppDelegate"
 - "UIApplicationDelegate"
-- "UIApplication"
-- !private "BooleanLiteralType"
-- "UIWindow"
+- "NSObject"
 - "Bool"
+- !private "BooleanLiteralType"
+- "UIApplication"
+- "UIWindow"
 depends-member:
-- ["PSs9AnyObject", "application"]
-- ["PSs9AnyObject", "applicationDidBecomeActive"]
-- ["PSs9AnyObject", "applicationDidEnterBackground"]
-- ["PSs9AnyObject", "applicationDidFinishLaunching"]
-- ["PSs9AnyObject", "applicationDidReceiveMemoryWarning"]
-- ["PSs9AnyObject", "applicationProtectedDataDidBecomeAvailable"]
-- ["PSs9AnyObject", "applicationProtectedDataWillBecomeUnavailable"]
-- ["PSs9AnyObject", "applicationShouldRequestHealthAuthorization"]
-- ["PSs9AnyObject", "applicationSignificantTimeChange"]
-- ["PSs9AnyObject", "applicationWillEnterForeground"]
-- ["PSs9AnyObject", "applicationWillResignActive"]
-- ["PSs9AnyObject", "applicationWillTerminate"]
-- ["PSs9AnyObject", "init"]
-- ["PSs9AnyObject", "window"]
-- ["PSs9AnyObject", ""]
+- ["Ps9AnyObject", "application"]
+- ["Ps9AnyObject", "applicationDidBecomeActive"]
+- ["Ps9AnyObject", "applicationDidEnterBackground"]
+- ["Ps9AnyObject", "applicationDidFinishLaunching"]
+- ["Ps9AnyObject", "applicationDidReceiveMemoryWarning"]
+- ["Ps9AnyObject", "applicationProtectedDataDidBecomeAvailable"]
+- ["Ps9AnyObject", "applicationProtectedDataWillBecomeUnavailable"]
+- ["Ps9AnyObject", "applicationShouldRequestHealthAuthorization"]
+- ["Ps9AnyObject", "applicationSignificantTimeChange"]
+- ["Ps9AnyObject", "applicationWillEnterForeground"]
+- ["Ps9AnyObject", "applicationWillResignActive"]
+- ["Ps9AnyObject", "applicationWillTerminate"]
+- ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "window"]
+- ["Ps9AnyObject", ""]
 - ["C17running_assistant11AppDelegate", "AnyObject"]
 - ["C17running_assistant11AppDelegate", "Bool"]
 - ["C17running_assistant11AppDelegate", "NSObject"]
@@ -59,66 +59,81 @@ depends-member:
 - ["C17running_assistant11AppDelegate", "deinit"]
 - ["C17running_assistant11AppDelegate", "init"]
 - ["C17running_assistant11AppDelegate", "window"]
-- ["PSs11CVarArgType", "application"]
-- ["PSs11CVarArgType", "applicationDidBecomeActive"]
-- ["PSs11CVarArgType", "applicationDidEnterBackground"]
-- ["PSs11CVarArgType", "applicationDidFinishLaunching"]
-- ["PSs11CVarArgType", "applicationDidReceiveMemoryWarning"]
-- ["PSs11CVarArgType", "applicationProtectedDataDidBecomeAvailable"]
-- ["PSs11CVarArgType", "applicationProtectedDataWillBecomeUnavailable"]
-- ["PSs11CVarArgType", "applicationShouldRequestHealthAuthorization"]
-- ["PSs11CVarArgType", "applicationSignificantTimeChange"]
-- ["PSs11CVarArgType", "applicationWillEnterForeground"]
-- ["PSs11CVarArgType", "applicationWillResignActive"]
-- ["PSs11CVarArgType", "applicationWillTerminate"]
-- ["PSs11CVarArgType", "init"]
-- ["PSs11CVarArgType", "window"]
-- ["PSs11CVarArgType", ""]
-- ["PSs23CustomStringConvertible", "application"]
-- ["PSs23CustomStringConvertible", "applicationDidBecomeActive"]
-- ["PSs23CustomStringConvertible", "applicationDidEnterBackground"]
-- ["PSs23CustomStringConvertible", "applicationDidFinishLaunching"]
-- ["PSs23CustomStringConvertible", "applicationDidReceiveMemoryWarning"]
-- ["PSs23CustomStringConvertible", "applicationProtectedDataDidBecomeAvailable"]
-- ["PSs23CustomStringConvertible", "applicationProtectedDataWillBecomeUnavailable"]
-- ["PSs23CustomStringConvertible", "applicationShouldRequestHealthAuthorization"]
-- ["PSs23CustomStringConvertible", "applicationSignificantTimeChange"]
-- ["PSs23CustomStringConvertible", "applicationWillEnterForeground"]
-- ["PSs23CustomStringConvertible", "applicationWillResignActive"]
-- ["PSs23CustomStringConvertible", "applicationWillTerminate"]
-- ["PSs23CustomStringConvertible", "init"]
-- ["PSs23CustomStringConvertible", "window"]
-- ["PSs23CustomStringConvertible", ""]
-- ["PSs9Equatable", "application"]
-- ["PSs9Equatable", "applicationDidBecomeActive"]
-- ["PSs9Equatable", "applicationDidEnterBackground"]
-- ["PSs9Equatable", "applicationDidFinishLaunching"]
-- ["PSs9Equatable", "applicationDidReceiveMemoryWarning"]
-- ["PSs9Equatable", "applicationProtectedDataDidBecomeAvailable"]
-- ["PSs9Equatable", "applicationProtectedDataWillBecomeUnavailable"]
-- ["PSs9Equatable", "applicationShouldRequestHealthAuthorization"]
-- ["PSs9Equatable", "applicationSignificantTimeChange"]
-- ["PSs9Equatable", "applicationWillEnterForeground"]
-- ["PSs9Equatable", "applicationWillResignActive"]
-- ["PSs9Equatable", "applicationWillTerminate"]
-- ["PSs9Equatable", "init"]
-- ["PSs9Equatable", "window"]
-- ["PSs9Equatable", ""]
-- ["PSs8Hashable", "application"]
-- ["PSs8Hashable", "applicationDidBecomeActive"]
-- ["PSs8Hashable", "applicationDidEnterBackground"]
-- ["PSs8Hashable", "applicationDidFinishLaunching"]
-- ["PSs8Hashable", "applicationDidReceiveMemoryWarning"]
-- ["PSs8Hashable", "applicationProtectedDataDidBecomeAvailable"]
-- ["PSs8Hashable", "applicationProtectedDataWillBecomeUnavailable"]
-- ["PSs8Hashable", "applicationShouldRequestHealthAuthorization"]
-- ["PSs8Hashable", "applicationSignificantTimeChange"]
-- ["PSs8Hashable", "applicationWillEnterForeground"]
-- ["PSs8Hashable", "applicationWillResignActive"]
-- ["PSs8Hashable", "applicationWillTerminate"]
-- ["PSs8Hashable", "init"]
-- ["PSs8Hashable", "window"]
-- ["PSs8Hashable", ""]
+- ["Ps11CVarArgType", "application"]
+- ["Ps11CVarArgType", "applicationDidBecomeActive"]
+- ["Ps11CVarArgType", "applicationDidEnterBackground"]
+- ["Ps11CVarArgType", "applicationDidFinishLaunching"]
+- ["Ps11CVarArgType", "applicationDidReceiveMemoryWarning"]
+- ["Ps11CVarArgType", "applicationProtectedDataDidBecomeAvailable"]
+- ["Ps11CVarArgType", "applicationProtectedDataWillBecomeUnavailable"]
+- ["Ps11CVarArgType", "applicationShouldRequestHealthAuthorization"]
+- ["Ps11CVarArgType", "applicationSignificantTimeChange"]
+- ["Ps11CVarArgType", "applicationWillEnterForeground"]
+- ["Ps11CVarArgType", "applicationWillResignActive"]
+- ["Ps11CVarArgType", "applicationWillTerminate"]
+- ["Ps11CVarArgType", "init"]
+- ["Ps11CVarArgType", "window"]
+- ["Ps11CVarArgType", ""]
+- ["Ps28CustomDebugStringConvertible", "application"]
+- ["Ps28CustomDebugStringConvertible", "applicationDidBecomeActive"]
+- ["Ps28CustomDebugStringConvertible", "applicationDidEnterBackground"]
+- ["Ps28CustomDebugStringConvertible", "applicationDidFinishLaunching"]
+- ["Ps28CustomDebugStringConvertible", "applicationDidReceiveMemoryWarning"]
+- ["Ps28CustomDebugStringConvertible", "applicationProtectedDataDidBecomeAvailable"]
+- ["Ps28CustomDebugStringConvertible", "applicationProtectedDataWillBecomeUnavailable"]
+- ["Ps28CustomDebugStringConvertible", "applicationShouldRequestHealthAuthorization"]
+- ["Ps28CustomDebugStringConvertible", "applicationSignificantTimeChange"]
+- ["Ps28CustomDebugStringConvertible", "applicationWillEnterForeground"]
+- ["Ps28CustomDebugStringConvertible", "applicationWillResignActive"]
+- ["Ps28CustomDebugStringConvertible", "applicationWillTerminate"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "window"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- ["Ps23CustomStringConvertible", "application"]
+- ["Ps23CustomStringConvertible", "applicationDidBecomeActive"]
+- ["Ps23CustomStringConvertible", "applicationDidEnterBackground"]
+- ["Ps23CustomStringConvertible", "applicationDidFinishLaunching"]
+- ["Ps23CustomStringConvertible", "applicationDidReceiveMemoryWarning"]
+- ["Ps23CustomStringConvertible", "applicationProtectedDataDidBecomeAvailable"]
+- ["Ps23CustomStringConvertible", "applicationProtectedDataWillBecomeUnavailable"]
+- ["Ps23CustomStringConvertible", "applicationShouldRequestHealthAuthorization"]
+- ["Ps23CustomStringConvertible", "applicationSignificantTimeChange"]
+- ["Ps23CustomStringConvertible", "applicationWillEnterForeground"]
+- ["Ps23CustomStringConvertible", "applicationWillResignActive"]
+- ["Ps23CustomStringConvertible", "applicationWillTerminate"]
+- ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "window"]
+- ["Ps23CustomStringConvertible", ""]
+- ["Ps9Equatable", "application"]
+- ["Ps9Equatable", "applicationDidBecomeActive"]
+- ["Ps9Equatable", "applicationDidEnterBackground"]
+- ["Ps9Equatable", "applicationDidFinishLaunching"]
+- ["Ps9Equatable", "applicationDidReceiveMemoryWarning"]
+- ["Ps9Equatable", "applicationProtectedDataDidBecomeAvailable"]
+- ["Ps9Equatable", "applicationProtectedDataWillBecomeUnavailable"]
+- ["Ps9Equatable", "applicationShouldRequestHealthAuthorization"]
+- ["Ps9Equatable", "applicationSignificantTimeChange"]
+- ["Ps9Equatable", "applicationWillEnterForeground"]
+- ["Ps9Equatable", "applicationWillResignActive"]
+- ["Ps9Equatable", "applicationWillTerminate"]
+- ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "window"]
+- ["Ps9Equatable", ""]
+- ["Ps8Hashable", "application"]
+- ["Ps8Hashable", "applicationDidBecomeActive"]
+- ["Ps8Hashable", "applicationDidEnterBackground"]
+- ["Ps8Hashable", "applicationDidFinishLaunching"]
+- ["Ps8Hashable", "applicationDidReceiveMemoryWarning"]
+- ["Ps8Hashable", "applicationProtectedDataDidBecomeAvailable"]
+- ["Ps8Hashable", "applicationProtectedDataWillBecomeUnavailable"]
+- ["Ps8Hashable", "applicationShouldRequestHealthAuthorization"]
+- ["Ps8Hashable", "applicationSignificantTimeChange"]
+- ["Ps8Hashable", "applicationWillEnterForeground"]
+- ["Ps8Hashable", "applicationWillResignActive"]
+- ["Ps8Hashable", "applicationWillTerminate"]
+- ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "window"]
+- ["Ps8Hashable", ""]
 - ["CSo8NSObject", "AnyObject"]
 - ["CSo8NSObject", "Bool"]
 - ["CSo8NSObject", "NSObject"]
@@ -188,12 +203,13 @@ depends-member:
 - ["CSo11UIResponder", "window"]
 - ["CSo11UIResponder", ""]
 depends-nominal:
-- "PSs9AnyObject"
+- "Ps9AnyObject"
 - "C17running_assistant11AppDelegate"
-- "PSs11CVarArgType"
-- "PSs23CustomStringConvertible"
-- "PSs9Equatable"
-- "PSs8Hashable"
+- "Ps11CVarArgType"
+- "Ps28CustomDebugStringConvertible"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "Ps8Hashable"
 - "CSo8NSObject"
 - "PSo16NSObjectProtocol"
 - "PSo21UIApplicationDelegate"

@@ -312,7 +312,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         let bytes:[UInt8] = [data0, data1, data2]
         let newData:NSData = NSData(bytes: bytes, length: 3)
         print("Setting pin to OUTPUT")
-        currentPeripheral.writeValue(newData, forCharacteristic: characteristic, type: CBCharacteristicWriteType.WithResponse)
+        currentPeripheral.writeValue(newData, forCharacteristic: characteristic, type: CBCharacteristicWriteType.WithoutResponse)
         
     }
     
@@ -345,10 +345,36 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBCentralMana
         let newData:NSData = NSData(bytes: bytes, length: 3)
 //        delegate!.sendData(newData)
         print("Setting pin to HIGH")
-        currentPeripheral.writeValue(newData, forCharacteristic: characteristic, type: CBCharacteristicWriteType.WithResponse)
+        currentPeripheral.writeValue(newData, forCharacteristic: characteristic, type: CBCharacteristicWriteType.WithoutResponse)
         
 //        print((self, funcName: "setting pin states -->", logString: "[\(binaryforByte(portMasks[0]))] [\(binaryforByte(portMasks[1]))] [\(binaryforByte(portMasks[2]))]"))
         
+    }
+    
+    private var lastSentAnalogValueTime : NSTimeInterval = 0
+    internal func setPMWValue(pin: Int, value: Int) -> Bool {
+        // Limit the amount of messages sent over Uart
+        let currentTime = CACurrentMediaTime()
+        guard currentTime - lastSentAnalogValueTime >= 0.05 else {
+            //            DLog("Won't send: Too many slider messages")
+            print("Won't send: Too many slider messages")
+            return false
+        }
+        lastSentAnalogValueTime = currentTime
+        
+        // Store
+        //        pin.analogValue = value
+        
+        // Send
+        let data0 = 0xe0 + UInt8(pin)
+        let data1 = UInt8(value & 0x7f)         //only 7 bottom bits
+        let data2 = UInt8(value >> 7)           //top bit in second byte
+        
+        let bytes:[UInt8] = [data0, data1, data2]
+        let data = NSData(bytes: bytes, length: bytes.count)
+        currentPeripheral.writeValue(data, forCharacteristic: txCharacteristic!, type: CBCharacteristicWriteType.WithResponse)
+        
+        return true
     }
     
     func peripheral(peripheral: CBPeripheral, didWriteValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {

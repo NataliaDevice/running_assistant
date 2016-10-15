@@ -10,101 +10,101 @@ provides-member:
 - ["OC17running_assistant14ViewController8PinState", ""]
 - ["OC17running_assistant14ViewController7PinMode", ""]
 provides-dynamic-lookup:
+- "txCharacteristic"
+- "chooseLeds"
+- "centralManager"
+- "centralManager"
+- "centralManager"
+- "didReceiveMemoryWarning"
+- "locationStatus"
+- "viewDidLoad"
+- "startUpCentralManager"
+- "centralManagerDidUpdateState"
+- "blueToothReady"
+- "locationFixAchieved"
+- "previousLed"
+- "peripheralConnected"
+- "count"
+- "connectedToBLEAndSetModeToOutPut"
+- "currentPeripheral"
+- "metersPerSecondToMilesPerMinute"
+- "lonLabel"
+- "pace"
+- "paceSlider"
 - "bleLabel"
-- "timeNeutralConstant"
+- "discoverDevices"
 - "uartService"
 - "desiredPace"
-- "centralManagerDidUpdateState"
-- "pace"
-- "currentPeripheral"
-- "peripheralConnected"
-- "viewDidLoad"
-- "count"
-- "startUpCentralManager"
-- "discoverDevices"
-- "blueToothReady"
-- "didReceiveMemoryWarning"
-- "locationFixAchieved"
-- "paceSlider"
-- "latLabel"
-- "connectedToBLEAndSetModeToOutPut"
+- "sliderValueChange"
 - "paceLabel"
-- "centralManager"
-- "centralManager"
-- "centralManager"
-- "locationStatus"
-- "txCharacteristic"
-- "previousLed"
-- "rxCharacteristic"
-- "previousDifference"
 - "speedLabel"
 - "dataButton"
-- "sliderValueChange"
-- "lonLabel"
-- "chooseLeds"
-- "locationManager"
-- "locationManager"
-- "locationManager"
-- "metersPerSecondToMilesPerMinute"
+- "previousDifference"
+- "timeNeutralConstant"
 - "peripheral"
 - "peripheral"
 - "peripheral"
+- "rxCharacteristic"
+- "locationManager"
+- "locationManager"
+- "locationManager"
+- "latLabel"
 depends-top-level:
-- !private "&="
-- "Double"
-- "UIViewController"
-- "Int"
-- !private ">>="
-- "CBPeripheral"
-- "BooleanLiteralType"
-- !private "~"
-- "AnyObject"
-- "CBPeripheralDelegate"
-- "CLLocationManagerDelegate"
-- !private "*"
-- "CBCentralManagerDelegate"
-- !private "print"
-- !private "NSNotificationCenter"
-- !private "|="
-- "CLLocationSpeed"
-- !private "!="
-- !private ">>"
-- "UInt8"
-- !private "NSData"
-- "ViewController"
-- !private "+="
-- "UISlider"
-- "String"
-- "=="
-- !private "~="
-- !private "<<"
-- "NSNumber"
-- "CLLocation"
-- !private "Float"
-- "CLLocationManager"
-- !private "powf"
-- "CBCentralManager"
-- !private "-"
-- !private ">="
-- !private "NSLog"
-- !private "Array"
 - !private "&&"
+- "CLLocationManager"
+- !private "|="
+- "String"
+- "CLLocation"
+- "BooleanLiteralType"
+- !private "powf"
+- !private ">="
+- !private "-"
+- !private "NSNotificationCenter"
+- "CBCentralManager"
+- !private "NSArray"
+- "UInt8"
+- "ViewController"
+- !private "Array"
+- !private "~"
+- !private "&="
+- !private ">>"
+- "CLLocationSpeed"
+- "AnyObject"
+- !private ">>="
+- !private "NSData"
 - "StringLiteralType"
+- !private "<<"
+- !private "+="
+- !private "kCLLocationAccuracyBest"
+- "UISlider"
+- !private "<="
+- !private "!="
+- !private "CBCharacteristicWriteType"
 - !private ">"
 - "UILabel"
-- "CBCharacteristic"
 - "CLAuthorizationStatus"
-- !private "NSArray"
-- "CBService"
-- !private "/"
+- "Int"
+- !private "print"
+- "Double"
+- !private "*"
+- "CBPeripheral"
 - "NSError"
 - !private "CBUUID"
+- !private "NSLog"
+- !private "Float"
+- "UIViewController"
+- "NSNumber"
+- "CBService"
+- !private "~="
+- "CLLocationManagerDelegate"
+- "CBCharacteristic"
+- "CBCentralManagerDelegate"
 - "UIButton"
-- !private "<"
-- !private "<="
+- "=="
+- "CBPeripheralDelegate"
+- !private "/"
 - !private "+"
-- !private "kCLLocationAccuracyBest"
-- !private "CBCharacteristicWriteType"
+- !private "<"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "init"]
 - !private ["Ps9AnyObject", "CBCentralManager"]
@@ -292,7 +292,7 @@ depends-member:
 - ["OSC21CBCentralManagerState", "Unknown"]
 - ["OSC21CBCentralManagerState", "Unsupported"]
 - !private ["CSo16CBCharacteristic", "UUID"]
-- !private ["OSC25CBCharacteristicWriteType", "WithResponse"]
+- !private ["OSC25CBCharacteristicWriteType", "WithoutResponse"]
 - !private ["CSo6CBPeer", "delegate"]
 - !private ["CSo6CBPeer", "discoverCharacteristics"]
 - !private ["CSo6CBPeer", "discoverServices"]
@@ -742,7 +742,7 @@ depends-member:
 - ["Ps9Equatable", "Unauthorized"]
 - ["Ps9Equatable", "Unknown"]
 - ["Ps9Equatable", "Unsupported"]
-- !private ["Ps9Equatable", "WithResponse"]
+- !private ["Ps9Equatable", "WithoutResponse"]
 - !private ["Ps9Equatable", "_getBuiltinLogicValue"]
 - ["Ps9Equatable", "bleLabel"]
 - ["Ps9Equatable", "blueToothReady"]
@@ -854,7 +854,7 @@ depends-member:
 - ["Ps8Hashable", "Unauthorized"]
 - ["Ps8Hashable", "Unknown"]
 - ["Ps8Hashable", "Unsupported"]
-- !private ["Ps8Hashable", "WithResponse"]
+- !private ["Ps8Hashable", "WithoutResponse"]
 - !private ["Ps8Hashable", "_getBuiltinLogicValue"]
 - ["Ps8Hashable", "bleLabel"]
 - ["Ps8Hashable", "blueToothReady"]
@@ -1365,7 +1365,7 @@ depends-member:
 - ["Ps16RawRepresentable", "Unauthorized"]
 - ["Ps16RawRepresentable", "Unknown"]
 - ["Ps16RawRepresentable", "Unsupported"]
-- !private ["Ps16RawRepresentable", "WithResponse"]
+- !private ["Ps16RawRepresentable", "WithoutResponse"]
 - ["Ps16RawRepresentable", "hashValue"]
 - ["Ps16RawRepresentable", "init"]
 - ["Ps16RawRepresentable", "rawValue"]

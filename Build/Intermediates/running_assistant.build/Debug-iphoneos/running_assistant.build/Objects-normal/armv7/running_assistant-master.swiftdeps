@@ -1,6 +1,6 @@
-version: "Apple Swift version 2.1.1 (swiftlang-700.1.101.15 clang-700.1.81)"
-options: "67498fd2a3c8615e9ad93103be00ac52"
-build_time: [512924570, 604567000]
+version: "Apple Swift version 2.2 (swiftlang-703.0.18.8 clang-703.0.31)"
+options: "b154aba1ee82a7e99b02493e9a21a004"
+build_time: [529861447, 629306000]
 inputs:
-  "/Users/tylernappy/iOS_projects/running_assistant/running_assistant/ViewController.swift": [512422045, 0]
-  "/Users/tylernappy/iOS_projects/running_assistant/running_assistant/AppDelegate.swift": [511204012, 0]
+  "/Users/tylernappy/mixed_projects/natalia/running_assistant/running_assistant/ViewController.swift": [512964992, 0]
+  "/Users/tylernappy/mixed_projects/natalia/running_assistant/running_assistant/AppDelegate.swift": [511204012, 0]
